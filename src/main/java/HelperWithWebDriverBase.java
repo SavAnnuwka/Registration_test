@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-import java.util.List;
-
 public class HelperWithWebDriverBase extends HelperBase{
 
 
@@ -33,6 +31,9 @@ public class HelperWithWebDriverBase extends HelperBase{
         findElement(linkText).click();
     }
 
-
-
+    protected void fillTextField( String text, String locator) {
+        WebElement  field = findElement(By.id(locator));
+        field.clear();
+        field.sendKeys(text);
+    }
 }
