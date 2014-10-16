@@ -22,18 +22,31 @@ public class HelperWithWebDriverBase extends HelperBase{
     protected String CurrentUrl() {
         return driver.getCurrentUrl();
     }
-
-    public WebElement findElement(By linkText) {
-        return driver.findElement(linkText);
-    }
-
-    protected void click(By linkText) {
-        findElement(linkText).click();
-    }
-
     protected void fillTextField( String text, String locator) {
         WebElement  field = findElement(By.id(locator));
         field.clear();
         field.sendKeys(text);
     }
+    public WebElement findElement(By linkText) {
+        return driver.findElement(linkText);
+    }
+
+    protected void clickByLink(By linkText) {
+        findElement(linkText).click();
+    }
+    protected void clickByClass(String locator) {
+         findElement(By.className(locator)).click();
+    }
+    protected void clickById(String locator) {
+            driver.findElement(By.id(locator)).click();
+    }
+    protected void clickByCss(String locator) {
+        driver.findElement(By.cssSelector(locator)).click();
+    }
+    protected void clickByXpath(String locator) {
+        driver.findElement(By.xpath(locator)).click();
+    }
+
+
+
 }

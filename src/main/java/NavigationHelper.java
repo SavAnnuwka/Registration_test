@@ -12,7 +12,7 @@ public class NavigationHelper extends HelperWithWebDriverBase {
 	
 	
 	public void goToGroupListPage() {
-		click(By.linkText("groups"));
+		clickByLink(By.linkText("groups"));
 	}
 
 	//open main page

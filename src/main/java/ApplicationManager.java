@@ -14,6 +14,7 @@ public class ApplicationManager {
     private HelperWithWebDriverBase helperWithWebDriverBase;
     private  NavigationHelper navigationHelper;
     private RegistrationHelper registrationHelper;
+    private MailHelper mailHelper;
 
 
     public static ApplicationManager getInstance() {
@@ -51,6 +52,12 @@ public class ApplicationManager {
         return registrationHelper;
     }
 
+    public MailHelper getMailHelper () {
+        if (mailHelper == null) {
+            mailHelper = new MailHelper(this);
+        }
+        return mailHelper;
+    }
    /* public void  setNulltoallHelper()
     {
         singleton=null;

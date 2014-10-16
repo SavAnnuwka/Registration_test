@@ -28,10 +28,6 @@ public class WebDriverHelper {
 		String temp = manager.getProperty("implicitWait" , "11");
 		driver.manage().timeouts().implicitlyWait(
 				Integer.parseInt(temp), TimeUnit.SECONDS);
-
-
-
-
 		driver.get(manager.getProperty("baseURL"));
 	}
 	

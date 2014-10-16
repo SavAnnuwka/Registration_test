@@ -14,6 +14,8 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         return app.getProperty("baseURL") + "/registrations/new";
     }
 
+
+
     public void openRegistrationURL() {
         app.getNavigationHelper().openUrl(getRegistrationURL());
     }
@@ -24,10 +26,41 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         link.click();
     }
 
-
-    public void fillRegistrationForm(String name, String name_id, String org, String org_id, String email, String email_id ) {
-        fillTextField(name, name_id);
-        fillTextField(org, org_id);
-        fillTextField(email, email_id);
+    //Page1
+    public void fillRegistrationForm(String name, String org,  String email  ) {
+        fillTextField(name, app.getProperty("registrationName_id"));
+        fillTextField(org ,  app.getProperty("registrationOrg_id"));
+        fillTextField(email,  app.getProperty("registrationEmail_id"));
     }
+
+    public void clickRegisterButton(String page) {
+       if (page=="Page1") {
+           clickByClass(app.getProperty("register_button_page1"));
+       }
+       if (page=="Page2") {
+           clickByXpath(app.getProperty("register_button_page2"));
+       }
+    }
+
+
+
+    //page2
+    public void confirmCheckbox() {
+        clickById(app.getProperty("registration_confirm_id"));
+    }
+    public boolean  checkPage(String page) {
+        WebElement element = null;
+        if (  page=="Page1" )
+        {
+            element = findElement(By.className("step1"));}
+        if  ( page=="Page2"  )
+        {
+             element = findElement(By.className("step2 hidden"));}
+        if  ( page=="Page3"  )
+        {
+             element = findElement(By.className("step3 hidden"));}
+
+        return element.isEnabled();
+    }
+
 }
