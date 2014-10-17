@@ -2,6 +2,7 @@ package main.java;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class RegistrationHelper  extends HelperWithWebDriverBase {
@@ -25,6 +26,12 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         WebElement link = findElement(By.className("sign-up"));
         link.click();
     }
+    public void selectLanguages(String lang){
+        Select sel = new Select(findElement(By.id(app.getProperty("language_id"))));
+        sel.selectByValue(lang);
+
+
+    }
 
     //page1
     public void fillRegistrationForm(String name, String org,  String email  ) {
@@ -47,9 +54,6 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         return   findElement(By.cssSelector( app.getProperty("error_register_email"))).getText();
     }
 
-
-
-
     //page2
     public void confirmCheckbox() {
         clickById(app.getProperty("registration_confirm_id"));
@@ -57,6 +61,7 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     public void clickRegisterButtonPage2() {
         clickByCss(app.getProperty("register_button_page2"));
     }
+
    //all page
     public boolean  checkPage(int page) {
         WebElement element = null;
@@ -69,9 +74,9 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         if  ( page==3  )
         {
              element = findElement(By.className("step3"));}
-
         return element.isDisplayed();
     }
+
 
 
 }
