@@ -1,7 +1,6 @@
 package test.java;
 
 import main.java.testBase;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,11 +21,11 @@ public class CorrectRegistration_test extends testBase{
     //simple data for test
    private String boundaryName="name";
    private String boundaryOrganisation="org";
-   private String boundaryEmail = "bjademtdpcoj@dropmail.me";
+   private String boundaryEmail = "bjdvulfpnkkl@dropmail.me";
 
 
    // @Test
-    //check correctRegister Link
+   //check correctRegister Link
     public void openRegistrationPage() {
            app.getRegistrationHelper().goToRegistrationFromMainPage();
            assertThat(app.getWebDriverHelper().getDriver().getCurrentUrl(), equalTo(app.getRegistrationHelper().getRegistrationURL()));
@@ -34,22 +33,22 @@ public class CorrectRegistration_test extends testBase{
 
     @Test
     // correctRegister
-    public void positiveTestWithBoundaryValue() {
+    public void positiveTest() {
         app.getRegistrationHelper().goToRegistrationFromMainPage();
-        Assert.assertEquals( app.getRegistrationHelper().checkPage("Page1"), true) ;
+        Assert.assertEquals( app.getRegistrationHelper().checkPage(1), true) ;
         System.out.println("Page one was open ");
        //type page1
         app.getRegistrationHelper().fillRegistrationForm(
                 boundaryName,
                 boundaryOrganisation,
                 boundaryEmail);
-        app.getRegistrationHelper().clickRegisterButton("Page1");
-        Assert.assertEquals( app.getRegistrationHelper().checkPage("Page2"), true) ;
+        app.getRegistrationHelper().clickRegisterButtonPage1();
+        Assert.assertEquals( app.getRegistrationHelper().checkPage(2), true) ;
         System.out.println("Page two was open");
         //type page 2
         app.getRegistrationHelper().confirmCheckbox();
-        app.getRegistrationHelper().clickRegisterButton("Page2");
-        Assert.assertEquals( app.getRegistrationHelper().checkPage("Page3"), true) ;
+        app.getRegistrationHelper().clickRegisterButtonPage2();
+        Assert.assertEquals( app.getRegistrationHelper().checkPage(3), true) ;
         System.out.println("Page three was open");
         //check  page 3
         System.out.println("End");
@@ -59,6 +58,6 @@ public class CorrectRegistration_test extends testBase{
   //  @Test  (придумать как работать с 2мя окнами или вкладками)
     public void Mail()
     {String email = app.getMailHelper().getTemporaryEmail();
-    System.out.print(email);}
+     System.out.print(email);}
 
 }

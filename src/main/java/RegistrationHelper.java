@@ -26,21 +26,27 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         link.click();
     }
 
-    //Page1
+    //page1
     public void fillRegistrationForm(String name, String org,  String email  ) {
         fillTextField(name, app.getProperty("registrationName_id"));
         fillTextField(org ,  app.getProperty("registrationOrg_id"));
         fillTextField(email,  app.getProperty("registrationEmail_id"));
     }
-
-    public void clickRegisterButton(String page) {
-       if (page=="Page1") {
+    public void clickRegisterButtonPage1() {
            clickByClass(app.getProperty("register_button_page1"));
        }
-       if (page=="Page2") {
-           clickByXpath(app.getProperty("register_button_page2"));
-       }
+
+    //errors
+    public String  checkErrorName() {
+      return   findElement(By.cssSelector( app.getProperty("error_register_user_name"))).getText();
     }
+    public String  checkErrorOrganisation() {
+        return   findElement(By.cssSelector( app.getProperty("error_register_organisation"))).getText();
+    }
+    public String  checkErrorEmail() {
+        return   findElement(By.cssSelector( app.getProperty("error_register_email"))).getText();
+    }
+
 
 
 
@@ -48,19 +54,24 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     public void confirmCheckbox() {
         clickById(app.getProperty("registration_confirm_id"));
     }
-    public boolean  checkPage(String page) {
+    public void clickRegisterButtonPage2() {
+        clickByCss(app.getProperty("register_button_page2"));
+    }
+   //all page
+    public boolean  checkPage(int page) {
         WebElement element = null;
-        if (  page=="Page1" )
+        if (  page==1 )
         {
             element = findElement(By.className("step1"));}
-        if  ( page=="Page2"  )
+        if  ( page==2  )
         {
-             element = findElement(By.className("step2 hidden"));}
-        if  ( page=="Page3"  )
+             element = findElement(By.className("step2"));}
+        if  ( page==3  )
         {
-             element = findElement(By.className("step3 hidden"));}
+             element = findElement(By.className("step3"));}
 
-        return element.isEnabled();
+        return element.isDisplayed();
     }
+
 
 }
