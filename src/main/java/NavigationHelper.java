@@ -20,5 +20,5 @@ public class NavigationHelper extends HelperWithWebDriverBase {
 		openUrl(app.getProperty("baseUrl"));
 	}
 
-	
+
 }

@@ -13,7 +13,8 @@ public class WebDriverHelper {
 	private StringBuffer verificationErrors = new StringBuffer();
 	private final ApplicationManager manager;
 	
-	public WebDriverHelper(ApplicationManager manager){
+
+    public WebDriverHelper(ApplicationManager manager){
 		this.manager = manager;
 		String browser = manager.getProperty("browser");
         if (driver==null) {

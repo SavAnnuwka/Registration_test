@@ -21,7 +21,13 @@ public class CorrectRegistration_test extends testBase{
     //simple data for test
    private String boundaryName="name";
    private String boundaryOrganisation="org";
-   private String boundaryEmail = "bjdvulfpnkkl@dropmail.me";
+   private  String boundaryEmail = "bjdvulfpnkkl@dropmail.me";
+
+
+    public String  getEMail()
+    {   app.getMailHelper().openNewMailWindow(app.getProperty("temporaryMail"));
+        return  app.getMailHelper().getTemporaryEmail();
+    }
 
 
    // @Test
@@ -34,8 +40,10 @@ public class CorrectRegistration_test extends testBase{
     @Test
     // correctRegister
     public void positiveTest() {
+        boundaryEmail = getEMail();
+        app.getMailHelper().switchToOriginalPage();
         app.getRegistrationHelper().goToRegistrationFromMainPage();
-        Assert.assertEquals( app.getRegistrationHelper().checkPage(1), true) ;
+        Assert.assertEquals( app.getRegistrationHelper().checkPage(1), true);
         System.out.println("Page one was open ");
        //type page1
         app.getRegistrationHelper().fillRegistrationForm(
@@ -43,21 +51,22 @@ public class CorrectRegistration_test extends testBase{
                 boundaryOrganisation,
                 boundaryEmail);
         app.getRegistrationHelper().clickRegisterButtonPage1();
-        Assert.assertEquals( app.getRegistrationHelper().checkPage(2), true) ;
+        Assert.assertEquals( app.getRegistrationHelper().checkPage(2), true) ;  //добавить wait
         System.out.println("Page two was open");
         //type page 2
         app.getRegistrationHelper().confirmCheckbox();
         app.getRegistrationHelper().clickRegisterButtonPage2();
-        Assert.assertEquals( app.getRegistrationHelper().checkPage(3), true) ;
-        System.out.println("Page three was open");
+        Assert.assertEquals( app.getRegistrationHelper().checkPage(3), true) ;     //добавить wait
         //check  page 3
-        System.out.println("End");
-        //verify after all pages
+        System.out.println("Page three was open");
+        app.getMailHelper().switchToMailPage();
+        //подождать 10 секунд
+        //проверить,что письмо пришло (почта не пустая)
+        assertThat (app.getMailHelper().emptyMail(), equalTo(false));
+        //найти ссылку и перейти по ней - extended
     }
 
-  //  @Test  (придумать как работать с 2мя окнами или вкладками)
-    public void Mail()
-    {String email = app.getMailHelper().getTemporaryEmail();
-     System.out.print(email);}
+
+
 
 }

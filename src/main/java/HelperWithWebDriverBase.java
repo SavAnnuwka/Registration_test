@@ -1,8 +1,13 @@
 package main.java;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Set;
 
 
 public class HelperWithWebDriverBase extends HelperBase{
@@ -47,6 +52,24 @@ public class HelperWithWebDriverBase extends HelperBase{
         driver.findElement(By.xpath(locator)).click();
     }
 
+    protected Set<String> getWindowHandles() {
+       return driver.getWindowHandles();
+    }
+    protected String getWindowHandle() {
+        return driver.getWindowHandle();
+    }
+    protected void  switchTo(String handle) {
+       driver.switchTo().window(handle);
+    }
+    protected void activeElement() {
+        driver.switchTo().activeElement();
+    }
 
+    public String openInNewWindow(String url) {
+        String name = "mail";
+        ((JavascriptExecutor) driver)
+                .executeScript("window.open(arguments[0],\"" + name + "\")", url);
+        return name;
+    }
 
 }

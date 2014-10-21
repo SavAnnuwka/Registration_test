@@ -7,35 +7,34 @@ import java.util.Properties;
 
 public class ApplicationManager {
 
-	private static ApplicationManager singleton;
-	private WebDriverHelper webDriverHelper;
+    private static ApplicationManager singleton;
+    private WebDriverHelper webDriverHelper;
 
-	private Properties props;
-    private HelperWithWebDriverBase helperWithWebDriverBase;
-    private  NavigationHelper navigationHelper;
+    private Properties props;
+    private NavigationHelper navigationHelper;
     private RegistrationHelper registrationHelper;
     private MailHelper mailHelper;
 
 
     public static ApplicationManager getInstance() {
-		if (singleton == null) {
-			singleton = new ApplicationManager();
-		}
-		return singleton;
-	}
+        if (singleton == null) {
+            singleton = new ApplicationManager();
+        }
+        return singleton;
+    }
 
-	public void stop() {
-		if (webDriverHelper != null) {
-			webDriverHelper.stop();
-		}
-	}
-	
-	public WebDriverHelper getWebDriverHelper() {
-		if (webDriverHelper == null) {
-			webDriverHelper = new WebDriverHelper(this);
-		}
-		return webDriverHelper;
-	}
+    public void stop() {
+        if (webDriverHelper != null) {
+            webDriverHelper.stop();
+        }
+    }
+
+    public WebDriverHelper getWebDriverHelper() {
+        if (webDriverHelper == null) {
+            webDriverHelper = new WebDriverHelper(this);
+        }
+        return webDriverHelper;
+    }
 
 
     public NavigationHelper getNavigationHelper() {
@@ -45,24 +44,27 @@ public class ApplicationManager {
         return navigationHelper;
     }
 
-    public RegistrationHelper getRegistrationHelper () {
+    public RegistrationHelper getRegistrationHelper() {
         if (registrationHelper == null) {
             registrationHelper = new RegistrationHelper(this);
         }
         return registrationHelper;
     }
 
-    public MailHelper getMailHelper () {
+    public MailHelper getMailHelper() {
         if (mailHelper == null) {
             mailHelper = new MailHelper(this);
         }
         return mailHelper;
     }
+
+
    /* public void  setNulltoallHelper()
     {
         singleton=null;
         webDriverHelper=null;
     }*/
+
 
 	public void setProperties(Properties props) {
 		this.props = props;
