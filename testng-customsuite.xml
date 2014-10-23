@@ -1,0 +1,12 @@
+<suite name="Contact suite">
+    <test  name="Correct value test">
+        <classes>
+            <class name="test.java.CorrectRegistration_test"/>
+        </classes>
+    </test>
+    <test  name="InCorrect value test">
+        <classes>
+            <class name="test.java.IncorrectRegistration_test"/>
+        </classes>
+    </test>
+</suite> <!-- Contact suite -->
