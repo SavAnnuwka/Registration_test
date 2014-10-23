@@ -5,15 +5,13 @@ import org.testng.annotations.*;
 
 import java.io.FileReader;
 import java.util.Properties;
-
 import java.util.logging.Logger;
 
 
 
 public class testBase {
-    
-	protected Logger log = Logger.getLogger("Common_logger");
-	
+
+	protected Logger log = Logger.getLogger("main.java.testLogFile");
 	public static ApplicationManager app;
 	
 
@@ -30,12 +28,9 @@ public class testBase {
 	
 	@AfterClass
 	public void tearDown() throws Exception {
-        System.out.println("tearDown start");
 		 log.info("tearDown start");
         ApplicationManager.getInstance().getWebDriverHelper().stop();
 		 log.info("tearDown end");
-        System.out.println("tearDown stop");
-
 	  }
 	
 

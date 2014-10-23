@@ -72,6 +72,5 @@ public class MailHelper   extends HelperWithWebDriverBase {
         if ( findElement(By.cssSelector("em")).getText()== "" )
         return true;
         else return false;
-        //
     }
 }

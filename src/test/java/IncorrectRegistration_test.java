@@ -13,20 +13,20 @@ public class IncorrectRegistration_test extends testBase {
     String language;
 
     @Test
-    public void emptyFieldsEn() {
-        //выбрать язык
+    public void incorrectEmptyFields() {
+        log.info("Incorrect test: Empty fields start");
         language = Constants.getRandomLanguage();
+        log.info("Use language " + language);
         app.getRegistrationHelper().goToRegistrationFromMainPage();
         app.getRegistrationHelper().selectLanguages(language);
         Assert.assertEquals(app.getRegistrationHelper().checkPage(1), true) ;
-        System.out.println("Page one was open ");
+        log.info("Page one was open ");
         app.getRegistrationHelper().clickRegisterButtonPage1();
-        //придумать как отдавать верное сообщение,в зависимости от lang
-        assertThat( app.getRegistrationHelper().checkErrorName() , equalTo(Constants.Error.EMPTY));
-        System.out.println(Constants.Error.EMPTY);
-        assertThat(app.getRegistrationHelper().checkErrorOrganisation(), equalTo(Constants.Error.EMPTY));
-        System.out.println(Constants.Error.EMPTY);
-        assertThat(app.getRegistrationHelper().checkErrorEmail(), equalTo(Constants.Error.EMPTY));
-        System.out.println(Constants.Error.EMPTY);
+        assertThat( app.getRegistrationHelper().checkErrorName(), equalTo(Constants.getEmptyErrorLanguage(language)));
+        log.info(Constants.getEmptyErrorLanguage(language));
+        assertThat( app.getRegistrationHelper().checkErrorOrganisation(), equalTo(Constants.getEmptyErrorLanguage(language)));
+        log.info(Constants.getEmptyErrorLanguage(language));
+        assertThat( app.getRegistrationHelper().checkErrorEmail(), equalTo(Constants.getEmptyErrorLanguage(language)));
+        log.info(Constants.getEmptyErrorLanguage(language));
     }
 }
