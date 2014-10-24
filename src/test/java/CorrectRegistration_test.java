@@ -1,7 +1,9 @@
 package test.java;
 
+
 import main.java.testBase;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.logging.Logger;
@@ -20,9 +22,9 @@ public class CorrectRegistration_test extends testBase{
    */
 
     //simple data for test
-   private String boundaryName="name";
-   private String boundaryOrganisation="org";
-   private  String boundaryEmail = "bjdvulfpnkkl@dropmail.me";
+     String correctEmail;
+     String correctOrg;
+     String correctName;
 
 
     public String  getEMail()
@@ -38,20 +40,20 @@ public class CorrectRegistration_test extends testBase{
            assertThat(app.getWebDriverHelper().getDriver().getCurrentUrl(), equalTo(app.getRegistrationHelper().getRegistrationURL()));
     }
 
-    @Test
+    @Test(dataProvider = "registrationCorrectData")
     // correctRegister
-    public void positiveTest() {
+    public void positiveTest(String correctName, String correctOrg ) {
         log.info("positiveTest start");
-        boundaryEmail = getEMail();
+        correctEmail = getEMail();
         app.getMailHelper().switchToOriginalPage();
         app.getRegistrationHelper().goToRegistrationFromMainPage();
         Assert.assertEquals( app.getRegistrationHelper().checkPage(1), true);
         log.info("Page one was open ");
        //type page1
         app.getRegistrationHelper().fillRegistrationForm(
-                boundaryName,
-                boundaryOrganisation,
-                boundaryEmail);
+                correctName,
+                correctOrg,
+                correctEmail);
         app.getRegistrationHelper().clickRegisterButtonPage1();
         Assert.assertEquals( app.getRegistrationHelper().checkPage(2), true) ;  //добавить wait
         log.info("Page two was open");
