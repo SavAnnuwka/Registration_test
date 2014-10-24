@@ -13,7 +13,7 @@ public class IncorrectRegistration_test extends testBase {
     String language;
 
     @Test
-    public void incorrectEmptyFields() {
+    public void incorrectEmptyFields() throws InterruptedException {
         log.info("Incorrect test: Empty fields start");
         language = Constants.getRandomLanguage();
         log.info("Use language " + language);

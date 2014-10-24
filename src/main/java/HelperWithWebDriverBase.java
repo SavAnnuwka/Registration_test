@@ -5,9 +5,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.security.Timestamp;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 
 public class HelperWithWebDriverBase extends HelperBase{
@@ -18,6 +21,7 @@ public class HelperWithWebDriverBase extends HelperBase{
 	public HelperWithWebDriverBase(ApplicationManager app)
 	{   super(app);
 		driver = app.getWebDriverHelper().getDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}
 
     protected void openUrl(String string) {
@@ -72,4 +76,8 @@ public class HelperWithWebDriverBase extends HelperBase{
         return name;
     }
 
+    public void  wait(By linkText)
+    { WebDriverWait wait = new WebDriverWait(driver, 60);
+      wait.until(ExpectedConditions.visibilityOfElementLocated(linkText));
+    }
 }

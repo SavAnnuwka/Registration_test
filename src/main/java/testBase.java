@@ -2,12 +2,9 @@ package main.java;
 
 
 import org.testng.annotations.*;
-
 import java.io.FileReader;
 import java.util.Properties;
 import java.util.logging.Logger;
-
-
 
 public class testBase {
 
