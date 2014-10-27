@@ -3,8 +3,7 @@ package test.java;
 
 import main.java.testBase;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+
 
 import java.util.logging.Logger;
 
@@ -26,8 +25,8 @@ public class CorrectRegistration_test extends testBase{
            assertThat(app.getWebDriverHelper().getDriver().getCurrentUrl(), equalTo(app.getRegistrationHelper().getRegistrationURL()));
     }
 
-    @Test
-    (dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
+    //@Test
+    //(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
     // correctRegister
     public void positiveTest(String correctName, String correctOrg ) throws InterruptedException {
         log.info("positiveTest start");
@@ -56,6 +55,7 @@ public class CorrectRegistration_test extends testBase{
         log.info("mail is not empty");
         //найти ссылку и перейти по ней - extended
         log.info("positiveTest stop");
+        app.getMailHelper().switchToOriginalPage();
     }
 
 

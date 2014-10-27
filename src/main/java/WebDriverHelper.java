@@ -3,14 +3,12 @@ package main.java;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverHelper {
 
 	private WebDriver driver;
-	private StringBuffer verificationErrors = new StringBuffer();
 	private final ApplicationManager manager;
 	
 

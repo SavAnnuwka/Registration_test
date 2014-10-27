@@ -2,11 +2,7 @@ package main.java;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-
-import static org.openqa.selenium.support.ui.ExpectedCondition.*;
 
 
 public class RegistrationHelper  extends HelperWithWebDriverBase {
@@ -20,9 +16,6 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     }
 
 
-    public void openRegistrationURL() {
-        app.getNavigationHelper().openUrl(getRegistrationURL());
-    }
 
     public void goToRegistrationFromMainPage() {
         // WebElement link=  findElement(By.cssSelector("body > div.sticky-footer-page-wrap > div.browse-page > div.top-menu-block--default > div > div.right-block > a.sign-up"));
@@ -80,9 +73,10 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
             {   wait(By.className("step3"));
                 element = findElement(By.className("step3"));
             }
+             return element != null && element.isDisplayed();
 
-        return element.isDisplayed();
-        }
+
+    }
 
     }
 

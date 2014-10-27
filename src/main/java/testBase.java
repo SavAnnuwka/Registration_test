@@ -12,7 +12,7 @@ public class testBase {
 	public static ApplicationManager app;
 	
 
-	@BeforeClass
+	@BeforeSuite
 	public void setUp( ) throws Exception {
         String	configFile = "application.properties";
 		Properties props = new Properties();
@@ -23,7 +23,7 @@ public class testBase {
 		 log.info("setUp end");
 	  }
 	
-	@AfterClass
+	@AfterSuite
 	public void tearDown() throws Exception {
 		 log.info("tearDown start");
         ApplicationManager.getInstance().getWebDriverHelper().stop();

@@ -1,8 +1,6 @@
 package main.java;
 
 
-
-import main.java.*;
 import java.util.Properties;
 
 public class ApplicationManager {
@@ -23,11 +21,11 @@ public class ApplicationManager {
         return singleton;
     }
 
-    public void stop() {
+  /*  public void stop() {
         if (webDriverHelper != null) {
             webDriverHelper.stop();
         }
-    }
+    }*/
 
     public WebDriverHelper getWebDriverHelper() {
         if (webDriverHelper == null) {

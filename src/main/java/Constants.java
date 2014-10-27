@@ -2,9 +2,6 @@ package main.java;
 
 import java.util.Random;
 
-/**
- * Created by Anna on 17.10.2014.
- */
 public class Constants {
    // languages
     static String EN =  "en";
@@ -27,37 +24,37 @@ public class Constants {
 
     //EMPTY ERRoR
     public static String getEmptyErrorLanguage(String language ) {
-        if   (language  == EN) {
+        if   (language.equals(EN)) {
             return "Required field can not be left blank.";
         }
-        if   (language   == DE) {
+        if   (language.equals(DE)) {
             return "Das Pflichtfeld darf nicht leer sein.";
         }
-        if   (language  == ES) {
+        if   (language.equals(ES)) {
             return "El campo obligatorio no puede dejarse en blanco.";
         }
-        if   (language == FR) {
+        if  (language.equals(FR)) {
             return "Le champ obligatoire ne peut être laissé vide.";
         }
-        if   (language  == IT) {
+        if   (language.equals(IT)) {
             return "Il campo obbligatorio non può essere vuoto.";
         }
-        if   (language  == NL) {
+        if   (language.equals(NL)) {
             return "Een verplicht veld mag niet leeg zijn.";
         }
-        if   (language  == SV) {
+        if   (language.equals(SV)) {
             return "Obligatoriskt fält kan inte lämnas tomt.";
         }
-        if   (language  == RU) {
+        if   (language.equals(RU)){
             return "Это поле должно быть заполнено.";
         }
-        if   (language  == PT) {
+        if   (language.equals(PT)) {
             return "Campo obrigatório não pode ser deixado em branco.";
         }
-        if   (language  == RO) {
+        if   (language.equals(RO)) {
             return "Câmpul obligatoriu nu poate fi lăsat necompletat.";
         }
-        if   (language  == ZH) {
+        if  (language.equals(ZH)) {
             return "必填栏不得留空。";
         }
         return null;

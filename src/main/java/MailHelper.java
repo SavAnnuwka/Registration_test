@@ -8,8 +8,6 @@ import java.util.Set;
 
 public class MailHelper   extends HelperWithWebDriverBase {
 
-
-    private ApplicationManager appMail;
     private String originalHandle;
     private String mailHandle;
 
@@ -26,7 +24,7 @@ public class MailHelper   extends HelperWithWebDriverBase {
 
         try {
             for (String i : getWindowHandles()) {
-                if (i != handle) {
+                if (i.equals(handle)) {
                     switchTo(handle);
                     activeElement();
                 }
@@ -45,8 +43,8 @@ public class MailHelper   extends HelperWithWebDriverBase {
 
     }
     public void goToWindow(String handle) {
-        if (handle != getWindowHandle()) {
-            if (handle != null)  {
+        if (!handle.equals(getWindowHandle())) {
+            if (handle!=null)  {
                 switchTo(handle);
                 WaitLoadHandle(handle);
             } else System.out.println(handle +"page is not exist");
@@ -69,7 +67,7 @@ public class MailHelper   extends HelperWithWebDriverBase {
 
 
     public boolean emptyMail() {
-        if ( findElement(By.cssSelector("em")).getText()== "" )
+        if ( findElement(By.cssSelector("em")).getText().equals(""))
         return true;
         else return false;
     }
