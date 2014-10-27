@@ -18,6 +18,10 @@ public class Constants {
     static  String PT =  "pt";
     static String RO =  "ro";
     static  String ZH =  "zh";
+    public static String  SimpleName = "Name Surname";
+    public static String  SimpleOrganisation= "Organisation Museum";
+    public static String  SimpleEmail = "testannaiziteq@gmail.com";
+
 
 
 

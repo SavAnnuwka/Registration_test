@@ -13,8 +13,9 @@ public class IncorrectRegistration_test extends testBase {
     String language;
 
     @Test
-    public void incorrectEmptyFields() throws InterruptedException {
-        log.info("Incorrect test: Empty fields start");
+    //all fields are empty
+    public void incorrectAllEmptyFields() throws InterruptedException {
+        log.info("Incorrect test: All Empty fields start");
         language = Constants.getRandomLanguage();
         log.info("Use language " + language);
         app.getRegistrationHelper().goToRegistrationFromMainPage();
@@ -22,11 +23,14 @@ public class IncorrectRegistration_test extends testBase {
         Assert.assertEquals(app.getRegistrationHelper().checkPage(1), true) ;
         log.info("Page one was open ");
         app.getRegistrationHelper().clickRegisterButtonPage1();
-        assertThat( app.getRegistrationHelper().checkErrorName(), equalTo(Constants.getEmptyErrorLanguage(language)));
+        assertThat( app.getRegistrationHelper().checkError(app.getProperty("error_register_user_name")), equalTo(Constants.getEmptyErrorLanguage(language)));
         log.info(Constants.getEmptyErrorLanguage(language));
-        assertThat( app.getRegistrationHelper().checkErrorOrganisation(), equalTo(Constants.getEmptyErrorLanguage(language)));
+        assertThat( app.getRegistrationHelper().checkError(app.getProperty("error_register_organisation")), equalTo(Constants.getEmptyErrorLanguage(language)));
         log.info(Constants.getEmptyErrorLanguage(language));
-        assertThat( app.getRegistrationHelper().checkErrorEmail(), equalTo(Constants.getEmptyErrorLanguage(language)));
+        assertThat( app.getRegistrationHelper().checkError(app.getProperty("error_register_email")), equalTo(Constants.getEmptyErrorLanguage(language)));
         log.info(Constants.getEmptyErrorLanguage(language));
     }
-}
+
+
+
+  }

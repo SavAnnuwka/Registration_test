@@ -16,7 +16,7 @@ public class DataGenerator {
         return RandomStringUtils.randomAscii(count);
     }
 
-    //переписать
+
     @DataProvider(name = "registrationCorrectData")
     public static Object[][] generateRegistrationNameData() {
         return new Object[][]{{RandomGenerateString(),RandomGenerateString()}

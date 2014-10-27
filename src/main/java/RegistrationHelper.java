@@ -46,20 +46,11 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
 
     public void clickRegisterButtonPage1() {
         clickByClass(app.getProperty("register_button_page1"));
-        System.out.println("Button Next was clicked");
     }
 
     //errors
-    public String checkErrorName() {
-        return findElement(By.cssSelector(app.getProperty("error_register_user_name"))).getText();
-    }
-
-    public String checkErrorOrganisation() {
-        return findElement(By.cssSelector(app.getProperty("error_register_organisation"))).getText();
-    }
-
-    public String checkErrorEmail() {
-        return findElement(By.cssSelector(app.getProperty("error_register_email"))).getText();
+    public String checkError(String locator) {
+        return findElement(By.cssSelector(locator)).getText();
     }
 
     //page2

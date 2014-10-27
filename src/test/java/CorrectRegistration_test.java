@@ -52,8 +52,6 @@ public class CorrectRegistration_test extends testBase{
         //check  page 3
         log.info("Page three was open");
         app.getMailHelper().switchToMailPage();
-        //подождать 10 секунд
-        //проверить,что письмо пришло (почта не пустая)
         assertThat (app.getMailHelper().emptyMail(), equalTo(false));
         log.info("mail is not empty");
         //найти ссылку и перейти по ней - extended
