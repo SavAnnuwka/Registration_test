@@ -5,19 +5,19 @@ import main.java.testBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-/**
- * Created by Anna on 27.10.2014.
- */
+
 public class Additional_tests extends testBase {
     String language;
 
 
-
     private void checkFieldIsEmpty(String name, String org, String email, String error) {
-       // app.getRegistrationHelper().goToRegistrationFromMainPage();
         app.getRegistrationHelper().fillRegistrationForm(
                 name,
                 org,
@@ -29,11 +29,11 @@ public class Additional_tests extends testBase {
 
 
     @Test
-    //one  field is empty
+   // one  field is empty
     public void incorrectOneEmptyFields() throws InterruptedException {
-        log.info("Incorrect test: One empty fields start");
+        log.log( Level.INFO, "Incorrect test: One empty fields start");
         language = Constants.getRandomLanguage();
-        log.info("Use language " + language);
+        log.log( Level.INFO, "Use language " + language);
         app.getRegistrationHelper().goToRegistrationFromMainPage();
         app.getRegistrationHelper().selectLanguages(language);
        // Assert.assertEquals(app.getRegistrationHelper().checkPage(1), true);
@@ -42,6 +42,13 @@ public class Additional_tests extends testBase {
         checkFieldIsEmpty(Constants.SimpleName, "", Constants.SimpleEmail, app.getProperty("error_register_organisation"));
         checkFieldIsEmpty(Constants.SimpleName, Constants.SimpleOrganisation, "", app.getProperty("error_register_email"));
 
+    }
+
+   // @Test
+    public void failMethod() throws InterruptedException, IOException {
+
+        app.getRegistrationHelper().goToRegistrationFromMainPage();
+        assertThat(0,equalTo(0));
     }
 
 

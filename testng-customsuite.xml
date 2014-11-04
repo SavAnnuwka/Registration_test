@@ -1,9 +1,9 @@
 <suite name="Contact suite">
     <test  name="tests">
         <classes>
-            <class name="test.java.CorrectRegistration_test"/>
-            <class name="test.java.IncorrectRegistration_test"/>
-            <class name="test.java.Additional_tests"/>
-        </classes>
-    </test>
-</suite> <!-- Contact suite -->
+            <!--  <class name="test.java.CorrectRegistration_test"/>-->
+             <class name="test.java.IncorrectRegistration_test"/>
+            <!--   <class name="test.java.Additional_tests"/>-->
+          </classes>
+      </test>
+  </suite> <!-- Contact suite -->

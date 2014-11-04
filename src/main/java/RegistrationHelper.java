@@ -14,15 +14,11 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     public String getRegistrationURL() {
         return app.getProperty("baseURL") + "/registrations/new";
     }
-
-
-
     public void goToRegistrationFromMainPage() {
         // WebElement link=  findElement(By.cssSelector("body > div.sticky-footer-page-wrap > div.browse-page > div.top-menu-block--default > div > div.right-block > a.sign-up"));
         WebElement link = findElement(By.className("sign-up"));
         link.click();
     }
-
     public void selectLanguages(String lang) {
         Select sel = new Select(findElement(By.id(app.getProperty("language_id"))));
         sel.selectByValue(lang);
@@ -38,8 +34,13 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     }
 
     public void clickRegisterButtonPage1() {
-        clickByClass(app.getProperty("register_button_page1"));
+        findElement(By.className(app.getProperty("register_button_page1"))).click();
     }
+    public String getValue(String locator)
+    {
+        return  findElement(By.id(locator)).getAttribute("value").toString();
+    }
+
 
     //errors
     public String checkError(String locator) {
@@ -48,11 +49,10 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
 
     //page2
     public void confirmCheckbox() {
-        clickById(app.getProperty("registration_confirm_id"));
+        findElement(By.id(app.getProperty("registration_confirm_id"))).click();
     }
-
     public void clickRegisterButtonPage2() {
-        clickByCss(app.getProperty("register_button_page2"));
+        findElement(By.cssSelector(app.getProperty("register_button_page2"))).click();
     }
 
     //all page

@@ -67,4 +67,6 @@ public class Constants {
         int i= rand.nextInt(10);
         return  allLang[i];
     }
+
+
 }

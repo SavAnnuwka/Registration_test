@@ -9,7 +9,7 @@ public class ApplicationManager {
     private WebDriverHelper webDriverHelper;
 
     private Properties props;
-    private NavigationHelper navigationHelper;
+    private ScreenshotHelper screenshotHelper;
     private RegistrationHelper registrationHelper;
     private MailHelper mailHelper;
 
@@ -35,11 +35,11 @@ public class ApplicationManager {
     }
 
 
-    public NavigationHelper getNavigationHelper() {
-        if (navigationHelper == null) {
-            navigationHelper = new NavigationHelper(this);
+    public ScreenshotHelper getScreenshotHelper() {
+        if (screenshotHelper == null) {
+            screenshotHelper = new ScreenshotHelper(this);
         }
-        return navigationHelper;
+        return screenshotHelper;
     }
 
     public RegistrationHelper getRegistrationHelper() {

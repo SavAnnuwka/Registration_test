@@ -43,4 +43,7 @@ public class WebDriverHelper {
         System.out.println("driver " + driver);
         return driver;
 }
+    public void openUrl(String string) {
+        driver.get(string);
+    }
 }
