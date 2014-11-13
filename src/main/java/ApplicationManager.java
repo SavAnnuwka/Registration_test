@@ -12,6 +12,7 @@ public class ApplicationManager {
     private ScreenshotHelper screenshotHelper;
     private RegistrationHelper registrationHelper;
     private MailHelper mailHelper;
+    private WindowHandlerHelper windowHandlerHelper;
 
 
     public static ApplicationManager getInstance() {
@@ -21,11 +22,6 @@ public class ApplicationManager {
         return singleton;
     }
 
-  /*  public void stop() {
-        if (webDriverHelper != null) {
-            webDriverHelper.stop();
-        }
-    }*/
 
     public WebDriverHelper getWebDriverHelper() {
         if (webDriverHelper == null) {
@@ -56,22 +52,21 @@ public class ApplicationManager {
         return mailHelper;
     }
 
+    public WindowHandlerHelper getWindowHandlerHelper() {
+        if (windowHandlerHelper == null) {
+            windowHandlerHelper = new WindowHandlerHelper(this);
+        }
+        return windowHandlerHelper;
+    }
 
-   /* public void  setNulltoallHelper()
-    {
-        singleton=null;
-        webDriverHelper=null;
-    }*/
 
-
+    //properties
 	public void setProperties(Properties props) {
 		this.props = props;
 	}
-	
 	public String getProperty(String key) {
 		return props.getProperty(key);
 	}
-
 	public String getProperty(String key, String defaultValue) {
 		return props.getProperty(key, defaultValue);
 	}

@@ -15,7 +15,7 @@ public class CorrectRegistration_test extends testBase{
      String correctEmail;
 
     public String  getEMail()
-    {   app.getMailHelper().openNewMailWindow(app.getProperty("temporaryMail"));
+    {   app.getWindowHandlerHelper().openNewMailWindow(app.getProperty("temporaryMail"));
         return  app.getMailHelper().getTemporaryEmail();
     }
 
@@ -32,7 +32,7 @@ public class CorrectRegistration_test extends testBase{
     public void positiveTest(String correctName, String correctOrg ) throws InterruptedException {
         log.log( Level.INFO, "positiveTest start");
         correctEmail = getEMail();
-        app.getMailHelper().switchToOriginalPage();
+        app.getWindowHandlerHelper().switchToOriginalPage();
         app.getRegistrationHelper().goToRegistrationFromMainPage();
         Assert.assertEquals( app.getRegistrationHelper().checkPage(1), true);
         log.log(Level.INFO, "Page one was open ");
@@ -51,12 +51,12 @@ public class CorrectRegistration_test extends testBase{
         Assert.assertEquals( app.getRegistrationHelper().checkPage(3), true) ;     //добавить wait
         //check  page 3
         log.log( Level.INFO, "Page three was open");
-        app.getMailHelper().switchToMailPage();
+        app.getWindowHandlerHelper().switchToMailPage();
         assertThat (app.getMailHelper().emptyMail(), equalTo(false));
         log.log( Level.INFO, "mail is not empty");
         //найти ссылку и перейти по ней - extended
         log.log( Level.INFO, "positiveTest stop");
-        app.getMailHelper().switchToOriginalPage();
+        app.getWindowHandlerHelper().switchToOriginalPage();
     }
 
 

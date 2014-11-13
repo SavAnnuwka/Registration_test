@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +18,7 @@ public class Additional_tests extends testBase {
     String language;
 
 
-    private void checkFieldIsEmpty(String name, String org, String email, String error) {
+    private void checkFieldIsEmpty(String name, String org, String email, String error) throws UnsupportedEncodingException {
         app.getRegistrationHelper().fillRegistrationForm(
                 name,
                 org,
@@ -30,9 +31,10 @@ public class Additional_tests extends testBase {
 
     @Test
    // one  field is empty
-    public void incorrectOneEmptyFields() throws InterruptedException {
+    public void incorrectOneEmptyFields() throws InterruptedException, UnsupportedEncodingException {
         log.log( Level.INFO, "Incorrect test: One empty fields start");
-        language = Constants.getRandomLanguage();
+       language = Constants.getRandomLanguage();
+       // language   = "pt";
         log.log( Level.INFO, "Use language " + language);
         app.getRegistrationHelper().goToRegistrationFromMainPage();
         app.getRegistrationHelper().selectLanguages(language);

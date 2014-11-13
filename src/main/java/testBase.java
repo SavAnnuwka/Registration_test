@@ -12,20 +12,11 @@ public class testBase {
 
 	protected Logger log = Logger.getLogger("main.java.testLogFile");
 	public static ApplicationManager app;
-	
 
-	@BeforeSuite
-	public void setUp( ) throws Exception {
-
-    /*    try {
-            LogManager.getLogManager().readConfiguration(
-                    testBase.class.getResourceAsStream("logging.properties"));
-        } catch (IOException e) {
-            System.err.println("Could not setup logger configuration: " + e.toString());
-        }*/
-
+    private void logFile() throws IOException {
         FileHandler handler;
         try {
+
             handler=new FileHandler("application_log",true);
             SimpleFormatter formatter=new SimpleFormatter();
             handler.setFormatter(formatter);
@@ -36,6 +27,11 @@ public class testBase {
         catch (  SecurityException e) {
             System.err.println("Security exception while initialising logger : " + e.getMessage());
         }
+    }
+
+    @BeforeSuite
+	public void setUp( ) throws Exception {
+        logFile();
         String	configFile = "application.properties";
 		Properties props = new Properties();
 		props.load(new FileReader(configFile));
@@ -44,8 +40,9 @@ public class testBase {
 		 app.setProperties(props);
         log.log(Level.FINE, "setUp end");
 	  }
-	
-	@AfterSuite
+
+
+    @AfterSuite
 	public void tearDown() throws Exception {
         log.log(Level.FINE, "tearDown start");
         ApplicationManager.getInstance().getWebDriverHelper().stop();

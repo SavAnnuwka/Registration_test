@@ -32,7 +32,6 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         fillTextField(org, app.getProperty("registrationOrg_id"));
         fillTextField(email, app.getProperty("registrationEmail_id"));
     }
-
     public void clickRegisterButtonPage1() {
         findElement(By.className(app.getProperty("register_button_page1"))).click();
     }

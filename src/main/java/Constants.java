@@ -1,5 +1,6 @@
 package main.java;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 public class Constants {
@@ -21,9 +22,8 @@ public class Constants {
 
 
 
-
-    //EMPTY ERRoR
-    public static String getEmptyErrorLanguage(String language ) {
+    //EMPTY ERROR
+    public static String getEmptyErrorLanguage(String language ) throws UnsupportedEncodingException {
         if   (language.equals(EN)) {
             return "Required field can not be left blank.";
         }
@@ -49,7 +49,9 @@ public class Constants {
             return "Это поле должно быть заполнено.";
         }
         if   (language.equals(PT)) {
-            return "Campo obrigatório não pode ser deixado em branco.";
+
+            return new  String( "Campo obrigatório não pode ser deixado em branco.".getBytes("UTF-8"), "UTF-8") ;
+
         }
         if   (language.equals(RO)) {
             return "Câmpul obligatoriu nu poate fi lăsat necompletat.";

@@ -27,20 +27,11 @@ public class HelperWithWebDriverBase extends HelperBase{
     public WebElement findElement(By linkText) {
         return driver.findElement(linkText);
     }
-
-
-
-
-    protected String CurrentUrl() {
-        return driver.getCurrentUrl();
-    }
-
     protected void fillTextField( String text, String locator) {
         WebElement  field = findElement(By.id(locator));
         field.clear();
         field.sendKeys(text);
     }
-
     protected Set<String> getWindowHandles() {
        return driver.getWindowHandles();
     }
@@ -53,7 +44,6 @@ public class HelperWithWebDriverBase extends HelperBase{
     protected void  activeElement() {
         driver.switchTo().activeElement();
     }
-
     public String openInNewWindow(String url) {
         String name = "mail";
         ((JavascriptExecutor) driver)

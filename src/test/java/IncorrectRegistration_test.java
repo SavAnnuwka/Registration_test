@@ -6,6 +6,7 @@ import main.java.testBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,7 +17,7 @@ public class IncorrectRegistration_test extends testBase {
 
     //@Test
     //all fields are empty
-    public void incorrectAllEmptyFields() throws InterruptedException {
+    public void incorrectAllEmptyFields() throws InterruptedException, UnsupportedEncodingException {
         log.log(Level.INFO, "Incorrect test: All Empty fields start");
         language = Constants.getRandomLanguage();
         log.log( Level.INFO, "Use language " + language);
