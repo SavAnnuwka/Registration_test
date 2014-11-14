@@ -22,6 +22,13 @@ public class Constants {
 
 
 
+
+    public static String getRandomLanguage() {
+      String[] allLang = {DE, EN, ES, FR, IT, NL, PT, RO, RU, SV, ZH};
+        Random rand = new Random();
+        int i= rand.nextInt(10);
+        return  allLang[i];
+    }
     //EMPTY ERROR
     public static String getEmptyErrorLanguage(String language ) throws UnsupportedEncodingException {
         if   (language.equals(EN)) {
@@ -49,7 +56,7 @@ public class Constants {
             return "Это поле должно быть заполнено.";
         }
         if   (language.equals(PT)) {
-
+             //????//
             return new  String( "Campo obrigatório não pode ser deixado em branco.".getBytes("UTF-8"), "UTF-8") ;
 
         }
@@ -63,12 +70,42 @@ public class Constants {
 
     }
 
-    public static String getRandomLanguage() {
-      String[] allLang = {DE, EN, ES, FR, IT, NL, PT, RO, RU, SV, ZH};
-        Random rand = new Random();
-        int i= rand.nextInt(10);
-        return  allLang[i];
+    //INCORRECT EMAIL
+    public static String getIncorrectEmailErrorLanguage(String language)
+    {
+        if   (language.equals(EN)) {
+            return "Invalid e-mail format";
+        }
+        if   (language.equals(DE)) {
+            return "Ungültiges E-Mail-Format";
+        }
+        if   (language.equals(ES)) {
+            return "Formato de correo electrónico incorrecto";
+        }
+        if  (language.equals(FR)) {
+            return "Format d'adresse e-mail invalide";
+        }
+        if   (language.equals(IT)) {
+            return "Il formato dell'email non è valido";
+        }
+        if   (language.equals(NL)) {
+            return "Ongeldig e-mailformaat";
+        }
+        if   (language.equals(PT)) {
+            return "Formato de e-mail inválido";
+        }
+        if   (language.equals(RO)) {
+            return "Format e-mail nevalid";
+        }
+        if   (language.equals(RU)){
+            return "Недопустимый формат электронной почты";
+        }
+        if   (language.equals(SV)) {
+            return "Felaktigt e-postformat";
+        }
+        if  (language.equals(ZH)) {
+            return "无效邮件格式";
+        }
+        return null;
     }
-
-
 }

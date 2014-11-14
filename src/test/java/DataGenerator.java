@@ -15,17 +15,35 @@ public class DataGenerator {
         return RandomStringUtils.randomAscii(255);
     }
 
+    private static String RandomGenerateLongEmail() {
+        return RandomStringUtils.randomAscii(245) + "@test.test";
+    }
 
     @DataProvider(name = "registrationCorrectData")
-    public static Object[][] generateRegistrationNameData() {
+    public static Object[][] generateRegistrationCorrectData() {
         return new Object[][]{{RandomGenerateString(248),RandomGenerateString(248)}
         };
 
     }
 
     @DataProvider(name = "registrationLongData")
-    public static Object[][] generateRegistrationLongNameData() {
-        return new Object[][]{{RandomGenerateLongString(),RandomGenerateLongString(),RandomGenerateLongString()}
+    public static Object[][] generateRegistrationLongData() {
+        return new Object[][]{{RandomGenerateLongString(),RandomGenerateLongString(),RandomGenerateLongEmail()}
+        };
+
+    }
+
+    //change to file
+    @DataProvider(name = "registrationIncorrectEmailData")
+    public static Object[][] generateRegistrationIncorrectEmailData() {
+        return new Object[][]{
+                { "simple_name", "simple_organisation", "emailWithoutSobaka" } ,
+                { "simple_name", "simple_organisation", "emailWithSobakaIntheEnd@"},
+                { "simple_name", "simple_organisation", "email@WithoutTochka"},
+                { "simple_name", "simple_organisation", "emailWithOneSimbolAfter@q.q"},
+                { "simple_name", "simple_organisation", "email@Withnumbers.111"} ,
+                { "simple_name", "simple_organisation", "emailSpecSimbols!@#$%@%^&*().ru"} ,
+                { "simple_name", "simple_organisation", "emailSpecSimbols@ru.@$%^&*()"}
         };
 
     }
