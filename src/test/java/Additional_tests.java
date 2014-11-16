@@ -1,14 +1,12 @@
 package test.java;
 
-import main.java.Constants;
+import main.java.UI.Constants;
 import main.java.testBase;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -34,15 +32,14 @@ public class Additional_tests extends testBase {
     public void incorrectOneEmptyFields() throws InterruptedException, UnsupportedEncodingException {
         log.log( Level.INFO, "Incorrect test: One empty fields start");
        language = Constants.getRandomLanguage();
-       // language   = "pt";
         log.log( Level.INFO, "Use language " + language);
         app.getRegistrationHelper().goToRegistrationFromMainPage();
         app.getRegistrationHelper().selectLanguages(language);
        // Assert.assertEquals(app.getRegistrationHelper().checkPage(1), true);
        // log.info("Page one was open ");
-        checkFieldIsEmpty("", Constants.SimpleOrganisation, Constants.SimpleEmail, app.getProperty("error_register_user_name"));
-        checkFieldIsEmpty(Constants.SimpleName, "", Constants.SimpleEmail, app.getProperty("error_register_organisation"));
-        checkFieldIsEmpty(Constants.SimpleName, Constants.SimpleOrganisation, "", app.getProperty("error_register_email"));
+        checkFieldIsEmpty("", Constants.SimpleOrganisation, Constants.SimpleEmail, "error_register_user_name");
+        checkFieldIsEmpty(Constants.SimpleName, "", Constants.SimpleEmail,"error_register_organisation");
+        checkFieldIsEmpty(Constants.SimpleName, Constants.SimpleOrganisation, "", "error_register_email");
 
     }
 

@@ -1,4 +1,6 @@
-package main.java;
+package main.java.Helpers;
+
+import main.java.ApplicationManager;
 
 public class HelperBase {
 	

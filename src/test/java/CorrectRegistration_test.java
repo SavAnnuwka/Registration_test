@@ -3,6 +3,7 @@ package test.java;
 
 import main.java.testBase;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 
 import java.util.logging.Level;
@@ -26,8 +27,7 @@ public class CorrectRegistration_test extends testBase{
            assertThat(app.getWebDriverHelper().getDriver().getCurrentUrl(), equalTo(app.getRegistrationHelper().getRegistrationURL()));
     }
 
-    //@Test
-    //(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
+    @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
     // correctRegister
     public void positiveTest(String correctName, String correctOrg ) throws InterruptedException {
         log.log( Level.INFO, "positiveTest start");

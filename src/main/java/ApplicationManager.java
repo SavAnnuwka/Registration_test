@@ -1,6 +1,9 @@
 package main.java;
 
 
+import main.java.Helpers.*;
+import main.java.UI.UIMap;
+
 import java.util.Properties;
 
 public class ApplicationManager {
@@ -13,6 +16,7 @@ public class ApplicationManager {
     private RegistrationHelper registrationHelper;
     private MailHelper mailHelper;
     private WindowHandlerHelper windowHandlerHelper;
+    private UIMap uiMap;
 
 
     public static ApplicationManager getInstance() {
@@ -57,6 +61,14 @@ public class ApplicationManager {
             windowHandlerHelper = new WindowHandlerHelper(this);
         }
         return windowHandlerHelper;
+    }
+
+
+    public UIMap getUIMap() {
+        if (uiMap == null) {
+            uiMap = new UIMap(this);
+        }
+        return uiMap;
     }
 
 

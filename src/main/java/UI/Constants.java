@@ -1,4 +1,4 @@
-package main.java;
+package main.java.UI;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
@@ -66,7 +66,7 @@ public class Constants {
         if  (language.equals(ZH)) {
             return "必填栏不得留空。";
         }
-        return null;
+        throw new Error("Unknown lang" + language);
 
     }
 
@@ -106,6 +106,6 @@ public class Constants {
         if  (language.equals(ZH)) {
             return "无效邮件格式";
         }
-        return null;
+        throw new Error("Unknown lang" + language);
     }
 }

@@ -12,12 +12,10 @@ public class DataGenerator {
     }
 
     private static String RandomGenerateLongString() {
-        return RandomStringUtils.randomAscii(255);
+        return RandomStringUtils.randomAscii(256);
     }
 
-    private static String RandomGenerateLongEmail() {
-        return RandomStringUtils.randomAscii(245) + "@test.test";
-    }
+
 
     @DataProvider(name = "registrationCorrectData")
     public static Object[][] generateRegistrationCorrectData() {
@@ -28,7 +26,7 @@ public class DataGenerator {
 
     @DataProvider(name = "registrationLongData")
     public static Object[][] generateRegistrationLongData() {
-        return new Object[][]{{RandomGenerateLongString(),RandomGenerateLongString(),RandomGenerateLongEmail()}
+        return new Object[][]{{RandomGenerateLongString(),RandomGenerateLongString(),RandomGenerateLongString()}
         };
 
     }
@@ -40,7 +38,6 @@ public class DataGenerator {
                 { "simple_name", "simple_organisation", "emailWithoutSobaka" } ,
                 { "simple_name", "simple_organisation", "emailWithSobakaIntheEnd@"},
                 { "simple_name", "simple_organisation", "email@WithoutTochka"},
-                { "simple_name", "simple_organisation", "emailWithOneSimbolAfter@q.q"},
                 { "simple_name", "simple_organisation", "email@Withnumbers.111"} ,
                 { "simple_name", "simple_organisation", "emailSpecSimbols!@#$%@%^&*().ru"} ,
                 { "simple_name", "simple_organisation", "emailSpecSimbols@ru.@$%^&*()"}

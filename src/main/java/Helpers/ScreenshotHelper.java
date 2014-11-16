@@ -1,6 +1,7 @@
-package main.java;
+package main.java.Helpers;
 
 
+import main.java.ApplicationManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.apache.commons.io.FileUtils;
