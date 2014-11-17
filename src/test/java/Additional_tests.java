@@ -37,9 +37,9 @@ public class Additional_tests extends testBase {
         app.getRegistrationHelper().selectLanguages(language);
        // Assert.assertEquals(app.getRegistrationHelper().checkPage(1), true);
        // log.info("Page one was open ");
-        checkFieldIsEmpty("", Constants.SimpleOrganisation, Constants.SimpleEmail, "error_register_user_name");
-        checkFieldIsEmpty(Constants.SimpleName, "", Constants.SimpleEmail,"error_register_organisation");
-        checkFieldIsEmpty(Constants.SimpleName, Constants.SimpleOrganisation, "", "error_register_email");
+        checkFieldIsEmpty("", Constants.SimpleOrganisation, Constants.SimpleEmail, "register.username.error");
+        checkFieldIsEmpty(Constants.SimpleName, "", Constants.SimpleEmail, "register.organisation.error");
+        checkFieldIsEmpty(Constants.SimpleName, Constants.SimpleOrganisation, "", "register.email.error");
 
     }
 

@@ -1,7 +1,6 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -27,12 +26,12 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
 
     //page1
     public void fillRegistrationForm(String name, String org, String email) {
-        fillTextField(name,app.getUIMap().getLocator("registrationName"));
-        fillTextField(org, app.getUIMap().getLocator("registrationOrg"));
-        fillTextField(email, app.getUIMap().getLocator("registrationEmail"));
+        fillTextField(name,app.getUIMap().getLocator("register.name"));
+        fillTextField(org, app.getUIMap().getLocator("register.organisation"));
+        fillTextField(email, app.getUIMap().getLocator("register.email"));
     }
     public void clickRegisterButtonPage1() {
-        findElement(app.getUIMap().getLocator("register_button_page1")).click();
+        findElement(app.getUIMap().getLocator("register.page1.button")).click();
     }
     public String getValue(String locator)
     {
@@ -47,10 +46,10 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
 
     //page2
     public void confirmCheckbox() {
-        findElement(app.getUIMap().getLocator("registration_confirm")).click();
+        findElement(app.getUIMap().getLocator("register.page2.confirm")).click();
     }
     public void clickRegisterButtonPage2() {
-        findElement(app.getUIMap().getLocator("register_button_page2")).click();
+        findElement(app.getUIMap().getLocator("register.page2.button")).click();
     }
 
     //all page
@@ -59,17 +58,17 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         WebElement element = null;
         if (page == 1)
              {
-                 wait(app.getUIMap().getLocator("PageOneIsDisplayed"));
-                 element = findElement(app.getUIMap().getLocator("PageOneIsDisplayed"));
+                 wait(app.getUIMap().getLocator("register.page1.isdisplayed"));
+                 element = findElement(app.getUIMap().getLocator("register.page1.isdisplayed"));
 
             }
             if (page == 2)
-            {     wait(app.getUIMap().getLocator("PageTwoIsDisplayed"));
-                element = findElement(app.getUIMap().getLocator("PageTwoIsDisplayed"));
+            {     wait(app.getUIMap().getLocator("register.page2.isdisplayed"));
+                element = findElement(app.getUIMap().getLocator("register.page2.isdisplayed"));
             }
             if (page == 3)
-            {    wait(app.getUIMap().getLocator("PageThreeIsDisplayed"));
-                element = findElement(app.getUIMap().getLocator("PageThreeIsDisplayed"));
+            {    wait(app.getUIMap().getLocator("register.page3.isdisplayed"));
+                element = findElement(app.getUIMap().getLocator("register.page3.isdisplayed"));
             }
              return element != null && element.isDisplayed();
 

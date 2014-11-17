@@ -16,7 +16,12 @@ public class DataGenerator {
     }
 
 
+    @DataProvider(name = "registrationSimpleData")
+    public static Object[][] generateRegistrationSimpleData() {
+        return new Object[][]{{"Simple name","Organisation", "test@test.com"}
+        };
 
+    }
     @DataProvider(name = "registrationCorrectData")
     public static Object[][] generateRegistrationCorrectData() {
         return new Object[][]{{RandomGenerateString(248),RandomGenerateString(248)}
@@ -44,6 +49,8 @@ public class DataGenerator {
         };
 
     }
+
+
 }
 
 

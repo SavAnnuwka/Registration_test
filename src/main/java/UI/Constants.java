@@ -21,8 +21,6 @@ public class Constants {
     public static String  SimpleEmail = "testannaiziteq@gmail.com";
 
 
-
-
     public static String getRandomLanguage() {
       String[] allLang = {DE, EN, ES, FR, IT, NL, PT, RO, RU, SV, ZH};
         Random rand = new Random();
@@ -108,4 +106,45 @@ public class Constants {
         }
         throw new Error("Unknown lang" + language);
     }
+
+
+
+    public static String getIncorrectCheckBoxLanguage(String language) {
+        if   (language.equals(EN)) {
+            return "In order to use our service, you must agree to the License terms";
+        }
+        if   (language.equals(DE)) {
+            return "Um unseren Dienst nutzen zu können, müssen Sie den Lizenzbedingungen zustimmen";
+        }
+        if   (language.equals(ES)) {
+            return "Formato de correo electrónico incorrecto";
+        }
+        if  (language.equals(FR)) {
+            return "Pour utiliser notre service, vous devez accepter les Conditions de la licence";
+        }
+        if   (language.equals(IT)) {
+            return "Per poter utilizzare il nostro servizio, devi accettare i Termini di Licenza";
+        }
+        if   (language.equals(NL)) {
+            return "Om onze dienst te gebruiken, moet u akkoord gaan met de licentievoorwaarden";
+        }
+        if   (language.equals(PT)) {
+            return "Para utilizar o nosso serviço, você deve concordar com os termos da Licença";
+        }
+        if   (language.equals(RO)) {
+            return "Pentru a putea folosi serviciul nostru, trebuie să fiți de acord cu Termenii licenței";
+        }
+        if   (language.equals(RU)){
+            return "Для продолжения регистрации необходимо принять условия лицензионного соглашения";
+        }
+        if   (language.equals(SV)) {
+            return "För att använda vår tjänst måste du godkänna licensvillkoren";
+        }
+        if  (language.equals(ZH)) {
+            return "该邮件地址已被注册 ";
+        }
+        throw new Error("Unknown lang" + language);
+
+    }
+
 }
