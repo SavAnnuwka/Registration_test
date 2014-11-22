@@ -29,7 +29,9 @@ public class DataGenerator {
     }
     @DataProvider(name = "registrationCorrectData")
     public static Object[][] generateRegistrationCorrectData() {
-        return new Object[][]{{RandomGenerateString(248),RandomGenerateString(248)}
+        return new Object[][]{
+               {"Test name","Test organisation"},
+             //   {RandomGenerateString(248),RandomGenerateString(248)}
         };
 
     }

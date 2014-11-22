@@ -23,16 +23,6 @@ public class SmokeRegistration_test extends testBase{
         return  app.getMailHelper().getTemporaryEmail();
     }
 
-    public void goToRegistrationPage() {
-        app.getWebDriverHelper().openUrl(app.getRegistrationHelper().getRegistrationURL());
-    }
-
-    public String selectLanguage() {
-        language = app.getLanguagesHelper().getRandomLanguage();
-        log.log(Level.INFO, "Use language " + language);
-        app.getLanguagesHelper().selectLanguageInDropDownList(language);
-        return  language;
-    }
 
    @Test
    //check correctRegister Link
@@ -42,7 +32,7 @@ public class SmokeRegistration_test extends testBase{
     }
 
    // @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
-    @Test(enabled=false, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class )
+    @Test(enabled=false, dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
     // correctRegister
     public void positiveTest(String correctName, String correctOrg ) throws InterruptedException {
         log.log( Level.INFO, "positiveTest start");
