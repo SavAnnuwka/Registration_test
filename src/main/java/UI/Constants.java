@@ -5,28 +5,22 @@ import java.util.Random;
 
 public class Constants {
    // languages
-    static String EN =  "en";
-    static String DE =  "de";
-    static String ES =  "es";
-    static String FR =  "fr";
-    static String IT =  "it";
-    static String NL =  "nl";
-    static String SV =  "sv";
-    static String RU =  "ru";
-    static  String PT =  "pt";
-    static String RO =  "ro";
-    static  String ZH =  "zh";
-    public static String  SimpleName = "Name Surname";
+   public static String EN =  "en";
+    public static String DE =  "de";
+    public static String ES =  "es";
+    public static String FR =  "fr";
+    public static String IT =  "it";
+    public static String NL =  "nl";
+    public static String SV =  "sv";
+    public static String RU =  "ru";
+    public static  String PT =  "pt";
+    public static String RO =  "ro";
+    public static  String ZH =  "zh";
+     public static String  SimpleName = "Name Surname";
     public static String  SimpleOrganisation= "Organisation Museum";
     public static String  SimpleEmail = "testannaiziteq@gmail.com";
 
 
-    public static String getRandomLanguage() {
-      String[] allLang = {DE, EN, ES, FR, IT, NL, PT, RO, RU, SV, ZH};
-        Random rand = new Random();
-        int i= rand.nextInt(10);
-        return  allLang[i];
-    }
     //EMPTY ERROR
     public static String getEmptyErrorLanguage(String language ) throws UnsupportedEncodingException {
         if   (language.equals(EN)) {
@@ -108,7 +102,7 @@ public class Constants {
     }
 
 
-
+//INCORRECT checkbox
     public static String getIncorrectCheckBoxLanguage(String language) {
         if   (language.equals(EN)) {
             return "In order to use our service, you must agree to the License terms";
@@ -144,7 +138,84 @@ public class Constants {
             return "该邮件地址已被注册 ";
         }
         throw new Error("Unknown lang" + language);
-
     }
+
+     //Already try to register
+    public static String getAlreadyExistErrorLanguage(String language) {
+        if   (language.equals(EN)) {
+            return "An e-mail containing instructions about how to complete the registration has sent to this address";
+        }
+        if   (language.equals(DE)) {
+            return "Eine E-Mail mit Erläuterungen zum Abschluss der Anmeldung wurde an diese Adresse versandt";
+        }
+        if   (language.equals(ES)) {
+            return "Se ha enviado a esta dirección un correo electrónico que contiene instrucciones acerca de cómo completar el registro";
+        }
+        if  (language.equals(FR)) {
+            return "Un e-mail contenant des instructions sur la procédure de finalisation de l'inscription a été envoyé à cette adresse";
+        }
+        if   (language.equals(IT)) {
+            return "Una e-mail con le istruzioni per il completamento della registrazione è stata inviata a questo indirizzo e-mail";
+        }
+        if   (language.equals(NL)) {
+            return "Er is een e-mail met instructies over hoe u de registratie moet voltooien naar dit adres gestuurd";
+        }
+        if   (language.equals(PT)) {
+            return "Um e-mail com instruções sobre como preencher o cadastro foi enviado para esse endereço";
+        }
+        if   (language.equals(RO)) {
+            return "Un e-mail cu instrucțiunile privind finalizarea înregistrării a fost trimis la această adresă";
+        }
+        if   (language.equals(RU)){
+            return "На этот почтовый адрес отправлено письмо с инструкцией по завершению регистрации";
+        }
+        if   (language.equals(SV)) {
+            return "Ett e-postmeddelande med instruktioner om hur du slutför registreringen har skickats till den här adressen";
+        }
+        if  (language.equals(ZH)) {
+            return "已经向该地址发送了一封包含如何完成注册程序的说明的邮件";
+        }
+        throw new Error("Unknown lang" + language);
+    }
+
+
+    //Already register
+    public static String getAlreadyExistInDatabaseErrorLanguage(String language) {
+        if   (language.equals(EN)) {
+            return "This e-mail address is already registered";
+        }
+        if   (language.equals(DE)) {
+            return "Diese E-Mail-Adresse ist bereits registriert";
+        }
+        if   (language.equals(ES)) {
+            return "Esta dirección de correo electrónico ya está registrada";
+        }
+        if  (language.equals(FR)) {
+            return "Cette adresse e-mail est déjà enregistrée";
+        }
+        if   (language.equals(IT)) {
+            return "Questo indirizzo e-mail risulta già registrato";
+        }
+        if   (language.equals(NL)) {
+            return "Dit e-mailadres is reeds geregistreerd";
+        }
+        if   (language.equals(PT)) {
+            return "Esse endereço de e-mail já está cadastrado";
+        }
+        if   (language.equals(RO)) {
+            return "Această adresă de e-mail este deja înregistrată";
+        }
+        if   (language.equals(RU)){
+            return "Этот почтовый адрес уже зарегистрирован";
+        }
+        if   (language.equals(SV)) {
+            return "Den här e-postadressen är redan registrerad";
+        }
+        if  (language.equals(ZH)) {
+            return "该邮件地址已被注册";
+        }
+        throw new Error("Unknown lang" + language);
+    }
+
 
 }

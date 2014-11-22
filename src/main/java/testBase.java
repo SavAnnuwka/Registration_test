@@ -10,7 +10,7 @@ import java.util.logging.*;
 
 public class testBase {
 
-	protected Logger log = Logger.getLogger("main.java.testLogFile");
+	public  static Logger log = Logger.getLogger("main.java.testLogFile");
 	public static ApplicationManager app;
 
     private void logFile() throws IOException {

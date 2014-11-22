@@ -17,6 +17,7 @@ public class ApplicationManager {
     private MailHelper mailHelper;
     private WindowHandlerHelper windowHandlerHelper;
     private UIMap uiMap;
+    private LanguagesHelper languagesHelper;
 
 
     public static ApplicationManager getInstance() {
@@ -63,6 +64,12 @@ public class ApplicationManager {
         return windowHandlerHelper;
     }
 
+    public LanguagesHelper getLanguagesHelper() {
+        if (languagesHelper == null) {
+            languagesHelper = new LanguagesHelper(this);
+        }
+        return languagesHelper;
+    }
 
     public UIMap getUIMap() {
         if (uiMap == null) {

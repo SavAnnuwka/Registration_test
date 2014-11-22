@@ -11,18 +11,20 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         super(app);
     }
 
+
     public String getRegistrationURL() {
         return app.getProperty("baseURL") + "/registrations/new";
+    }
+
+    public  void goToRegistrationPageFromURL() {
+        app.getWebDriverHelper().openUrl(app.getRegistrationHelper().getRegistrationURL());
     }
 
     public void goToRegistrationFromMainPage()  {
         WebElement link = findElement(app.getUIMap().getLocator("registration_link"));
         link.click();
     }
-    public void selectLanguages(String lang) {
-        Select sel = new Select(findElement(app.getUIMap().getLocator("language")));
-        sel.selectByValue(lang);
-    }
+
 
     //page1
     public void fillRegistrationForm(String name, String org, String email) {

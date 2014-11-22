@@ -15,10 +15,15 @@ public class DataGenerator {
         return RandomStringUtils.randomAscii(256);
     }
 
+    @DataProvider(name = "registrationSimpleDataWithoutEmail")
+    public static Object[][] generateRegistrationSimpleDataWithoutEmail() {
+        return new Object[][]{{"Test name","Test organisation"}
+        };
 
+    }
     @DataProvider(name = "registrationSimpleData")
     public static Object[][] generateRegistrationSimpleData() {
-        return new Object[][]{{"Simple name","Organisation", "test@test.com"}
+        return new Object[][]{{"Test name","Test organisation", "testic@test.com"}
         };
 
     }
