@@ -19,33 +19,30 @@ public class SmokeRegistration_test extends testBase{
      String language;
 
     public String  getEMail()
-    {   app.getWindowHandlerHelper().openNewMailWindow(app.getProperty("temporaryMail"));
+    {   app.getWindowsHelper().openNewMailWindow(app.getProperty("temporaryMail"));
         return  app.getMailHelper().getTemporaryEmail();
     }
 
 
-   @Test
+   @Test(enabled=false)
    //check correctRegister Link
     public void openRegistrationPage() {
-           app.getRegistrationHelper().goToRegistrationFromMainPage();
+           app.getRegistrationHelper().goToRegistrationPageFromURL();
            assertThat(app.getWebDriverHelper().getDriver().getCurrentUrl(), equalTo(app.getRegistrationHelper().getRegistrationURL()));
     }
 
-   // @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
-    @Test(enabled=false, dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
     // correctRegister
+    // @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
+    @Test(enabled=true, dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
     public void positiveTest(String correctName, String correctOrg ) throws InterruptedException {
         log.log( Level.INFO, "positiveTest start");
         correctEmail = getEMail();
-        app.getWindowHandlerHelper().switchToOriginalPage();
-        app.getRegistrationHelper().goToRegistrationFromMainPage();
+        app.getWindowsHelper().switchToOriginalPage();
+        app.getRegistrationHelper().goToRegistrationPageFromURL();;
         Assert.assertEquals( app.getRegistrationHelper().checkPage(1), true);
         log.log(Level.INFO, "Page one was open ");
        //type page1
-        app.getRegistrationHelper().fillRegistrationForm(
-                correctName,
-                correctOrg,
-                correctEmail);
+        app.getRegistrationHelper().fillRegistrationFormFromClipBoard(correctName, correctOrg, correctEmail);
         app.getRegistrationHelper().clickRegisterButtonPage1();
 
         Assert.assertEquals( app.getRegistrationHelper().checkPage(2), true) ;  //добавить wait
@@ -56,40 +53,36 @@ public class SmokeRegistration_test extends testBase{
         Assert.assertEquals( app.getRegistrationHelper().checkPage(3), true) ;     //добавить wait
         //check  page 3
         log.log( Level.INFO, "Page three was open");
-        app.getWindowHandlerHelper().switchToMailPage();
+        app.getWindowsHelper().switchToMailPage();
         assertThat (app.getMailHelper().emptyMail(), equalTo(false));
         log.log( Level.INFO, "mail is not empty");
         //найти ссылку и перейти по ней - extended
         log.log( Level.INFO, "positiveTest stop");
-        app.getWindowHandlerHelper().switchToOriginalPage();
+        app.getWindowsHelper().switchToOriginalPage();
     }
 
-   @Test(/*dependsOnMethods = { "positiveTest"}*/dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
+   @Test(dependsOnMethods = { "positiveTest"}, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
    public void alreadyRegisterEmail (String simpleName, String simpleOrg ){
-       log.log( Level.INFO, "Already get  email test start");
        app.getRegistrationHelper().goToRegistrationPageFromURL();
        language =  app.getLanguagesHelper().selectLanguage();
-       app.getRegistrationHelper().fillRegistrationForm(
-               simpleName,
-               simpleOrg,
-               correctEmail);
+       log.log( Level.INFO, "Already get  email test start . LANG: \" + language ");
+       app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, correctEmail);
        app.getRegistrationHelper().clickRegisterButtonPage1();
        assertThat( app.getRegistrationHelper().checkError("register.email.error"), equalTo(Constants.getAlreadyExistErrorLanguage(language)));
        log.log( Level.INFO, Constants.getAlreadyExistErrorLanguage(language));
    }
 
     //begin register in CMS!
-    @Test(/*dependsOnMethods = { "positiveTest","alreadyRegisterEmail" },*/ dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
+    @Test(dependsOnMethods = { "positiveTest","alreadyRegisterEmail" }, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
     public void alreadyExistInDataBaseEmail (String simpleName, String simpleOrg ){
-        log.log( Level.INFO, "Already register email start");
         app.getRegistrationHelper().goToRegistrationPageFromURL();
         language =  app.getLanguagesHelper().selectLanguage();
-        app.getRegistrationHelper().fillRegistrationForm(
-                simpleName,
-                simpleOrg,
-                correctEmail);
+        log.log( Level.INFO, "Already register email start. LANG: " + language );
+        //==//
+        correctEmail = "bvozgzesqzaq@dropmail.me";
+        app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, correctEmail);
         app.getRegistrationHelper().clickRegisterButtonPage1();
         assertThat( app.getRegistrationHelper().checkError("register.email.error"), equalTo(Constants.getAlreadyExistInDatabaseErrorLanguage(language)));
-        log.log( Level.INFO, Constants.getAlreadyExistErrorLanguage(language));
+        log.log( Level.INFO, Constants.getAlreadyExistInDatabaseErrorLanguage(language));
     }
 }

@@ -1,6 +1,7 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -11,27 +12,35 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         super(app);
     }
 
-
+    /**
+     * URL
+     */
     public String getRegistrationURL() {
         return app.getProperty("baseURL") + "/registrations/new";
     }
-
-    public  void goToRegistrationPageFromURL() {
+   public  void goToRegistrationPageFromURL() {
         app.getWebDriverHelper().openUrl(app.getRegistrationHelper().getRegistrationURL());
     }
-
-    public void goToRegistrationFromMainPage()  {
+   /* public void goToRegistrationFromMainPage()  {
         WebElement link = findElement(app.getUIMap().getLocator("registration_link"));
         link.click();
-    }
+    } */
 
-
-    //page1
+    /**
+     * PAGE 1
+     */
     public void fillRegistrationForm(String name, String org, String email) {
         fillTextField(name,app.getUIMap().getLocator("register.name"));
         fillTextField(org, app.getUIMap().getLocator("register.organisation"));
         fillTextField(email, app.getUIMap().getLocator("register.email"));
     }
+    public void fillRegistrationFormFromClipBoard(String name, String org, String email) {
+        fillTextFieldFromClipBoard(name, app.getUIMap().getLocator("register.name"));
+        fillTextFieldFromClipBoard(org, app.getUIMap().getLocator("register.organisation"));
+        fillTextFieldFromClipBoard(email, app.getUIMap().getLocator("register.email"));
+    }
+
+
     public void clickRegisterButtonPage1() {
         findElement(app.getUIMap().getLocator("register.page1.button")).click();
     }
@@ -41,12 +50,18 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     }
 
 
-    //errors
+
+    /**
+     * ERRORs
+     */
     public String checkError(String locator) {
         return findElement(app.getUIMap().getLocator(locator)).getText();
     }
 
-    //page2
+
+    /**
+     * PAGE 2
+     */
     public void confirmCheckbox() {
         findElement(app.getUIMap().getLocator("register.page2.confirm")).click();
     }
@@ -54,7 +69,9 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         findElement(app.getUIMap().getLocator("register.page2.button")).click();
     }
 
-    //all page
+    /**
+     * ALL PAGEs
+     */
     public boolean checkPage(int page) throws InterruptedException
     {
         WebElement element = null;
@@ -77,6 +94,6 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
 
     }
 
-    }
 
+}
 

@@ -48,7 +48,7 @@ public class Additional_tests extends testBase {
 
    // @Test
     public void failMethod() throws InterruptedException, IOException {
-        app.getRegistrationHelper().goToRegistrationFromMainPage();
+        app.getRegistrationHelper().goToRegistrationPageFromURL();
         assertThat(0,equalTo(0));
     }
 
