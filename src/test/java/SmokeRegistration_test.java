@@ -38,7 +38,7 @@ public class SmokeRegistration_test extends testBase{
         log.log( Level.INFO, "positiveTest start");
         correctEmail = getEMail();
         app.getWindowsHelper().switchToOriginalPage();
-        app.getRegistrationHelper().goToRegistrationPageFromURL();;
+      //  app.getRegistrationHelper().goToRegistrationPageFromURL();;
         Assert.assertEquals( app.getRegistrationHelper().checkPage(1), true);
         log.log(Level.INFO, "Page one was open ");
        //type page1
@@ -63,26 +63,26 @@ public class SmokeRegistration_test extends testBase{
 
    @Test(dependsOnMethods = { "positiveTest"}, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
    public void alreadyRegisterEmail (String simpleName, String simpleOrg ){
-       app.getRegistrationHelper().goToRegistrationPageFromURL();
-       language =  app.getLanguagesHelper().selectLanguage();
+     //  app.getRegistrationHelper().goToRegistrationPageFromURL();
+      // language =  app.getLanguagesHelper().selectLanguage();
        log.log( Level.INFO, "Already get  email test start . LANG: \" + language ");
        app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, correctEmail);
        app.getRegistrationHelper().clickRegisterButtonPage1();
-       assertThat( app.getRegistrationHelper().checkError("register.email.error"), equalTo(Constants.getAlreadyExistErrorLanguage(language)));
+       assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constants.getAlreadyExistErrorLanguage(language)));
        log.log( Level.INFO, Constants.getAlreadyExistErrorLanguage(language));
    }
 
     //begin register in CMS!
     @Test(dependsOnMethods = { "positiveTest","alreadyRegisterEmail" }, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
     public void alreadyExistInDataBaseEmail (String simpleName, String simpleOrg ){
-        app.getRegistrationHelper().goToRegistrationPageFromURL();
-        language =  app.getLanguagesHelper().selectLanguage();
+       // app.getRegistrationHelper().goToRegistrationPageFromURL();
+      //  language =  app.getLanguagesHelper().selectLanguage();
         log.log( Level.INFO, "Already register email start. LANG: " + language );
         //==//
         correctEmail = "bvozgzesqzaq@dropmail.me";
         app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, correctEmail);
         app.getRegistrationHelper().clickRegisterButtonPage1();
-        assertThat( app.getRegistrationHelper().checkError("register.email.error"), equalTo(Constants.getAlreadyExistInDatabaseErrorLanguage(language)));
+        assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constants.getAlreadyExistInDatabaseErrorLanguage(language)));
         log.log( Level.INFO, Constants.getAlreadyExistInDatabaseErrorLanguage(language));
     }
 }

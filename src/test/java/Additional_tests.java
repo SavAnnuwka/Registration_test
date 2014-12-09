@@ -2,8 +2,6 @@ package test.java;
 
 import main.java.UI.Constants;
 import main.java.testBase;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -15,15 +13,9 @@ import static org.hamcrest.Matchers.equalTo;
 
 
 public class Additional_tests extends testBase {
-   private String language;
 
-    @BeforeMethod
-    private void goToRegisterPageAndSelectLang()
-    {
-        app.getRegistrationHelper().goToRegistrationPageFromURL();
-        language =  app.getLanguagesHelper().selectLanguage();
-        System.out.println("before");
-    }
+
+
 
     private void checkFieldIsEmpty(String name, String org, String email, String error) throws UnsupportedEncodingException {
         app.getRegistrationHelper().fillRegistrationForm(
@@ -31,7 +23,7 @@ public class Additional_tests extends testBase {
                 org,
                 email);
         app.getRegistrationHelper().clickRegisterButtonPage1();
-        assertThat(app.getRegistrationHelper().checkError(error), equalTo(Constants.getEmptyErrorLanguage(language)));
+        assertThat(app.getRegistrationHelper().getText(error), equalTo(Constants.getEmptyErrorLanguage(language)));
         log.info(Constants.getEmptyErrorLanguage(language));
     }
 

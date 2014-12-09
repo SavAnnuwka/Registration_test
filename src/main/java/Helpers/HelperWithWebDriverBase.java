@@ -35,7 +35,9 @@ public class HelperWithWebDriverBase extends HelperBase{
         field.clear();
         field.sendKeys(Keys.CONTROL+"v");
     }
-
+    public String getText(String locator) {
+        return findElement(app.getUIMap().getLocator(locator)).getText();
+    }
 
 
     protected void  switchTo(String handle) {
@@ -44,7 +46,6 @@ public class HelperWithWebDriverBase extends HelperBase{
     protected void  activeElement() {
         driver.switchTo().activeElement();
     }
-
     public void  wait(By linkText)
     { WebDriverWait wait = new WebDriverWait(driver, 60);
       wait.until(ExpectedConditions.visibilityOfElementLocated(linkText));

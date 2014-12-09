@@ -18,8 +18,8 @@ public class LanguagesHelper extends HelperWithWebDriverBase{
 
 
     public  String selectLanguage() {
-        String language = testBase.app.getLanguagesHelper().getRandomLanguage();
-        testBase.app.getLanguagesHelper().selectLanguageInDropDownList(language);
+        String language = app.getLanguagesHelper().getRandomLanguage();
+        app.getLanguagesHelper().selectLanguageInDropDownList(language);
         return  language;
     }
 

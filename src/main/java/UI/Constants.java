@@ -1,7 +1,7 @@
 package main.java.UI;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Random;
+
 
 public class Constants {
    // languages
@@ -218,4 +218,80 @@ public class Constants {
     }
 
 
+
+    public static String getTitleLanguage(String language) {
+        if   (language.equals(EN)) {
+            return "Creating an audio guide is easy!";
+        }
+        if   (language.equals(DE)) {
+            return "Einen Audioguide zu erstellen ist wirklich ganz einfach!";
+        }
+        if   (language.equals(ES)) {
+            return "¡Crear una audioguía es fácil!";
+        }
+        if  (language.equals(FR)) {
+            return "Créer un audioguide est simple !";
+        }
+        if   (language.equals(IT)) {
+            return "Creare un'audioguida è semplice!";
+        }
+        if   (language.equals(NL)) {
+            return "Een audiogids maken is eenvoudig!";
+        }
+        if   (language.equals(PT)) {
+            return "É muito fácil criar um guia de áudio!";
+        }
+        if   (language.equals(RO)) {
+            return "Este foarte uşor să creaţi un ghid audio!";
+    }
+        if   (language.equals(RU)){
+            return "Создать аудиогид очень просто!";
+        }
+        if   (language.equals(SV)) {
+            return "Att skapa en audioguide är enkelt!";
+        }
+        if  (language.equals(ZH)) {
+            return "创建一个语音导游如此容易！";
+        }
+        throw new Error("Unknown lang" + language);
+
+    }
+
+    public static String getDescriptionLanguage(String language) {
+        if   (language.equals(EN)) {
+            return "The izi.TRAVEL CMS interface allows you to quickly create, test and publish an audio guide. All instructions and resources available on login under HELP menu.";
+        }
+        if   (language.equals(DE)) {
+            return "Das IZI.CMS Interface erlaubt Ihnen das schnelle Erstellen, Testen und Veröffentlichen eines Audioführers. Alle Anleitungen und Ressourcen sind nach dem Login im HILFE-Menü verfügbar.";
+        }
+        if   (language.equals(ES)) {
+            return "La interfaz de IZI.CMS le permite crear, probar y publicar rápidamente audioguías. Todas las instrucciones y recursos disponibles una vez que inicie sesión bajo el menú AYUDA.";
+        }
+        if  (language.equals(FR)) {
+            return "L'interface IZI.CMS vous permet de créer, de tester et de publier rapidement une visite audioguidée. Toutes les instructions et les ressources sont disponibles, après connexion, dans le menu HELP (Aide).";
+        }
+        if   (language.equals(IT)) {
+            return "L'interfaccia CMS di izi.TRAVEL ti consente di creare, testare e pubblicare velocemente un'audioguida. Dopo aver effettuato l'accesso, tutte le istruzioni e le risorse sono disponibili nel menu HELP.";
+        }
+        if   (language.equals(NL)) {
+            return "Met de izi.TRAVEL CMS interface kunt u snel een audiogids maken, testen en publiceren. U vindt alle aanwijzingen en hulp als u inlogt in het CMS via het HELP menu.";
+        }
+        if   (language.equals(PT)) {
+            return "A interface do IZI.CMS permite a você criar, testar e publicar rapidamente um audioguia. Todas as instruções e recursos estão disponíveis ao efetuar login, no menu AJUDA.";
+        }
+        if   (language.equals(RO)) {
+            return "Interfaţa IZI.CMS vă permite să creaţi rapid un ghid audio, să îl testaţi şi să-l publicaţi. Toate instrucţiunile şi resursele sunt disponibile după autentificare, în meniul HELP.";
+        }
+        if   (language.equals(RU)){
+            return "Удобный веб-интерфейс IZI.CMS позволит быстро создать, протестировать и опубликовать готовый аудиогид. Для вашей работы подготовлена вся необходимая справочная информация и рекомендации.";
+        }
+        if   (language.equals(SV)) {
+            return "IZI.CMS gränssnitt låter dig snabbt skapa, testa och publicera en ljudguide. Alla instruktioner och resurser finns tillgängliga efter inloggningen under HJÄLP-menyn.";
+        }
+        if  (language.equals(ZH)) {
+            return "IZI.CMS接口允许您快速创建，测试并发布一段语音导览。登录后，所有说明和资源都在帮助菜单下。";
+        }
+        throw new Error("Unknown lang" + language);
+
+    }
 }

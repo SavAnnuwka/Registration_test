@@ -1,30 +1,26 @@
-ноя 22, 2014 6:59:44 PM main.java.testBase setUp
+дек 07, 2014 12:05:31 AM main.java.testBase setUp
 FINE: setUp start
-ноя 22, 2014 6:59:44 PM main.java.testBase setUp
+дек 07, 2014 12:05:31 AM main.java.testBase setUp
 FINE: setUp end
-ноя 22, 2014 7:00:07 PM main.java.testBase tearDown
+дек 07, 2014 12:05:56 AM test.java.CheckText_test checkMainRegistrationPage
+INFO: Check title and description. Use lang:pt
+дек 07, 2014 12:06:07 AM main.java.testBase takeScreenshotWhenFail
+SEVERE: <a href='E:\QA\AutoTests\pictures\checkMainRegistrationPage.png'>checkMainRegistrationPage</a>
+дек 07, 2014 12:06:07 AM main.java.testBase tearDown
 FINE: tearDown start
-ноя 22, 2014 7:00:09 PM main.java.testBase tearDown
+дек 07, 2014 12:06:08 AM main.java.testBase tearDown
 FINE: tearDown end
-ноя 22, 2014 7:00:09 PM main.java.testBase tearDown
+дек 07, 2014 12:06:08 AM main.java.testBase tearDown
 INFO: -------------------------------------------------------------
-ноя 22, 2014 7:03:08 PM main.java.testBase setUp
+дек 07, 2014 12:07:16 AM main.java.testBase setUp
 FINE: setUp start
-ноя 22, 2014 7:03:08 PM main.java.testBase setUp
+дек 07, 2014 12:07:16 AM main.java.testBase setUp
 FINE: setUp end
-ноя 22, 2014 7:03:29 PM test.java.SmokeRegistration_test positiveTest
-INFO: positiveTest start
-ноя 22, 2014 7:03:32 PM main.java.testBase takeScreenshotWhenFail
-SEVERE: <a href='E:\QA\AutoTests\pictures\positiveTest.png'>positiveTest</a>
-ноя 22, 2014 7:03:32 PM main.java.testBase tearDown
+дек 07, 2014 12:07:49 AM test.java.CheckText_test checkMainRegistrationPage
+INFO: Check title and description. Use lang:fr
+дек 07, 2014 12:07:50 AM main.java.testBase tearDown
 FINE: tearDown start
-ноя 22, 2014 7:03:33 PM main.java.testBase tearDown
+дек 07, 2014 12:07:51 AM main.java.testBase tearDown
 FINE: tearDown end
-ноя 22, 2014 7:03:33 PM main.java.testBase tearDown
+дек 07, 2014 12:07:51 AM main.java.testBase tearDown
 INFO: -------------------------------------------------------------
-ноя 22, 2014 7:04:35 PM main.java.testBase setUp
-FINE: setUp start
-ноя 22, 2014 7:04:35 PM main.java.testBase setUp
-FINE: setUp end
-ноя 22, 2014 7:04:58 PM test.java.SmokeRegistration_test positiveTest
-INFO: positiveTest start

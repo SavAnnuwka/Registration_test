@@ -1,9 +1,7 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 
 public class RegistrationHelper  extends HelperWithWebDriverBase {
@@ -49,14 +47,6 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         return  findElement(app.getUIMap().getLocator(locator)).getAttribute("value").toString();
     }
 
-
-
-    /**
-     * ERRORs
-     */
-    public String checkError(String locator) {
-        return findElement(app.getUIMap().getLocator(locator)).getText();
-    }
 
 
     /**
