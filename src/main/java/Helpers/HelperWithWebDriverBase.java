@@ -1,10 +1,7 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,10 +24,21 @@ public class HelperWithWebDriverBase extends HelperBase{
         return driver.findElement(linkText);
     }
     protected void fillTextField( String text, By locator) {
-        WebElement  field = findElement(locator);
-        field.clear();
-        field.sendKeys(text);
+            WebElement field = findElement(locator);
+            field.clear();
+            field.sendKeys(text);
+
     }
+    protected void fillTextFieldFromClipBoard(String text, By locator) {
+        app.getWindowsHelper().setClipBoardContent(text);
+        WebElement field = findElement(locator);
+        field.clear();
+        field.sendKeys(Keys.CONTROL+"v");
+    }
+    public String getText(String locator) {
+        return findElement(app.getUIMap().getLocator(locator)).getText();
+    }
+
 
     protected void  switchTo(String handle) {
        driver.switchTo().window(handle);
@@ -38,7 +46,6 @@ public class HelperWithWebDriverBase extends HelperBase{
     protected void  activeElement() {
         driver.switchTo().activeElement();
     }
-
     public void  wait(By linkText)
     { WebDriverWait wait = new WebDriverWait(driver, 60);
       wait.until(ExpectedConditions.visibilityOfElementLocated(linkText));

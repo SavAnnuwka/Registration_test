@@ -2,7 +2,7 @@
     <test  name="tests">
         <classes>
             <!--  <class name="test.java.CorrectRegistration_test"/>-->
-             <class name="test.java.Additional_tests"/>
+             <class name="test.java.CheckText_test"/>
             <!--   <class name="test.java.Additional_tests"/>-->
           </classes>
       </test>

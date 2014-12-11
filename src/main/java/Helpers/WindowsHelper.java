@@ -2,25 +2,25 @@ package main.java.Helpers;
 
 import main.java.ApplicationManager;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.util.Set;
 
 /**
- * Created by Anna on 13.11.2014.
+ * HANDLER
  */
-public class WindowHandlerHelper extends HelperWithWebDriverBase {
+public class WindowsHelper extends HelperWithWebDriverBase {
     private String originalHandle;
     private String mailHandle;
 
-
-    public WindowHandlerHelper(ApplicationManager app) {
+    public WindowsHelper(ApplicationManager app) {
         super(app);
         originalHandle = getWindowHandle();
     }
-
     public static String getOriginalHandle(String originalHandle) {
        return originalHandle;
     }
-
     public void WaitLoadHandle(String handle) {
 
         try {
@@ -35,10 +35,9 @@ public class WindowHandlerHelper extends HelperWithWebDriverBase {
             System.err.println("Couldn't get to second page");
         }
     }
-
     public void openNewMailWindow(String url) {
         final Set<String> WindowsSet = getWindowHandles();
-        WindowHandlerHelper.getOriginalHandle(originalHandle);
+        WindowsHelper.getOriginalHandle(originalHandle);
         mailHandle= openInNewWindow (url);
         goToWindow(mailHandle);
         WaitLoadHandle(mailHandle);
@@ -60,4 +59,14 @@ public class WindowHandlerHelper extends HelperWithWebDriverBase {
     {
         goToWindow(mailHandle);
     }
+
+    /**
+     * Action with keyBoard
+     */
+    public void setClipBoardContent (String text){
+        StringSelection stringSelection=new StringSelection(text);
+        Clipboard clipboard= Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, null);
+    }
+
 }

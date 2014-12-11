@@ -15,8 +15,9 @@ public class ApplicationManager {
     private ScreenshotHelper screenshotHelper;
     private RegistrationHelper registrationHelper;
     private MailHelper mailHelper;
-    private WindowHandlerHelper windowHandlerHelper;
+    private WindowsHelper windowHandlerHelper;
     private UIMap uiMap;
+    private LanguagesHelper languagesHelper;
 
 
     public static ApplicationManager getInstance() {
@@ -56,13 +57,19 @@ public class ApplicationManager {
         return mailHelper;
     }
 
-    public WindowHandlerHelper getWindowHandlerHelper() {
+    public WindowsHelper getWindowsHelper() {
         if (windowHandlerHelper == null) {
-            windowHandlerHelper = new WindowHandlerHelper(this);
+            windowHandlerHelper = new WindowsHelper(this);
         }
         return windowHandlerHelper;
     }
 
+    public LanguagesHelper getLanguagesHelper() {
+        if (languagesHelper == null) {
+            languagesHelper = new LanguagesHelper(this);
+        }
+        return languagesHelper;
+    }
 
     public UIMap getUIMap() {
         if (uiMap == null) {
