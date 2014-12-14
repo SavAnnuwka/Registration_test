@@ -1,23 +1,26 @@
 <configuration>
-    <timestamp key="bySecond" datePattern="yyyyMMdd'_Time_'HHmmss"/>
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-        <filter class ="ch.qos.logback.classic.filter.ThresholdFilter" >
-            <level> "INFO" </level>
-        </filter>
-    </appender>
-    <appender name="file" class="ch.qos.logback.core.FileAppender">
+    <timestamp key="bySecond" datePattern="yyyyMMdd'_'HHmmss"/>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+
+    <encoder>
+        <pattern>%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{36} - %msg%n</pattern>
+    </encoder>
+    <filter class ="ch.qos.logback.classic.filter.ThresholdFilter" >
+        <level> "INFO" </level>
+    </filter>
+</appender>
+
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
      <file>logs/log-${bySecond}.txt</file>
-        <!--    <fileNamePattern>%d{HH:mm:ss.SSS}</fileNamePattern>    -->
-       <!--    <file>logs/mylog.%d{yyyy-MM-dd}.log</file>  -->
          <encoder>
              <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
          </encoder>
      </appender>
+
+
+
      <root level="debug">
-     <!--    <appender-ref ref="CONSOLE" />     -->
-        <appender-ref ref="file" />
+         <appender-ref ref="FILE" />
     </root>
 </configuration>

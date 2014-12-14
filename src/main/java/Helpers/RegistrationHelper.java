@@ -14,11 +14,15 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
      * URL
      */
     public String getRegistrationURL() {
-        return app.getProperty("baseURL") + "/registrations/new";
+        return app.getProperty("baseURL") + app.getProperty("registerURL");
     }
    public  void goToRegistrationPageFromURL() {
-        app.getWebDriverHelper().openUrl(app.getRegistrationHelper().getRegistrationURL());
+       if (currentUrl() != getRegistrationURL())
+       {
+           app.getWebDriverHelper().openUrl(getRegistrationURL());
+       }
     }
+
    /* public void goToRegistrationFromMainPage()  {
         WebElement link = findElement(app.getUIMap().getLocator("registration_link"));
         link.click();
