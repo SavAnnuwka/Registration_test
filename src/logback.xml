@@ -8,30 +8,16 @@
             <level> "INFO" </level>
         </filter>
     </appender>
-
     <appender name="file" class="ch.qos.logback.core.FileAppender">
      <file>logs/log-${bySecond}.txt</file>
+        <!--    <fileNamePattern>%d{HH:mm:ss.SSS}</fileNamePattern>    -->
+       <!--    <file>logs/mylog.%d{yyyy-MM-dd}.log</file>  -->
          <encoder>
              <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-
          </encoder>
      </appender>
-
-    <logger name="main.java.testLogFile" level="INFO" >
-                <appender-ref ref="console" />
-    </logger>
-
-    <logger name="ch.qos.logback.*" level="DEBUG" >
+     <root level="debug">
+     <!--    <appender-ref ref="CONSOLE" />     -->
         <appender-ref ref="file" />
-    </logger>
-
-
-    <!-- <root level="INFO">
-          <appender-ref ref="console"/>
-      </root>
-
-                  -->
-     <root level="DEBUG">
-          <appender-ref ref="file" />
-      </root>
+    </root>
 </configuration>

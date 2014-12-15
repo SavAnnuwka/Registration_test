@@ -13,7 +13,9 @@ public class HelperWithWebDriverBase extends HelperBase{
 
 
 	private WebDriver driver;
-	
+
+    public String currentUrl() {return driver.getCurrentUrl();
+    }
 	public HelperWithWebDriverBase(ApplicationManager app) {
         super(app);
 		driver = app.getWebDriverHelper().getDriver();

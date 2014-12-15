@@ -21,10 +21,10 @@ public class testBase {
     static{
 
         Logger.getLogger("").setLevel(Level.ALL);
-        for (Handler h:Logger.getLogger("").getHandlers())
-        {
-            Logger.getLogger("").removeHandler(h);
-        }
+      //  for (Handler h:Logger.getLogger("").getHandlers())
+     //   {
+      //      Logger.getLogger("").removeHandler(h);
+      //  }
         SLF4JBridgeHandler.install();
         SysOutOverSLF4J.sendSystemOutAndErrToSLF4J();
         StatusPrinter.print((LoggerContext) LoggerFactory.getILoggerFactory());
@@ -65,6 +65,7 @@ public class testBase {
    @BeforeMethod
     public void goToRegisterPageAndSelectLang()
     {
+
         app.getRegistrationHelper().goToRegistrationPageFromURL();
         language =  app.getLanguagesHelper().selectLanguage();
         System.out.println("before");
