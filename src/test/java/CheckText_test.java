@@ -18,7 +18,9 @@ public class CheckText_test extends testBase {
         public void checkMainRegistrationPage(){
         log.log(Level.INFO, "Check title and description. Use lang:" + language);
         assertThat( app.getRegistrationHelper().getText("register.title"), equalTo(Constants.getTitleLanguage(language)));
-        assertThat( app.getRegistrationHelper().getText("register.description"), equalTo(Constants.getDescriptionLanguage(language)));
+        System.out.println("Selenium:" + app.getRegistrationHelper().getText("register.title"));
+        System.out.println("Constant:" + equalTo(Constants.getTitleLanguage(language)));
+        assertThat(app.getRegistrationHelper().getText("register.description"), equalTo(Constants.getDescriptionLanguage(language)));
 
     }
 
