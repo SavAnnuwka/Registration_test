@@ -19,7 +19,7 @@ public class IncorrectRegistration_test extends testBase {
     //all fields are EMPTY
     public void incorrectAllEmptyFields() throws InterruptedException, UnsupportedEncodingException {
         log.log(Level.INFO, "Incorrect test: All Empty fields start. Use lang:" + language);
-       app.getRegistrationHelper().fillRegistrationForm("", "", "");
+        app.getRegistrationHelper().fillRegistrationForm("", "", "");
         app.getRegistrationHelper().clickRegisterButtonPage1();
         assertThat( app.getRegistrationHelper().getText("register.username.error"), equalTo(Constants.getEmptyErrorLanguage(language)));
         log.log( Level.INFO, Constants.getEmptyErrorLanguage(language));
@@ -30,7 +30,7 @@ public class IncorrectRegistration_test extends testBase {
     }
 
    //all fields are LONG
-   @Test (enabled = true, dataProvider = "registrationLongData", dataProviderClass = DataGenerator.class )
+   @Test (groups = {"default"}, enabled = true, dataProvider = "registrationLongData", dataProviderClass = DataGenerator.class )
     public void incorrectAllLongFields(String longName, String longOrg, String longEmail) throws InterruptedException {
         log.log(Level.INFO, "Incorrect test: All Long fields start. Use lang:" + language);
         app.getWebDriverHelper().openUrl(app.getRegistrationHelper().getRegistrationURL());
@@ -41,7 +41,7 @@ public class IncorrectRegistration_test extends testBase {
     }
 
     //Email incorrect
-    @Test (enabled = true, dataProvider = "registrationIncorrectEmailData", dataProviderClass = DataGenerator.class)
+    @Test (groups = {"default"}, enabled = true, dataProvider = "registrationIncorrectEmailData", dataProviderClass = DataGenerator.class)
     public void incorrectEmailFields(String name, String org, String incorrectEmail)
      {
          log.log(Level.INFO, "Incorrect test: email. Use lang:" + language);
@@ -52,7 +52,7 @@ public class IncorrectRegistration_test extends testBase {
      }
 
     //checkbox is unchecked
-    @Test (dataProvider = "registrationSimpleData", dataProviderClass = DataGenerator.class)
+    @Test (groups = {"default"}, dataProvider = "registrationSimpleData", dataProviderClass = DataGenerator.class)
     public void checkBoxIsUnselected(String name, String org, String email)
     {    log.log(Level.INFO, "Incorrect test: checkbox is unchecked. Use lang:" + language);
          app.getRegistrationHelper().fillRegistrationFormFromClipBoard(name, org, email);
@@ -61,7 +61,4 @@ public class IncorrectRegistration_test extends testBase {
          assertThat(app.getRegistrationHelper().getText("register.checkbox.error"), equalTo(Constants.getIncorrectCheckBoxLanguage(language)));
 
     }
-
-
-
     }

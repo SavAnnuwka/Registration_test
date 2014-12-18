@@ -28,7 +28,7 @@ public class Additional_tests extends testBase {
     }
 
 
-    @Test
+    @Test (groups = {"default"})
    // one  field is empty
     public void incorrectOneEmptyFields() throws InterruptedException, UnsupportedEncodingException {
         log.log(Level.INFO, "Incorrect test: One empty fields start. Use lang:" + language);
@@ -38,7 +38,7 @@ public class Additional_tests extends testBase {
 
     }
 
-   // @Test
+   // @Test  (groups = "default")
     public void failMethod() throws InterruptedException, IOException {
         app.getRegistrationHelper().goToRegistrationPageFromURL();
         assertThat(0,equalTo(0));

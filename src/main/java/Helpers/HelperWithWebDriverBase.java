@@ -19,7 +19,7 @@ public class HelperWithWebDriverBase extends HelperBase{
 	public HelperWithWebDriverBase(ApplicationManager app) {
         super(app);
 		driver = app.getWebDriverHelper().getDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		}
 
     public WebElement findElement(By linkText) {
@@ -39,6 +39,7 @@ public class HelperWithWebDriverBase extends HelperBase{
     }
     public String getText(String locator) {
         return findElement(app.getUIMap().getLocator(locator)).getText();
+
     }
 
 

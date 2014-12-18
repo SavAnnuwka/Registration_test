@@ -1,5 +1,7 @@
 package main.java.UI;
 
+import org.hamcrest.Matcher;
+
 import java.io.UnsupportedEncodingException;
 
 
@@ -48,7 +50,6 @@ public class Constants {
             return "Это поле должно быть заполнено.";
         }
         if   (language.equals(PT)) {
-             //????//
             return new  String( "Campo obrigatório não pode ser deixado em branco.".getBytes("UTF-8"), "UTF-8") ;
 
         }
@@ -294,4 +295,81 @@ public class Constants {
         throw new Error("Unknown lang" + language);
 
     }
+
+    public static String getConfirmCheckboxLanguage(String language) {
+        if   (language.equals(EN)) {
+            return "I agree to the terms and conditions of the license agreement";
+        }
+        if   (language.equals(DE)) {
+            return "Ich stimme den allgemeinen Lizenzrichtlinien zu";
+        }
+        if   (language.equals(ES)) {
+            return "Acepto los términos y condiciones del acuerdo de licencia";
+        }
+        if  (language.equals(FR)) {
+            return "J'accepte les Conditions générales de l'accord de licence";
+        }
+        if   (language.equals(IT)) {
+            return "Accetto i termini e le condizioni stabiliti nell'accordo di licenza";
+        }
+        if   (language.equals(NL)) {
+            return "Ik ga akkoord met de voorwaarden van de licentieovereenkomst";
+        }
+        if   (language.equals(PT)) {
+            return "Concordo com os termos e condições do contrato de licença";
+        }
+        if   (language.equals(RO)) {
+            return "Sunt de acord cu termenii și condițiile acordului de licență";
+        }
+        if   (language.equals(RU)){
+            return "Я согласен с условиями лицензионного соглашения";
+        }
+        if   (language.equals(SV)) {
+            return "Jag godkänner regler och villkor för licensavtalet";
+        }
+        if  (language.equals(ZH)) {
+            return "我同意本许可协议的条款和条件";
+        }
+        throw new Error("Unknown lang" + language);
+    }
+
+
+    public static String getMailText(String language) {
+        if   (language.equals(EN)) {
+            return "Cet e-mail a été émis lors de votre inscription sur le site";
+
+        }
+        if   (language.equals(DE)) {
+            return " Diese E-Mail wurde während der Registrierung auf der";
+        }
+        if   (language.equals(ES)) {
+            return "Este correo electrónico se ha generado durante el registro en la página";
+        }
+        if  (language.equals(FR)) {
+            return "Cet e-mail a été émis lors de votre inscription sur le site ";
+        }
+        if   (language.equals(IT)) {
+            return "Questa email è stata fornita durante la registrazione per il sito";
+        }
+        if   (language.equals(NL)) {
+            return "Deze e-mail werd verstuurd tijdens de registratie voor de site";
+        }
+        if   (language.equals(PT)) {
+            return "Această adresă de e-mail a fost furnizată în momentul înregistrării pe site-ul";
+        }
+        if   (language.equals(RO)) {
+            return "Această adresă de e-mail a fost furnizată în momentul înregistrării pe site-ul";
+        }
+        if   (language.equals(RU)){
+            return "Ваш почтовый адрес был указан при регистрации на сайте";
+        }
+        if   (language.equals(SV)) {
+            return "Este correo electrónico se ha generado durante el registro en la página";
+        }
+        if  (language.equals(ZH)) {
+            return "这个在注册中提供的邮件将给与";
+        }
+        throw new Error("Unknown lang" + language);
+    }
+
 }
