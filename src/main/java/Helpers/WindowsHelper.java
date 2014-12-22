@@ -13,6 +13,7 @@ import java.util.Set;
 public class WindowsHelper extends HelperWithWebDriverBase {
     private String originalHandle;
     private String mailHandle;
+    private String CMSHandle;
 
     public WindowsHelper(ApplicationManager app) {
         super(app);
@@ -51,6 +52,7 @@ public class WindowsHelper extends HelperWithWebDriverBase {
             } else System.out.println(handle +"page is not exist");
         }
     }
+
     public void switchToOriginalPage()
     {
         goToWindow(originalHandle);
@@ -59,7 +61,14 @@ public class WindowsHelper extends HelperWithWebDriverBase {
     {
         goToWindow(mailHandle);
     }
-
+    public void switchToCMSPage()
+    {
+        goToWindow(CMSHandle);
+    }
+    public void getCMSHandle()
+    {
+        CMSHandle=getWindowHandle();
+    }
     /**
      * Action with keyBoard
      */
@@ -68,5 +77,7 @@ public class WindowsHelper extends HelperWithWebDriverBase {
         Clipboard clipboard= Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
     }
-
+    public String getCurrentUrl() {
+        return super.currentUrl();
+    }
 }

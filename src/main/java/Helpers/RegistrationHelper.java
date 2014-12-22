@@ -16,6 +16,10 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     public String getRegistrationURL() {
         return app.getProperty("baseURL") + app.getProperty("registerURL");
     }
+
+    public String getNewUserURL() {
+        return app.getProperty("baseURL") + app.getProperty("newUserURL");
+    }
    public  void goToRegistrationPageFromURL() {
        if (currentUrl() != getRegistrationURL())
        {

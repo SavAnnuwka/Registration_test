@@ -336,7 +336,7 @@ public class Constants {
 
     public static String getMailText(String language) {
         if   (language.equals(EN)) {
-            return "Cet e-mail a été émis lors de votre inscription sur le site";
+            return "This e-mail was provided during registration for the";
 
         }
         if   (language.equals(DE)) {
@@ -346,7 +346,7 @@ public class Constants {
             return "Este correo electrónico se ha generado durante el registro en la página";
         }
         if  (language.equals(FR)) {
-            return "Cet e-mail a été émis lors de votre inscription sur le site ";
+            return "Diese E-Mail wurde während der Registrierung  auf der";
         }
         if   (language.equals(IT)) {
             return "Questa email è stata fornita durante la registrazione per il sito";
@@ -355,7 +355,7 @@ public class Constants {
             return "Deze e-mail werd verstuurd tijdens de registratie voor de site";
         }
         if   (language.equals(PT)) {
-            return "Această adresă de e-mail a fost furnizată în momentul înregistrării pe site-ul";
+            return "Este endereço de e-mail foi fornecido durante a inscrição para o site";
         }
         if   (language.equals(RO)) {
             return "Această adresă de e-mail a fost furnizată în momentul înregistrării pe site-ul";
@@ -364,7 +364,7 @@ public class Constants {
             return "Ваш почтовый адрес был указан при регистрации на сайте";
         }
         if   (language.equals(SV)) {
-            return "Este correo electrónico se ha generado durante el registro en la página";
+            return "Denna e-postadress angavs under registrering på webbplatsen";
         }
         if  (language.equals(ZH)) {
             return "这个在注册中提供的邮件将给与";

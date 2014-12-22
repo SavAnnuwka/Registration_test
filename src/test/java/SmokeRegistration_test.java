@@ -49,14 +49,16 @@ public class SmokeRegistration_test extends testBase{
         Assert.assertEquals( app.getRegistrationHelper().checkPage(3), true) ;     //добавить wait
         log.log( Level.INFO, "Page 3 was open");
         app.getWindowsHelper().switchToMailPage();
-        Assert.assertEquals(app.getMailHelper().emptyMail(), true);
+        Assert.assertEquals(app.getMailHelper().emptyMail(), false);
         log.log( Level.INFO, "mail "+ correctEmail +" is not empty");
-        //найти ссылку и перейти по ней - extended
+         checkMailText();
+         checkMailLink();
         log.log( Level.INFO, "positiveTest stop");
         app.getWindowsHelper().switchToOriginalPage();
     }
 
  //  @Test(groups = {"default"}, enabled=false,dependsOnMethods = { "positiveTest"}, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
+  //move  to incorrect test
    public void alreadyRegisterEmail (String simpleName, String simpleOrg ){
        log.log( Level.INFO, "Already get  email test start . LANG: \" + language ");
        app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, correctEmail);
@@ -65,16 +67,30 @@ public class SmokeRegistration_test extends testBase{
        log.log( Level.INFO, Constants.getAlreadyExistErrorLanguage(language));
    }
 
-     @Test ( dependsOnMethods = { "positiveTest"})
-    public void checkMail () {
+    // @Test ( dependsOnMethods = { "positiveTest"})
+
+    public void checkMailText() {
          //пока запускается before и меняется lang
         log.log( Level.INFO, "check mail text start");
         app.getWindowsHelper().switchToMailPage();
+        //move to main test
+        log.log( Level.INFO, app.getMailHelper().getMailtext());
          assertThat(app.getMailHelper().getMailtext().contains(Constants.getMailText(language)), equalTo(true));
     }
 
-  //begin register in CMS!
+    public void checkMailLink() {
+        //пока запускается before и меняется lang
+        log.log( Level.INFO, "check mail link  start");
+        app.getWindowsHelper().switchToMailPage();
+        app.getMailHelper().goToMailLink();
+        app.getWindowsHelper().getCMSHandle();
+        assertThat(app.getWindowsHelper().getCurrentUrl() , equalTo(app.getRegistrationHelper().getNewUserURL()));
+    }
+
+
+    //begin register in CMS!
   //  @Test(groups = {"default"}, enabled=false, dependsOnMethods = { "positiveTest","alreadyRegisterEmail" }, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
+    //move  to incorrect test
     public void alreadyExistInDataBaseEmail (String simpleName, String simpleOrg ){
         log.log( Level.INFO, "Already register email start. LANG: " + language );
         correctEmail = "bvozgzesqzaq@dropmail.me";

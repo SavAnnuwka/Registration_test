@@ -42,4 +42,18 @@ public class MailHelper   extends HelperWithWebDriverBase {
         }
     }
 
+    public WebElement getMailLink() {
+        try{
+            return  findElement(app.getUIMap().getLocator("email.link"));
+        }
+        catch (NoSuchElementException  e) {
+            System.err.println(MessageFormat.format("No element and exception ", e.getMessage()));
+            return null;
+        }
+    }
+
+    public void goToMailLink() {
+         WebElement linkFromMail =   getMailLink();
+         linkFromMail.click();
+    }
 }
