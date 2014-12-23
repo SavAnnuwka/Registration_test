@@ -51,7 +51,9 @@ public class SmokeRegistration_test extends testBase{
         app.getWindowsHelper().switchToMailPage();
         Assert.assertEquals(app.getMailHelper().emptyMail(), false);
         log.log( Level.INFO, "mail "+ correctEmail +" is not empty");
+         //отдельно
          checkMailText();
+         //отдельно
          checkMailLink();
         log.log( Level.INFO, "positiveTest stop");
         app.getWindowsHelper().switchToOriginalPage();
@@ -84,6 +86,7 @@ public class SmokeRegistration_test extends testBase{
         app.getWindowsHelper().switchToMailPage();
         app.getMailHelper().goToMailLink();
         app.getWindowsHelper().getCMSHandle();
+        log.log( Level.INFO, app.getWindowsHelper().getCurrentUrl());
         assertThat(app.getWindowsHelper().getCurrentUrl() , equalTo(app.getRegistrationHelper().getNewUserURL()));
     }
 

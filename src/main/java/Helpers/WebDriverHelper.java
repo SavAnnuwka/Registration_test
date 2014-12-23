@@ -19,15 +19,17 @@ public class WebDriverHelper {
         if (driver==null) {
             if ("firefox".equals(browser)) {
                 driver = new FirefoxDriver();
+
             } else if ("chrome".equals(browser)) {
                 String path = manager.getProperty("pathWebDriverChrome");
                 System.setProperty("webdriver.chrome.driver", path);
                 driver = new ChromeDriver();
             }
         }
-		String temp = manager.getProperty("implicitWait" , "11");
+		String temp = manager.getProperty("implicitWait");
 		driver.manage().timeouts().implicitlyWait(
 				Integer.parseInt(temp), TimeUnit.SECONDS);
+
 		driver.get(manager.getProperty("baseURL"));
 	}
 	

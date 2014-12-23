@@ -2,8 +2,10 @@ package main.java.Helpers;
 
 
 import main.java.ApplicationManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.text.MessageFormat;
 
@@ -21,16 +23,20 @@ public class MailHelper   extends HelperWithWebDriverBase {
         return  email.getText();
     }
     public boolean emptyMail() {
-       try {
-           if (findElement(app.getUIMap().getLocator("email.counter")).getText().isEmpty())
-               return true;
-           else return false;
-       }
-       catch(NoSuchElementException e) {
-           System.err.println(MessageFormat.format("No element and exception {0}", e.getMessage()));
-           return Boolean.parseBoolean(null);
-       }
-    }
+     By locator = app.getUIMap().getLocator("email.counter");
+        waitElement(20).until(ExpectedConditions.visibilityOfElementLocated(locator));
+            try {
+                if (findElement(locator).getText().isEmpty())
+                    return true;
+                else return false;
+            } catch (NoSuchElementException e) {
+                System.err.println(MessageFormat.format("No element and exception {0}", e.getMessage()));
+                return Boolean.parseBoolean(null);
+            }
+        }
+
+
+
 
     public String  getMailtext() {
         try{

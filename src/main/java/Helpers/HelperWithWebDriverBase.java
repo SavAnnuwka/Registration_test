@@ -16,6 +16,10 @@ public class HelperWithWebDriverBase extends HelperBase{
 
     public String currentUrl() {return driver.getCurrentUrl();
     }
+    public WebDriverWait waitElement(int time) {
+        return new WebDriverWait(driver, time);
+
+    }
 	public HelperWithWebDriverBase(ApplicationManager app) {
         super(app);
 		driver = app.getWebDriverHelper().getDriver();

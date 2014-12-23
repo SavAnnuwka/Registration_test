@@ -343,7 +343,7 @@ public class Constants {
             return " Diese E-Mail wurde während der Registrierung auf der";
         }
         if   (language.equals(ES)) {
-            return "Este correo electrónico se ha generado durante el registro en la página";
+            return "Hemos recibido este correo electrónico durante el registro en la página";
         }
         if  (language.equals(FR)) {
             return "Diese E-Mail wurde während der Registrierung  auf der";
