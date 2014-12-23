@@ -340,13 +340,13 @@ public class Constants {
 
         }
         if   (language.equals(DE)) {
-            return " Diese E-Mail wurde während der Registrierung auf der";
+            return "Diese E-Mail wurde während der Registrierung auf der";
         }
         if   (language.equals(ES)) {
             return "Hemos recibido este correo electrónico durante el registro en la página";
         }
         if  (language.equals(FR)) {
-            return "Diese E-Mail wurde während der Registrierung  auf der";
+            return "Cet e-mail a été émis lors de votre inscription sur le site";
         }
         if   (language.equals(IT)) {
             return "Questa email è stata fornita durante la registrazione per il sito";
@@ -358,7 +358,7 @@ public class Constants {
             return "Este endereço de e-mail foi fornecido durante a inscrição para o site";
         }
         if   (language.equals(RO)) {
-            return "Această adresă de e-mail a fost furnizată în momentul înregistrării pe site-ul";
+            return "Această adresă de e-mail a fost furnizată în cursul înregistrării pe site-ul";
         }
         if   (language.equals(RU)){
             return "Ваш почтовый адрес был указан при регистрации на сайте";

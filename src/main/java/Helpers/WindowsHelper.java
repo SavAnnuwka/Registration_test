@@ -22,7 +22,7 @@ public class WindowsHelper extends HelperWithWebDriverBase {
     public static String getOriginalHandle(String originalHandle) {
        return originalHandle;
     }
-    public void WaitLoadHandle(String handle) {
+    public void waitLoadHandle(String handle) {
 
         try {
             for (String i : getWindowHandles()) {
@@ -33,7 +33,7 @@ public class WindowsHelper extends HelperWithWebDriverBase {
             }
         }
         catch(Exception e){
-            System.err.println("Couldn't get to second page");
+            System.err.println("Couldn't get  page");
         }
     }
     public void openNewMailWindow(String url) {
@@ -41,14 +41,27 @@ public class WindowsHelper extends HelperWithWebDriverBase {
         WindowsHelper.getOriginalHandle(originalHandle);
         mailHandle= openInNewWindow (url);
         goToWindow(mailHandle);
-        WaitLoadHandle(mailHandle);
+        waitLoadHandle(mailHandle);
 
     }
+
+
+    public Set<String> getCurrentListOfHandles()  {
+        return getWindowHandles();
+    }
+    public void  getCMSHandles(Set<String> OldList,Set<String> NewList ) {
+      NewList.removeAll(OldList);
+        CMSHandle=  NewList.iterator().next();
+      /* for(String winHandle: NewList ){
+           CMSHandle =  winHandle;
+        }   */
+    }
+
     public void goToWindow(String handle) {
         if (!handle.equals(getWindowHandle())) {
             if (handle!=null)  {
                 switchTo(handle);
-                WaitLoadHandle(handle);
+                waitLoadHandle(handle);
             } else System.out.println(handle +"page is not exist");
         }
     }
@@ -61,14 +74,9 @@ public class WindowsHelper extends HelperWithWebDriverBase {
     {
         goToWindow(mailHandle);
     }
-    public void switchToCMSPage()
-    {
-        goToWindow(CMSHandle);
-    }
-    public void getCMSHandle()
-    {
-        CMSHandle=getWindowHandle();
-    }
+    public void switchToCMSPage() {
+        goToWindow(CMSHandle);}
+
     /**
      * Action with keyBoard
      */
@@ -80,4 +88,6 @@ public class WindowsHelper extends HelperWithWebDriverBase {
     public String getCurrentUrl() {
         return super.currentUrl();
     }
+
+
 }

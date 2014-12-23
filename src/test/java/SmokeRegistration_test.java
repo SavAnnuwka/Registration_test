@@ -3,13 +3,16 @@ package test.java;
 
 import main.java.UI.Constants;
 import main.java.testBase;
+import org.hamcrest.core.StringContains;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
+import java.util.Set;
 import java.util.logging.Level;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
 public class SmokeRegistration_test extends testBase{
@@ -82,12 +85,17 @@ public class SmokeRegistration_test extends testBase{
 
     public void checkMailLink() {
         //пока запускается before и меняется lang
+        //need refactor
         log.log( Level.INFO, "check mail link  start");
         app.getWindowsHelper().switchToMailPage();
+        Set<String> OldList = app.getWindowsHelper().getCurrentListOfHandles();
         app.getMailHelper().goToMailLink();
-        app.getWindowsHelper().getCMSHandle();
+        Set<String> NewList = app.getWindowsHelper().getCurrentListOfHandles();
+        app.getWindowsHelper().getCMSHandles(OldList, NewList);
+        app.getWindowsHelper().switchToCMSPage();
         log.log( Level.INFO, app.getWindowsHelper().getCurrentUrl());
-        assertThat(app.getWindowsHelper().getCurrentUrl() , equalTo(app.getRegistrationHelper().getNewUserURL()));
+        assertThat(app.getWindowsHelper().getCurrentUrl() , containsString(app.getRegistrationHelper().getNewUserURL()));
+        app.getWindowsHelper().switchToOriginalPage();
     }
 
 
