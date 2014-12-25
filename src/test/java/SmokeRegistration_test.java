@@ -16,27 +16,10 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
 public class SmokeRegistration_test extends testBase{
-   // String correctEmail =  "btazbbytqroe@dropmail.me"; //for debug is already register
-   // String correctEmail =  "aewulrrw@yomail.info";//for debug is already get email
     String correctEmail;
 
-
-    public String  getEMail()
-    {   app.getWindowsHelper().openNewMailWindow(app.getProperty("temporaryMail"));
-        return  app.getMailHelper().getTemporaryEmail();
-    }
-
-
- //  @Test(enabled=false)
-   //check correctRegister Link
-    public void openRegistrationPage() {
-           app.getRegistrationHelper().goToRegistrationPageFromURL();
-           assertThat(app.getWebDriverHelper().getDriver().getCurrentUrl(), equalTo(app.getRegistrationHelper().getRegistrationURL()));
-    }
-
-    // correctRegister
-     @Test(groups = {"default"}, dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
-  //   @Test(enabled=true, dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
+     // correctRegister
+     @Test( dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
     public void positiveTest(String correctName, String correctOrg ) throws InterruptedException {
         log.log( Level.INFO, "positiveTest start. LANG = " + language);
         correctEmail = getEMail();
@@ -62,17 +45,6 @@ public class SmokeRegistration_test extends testBase{
         app.getWindowsHelper().switchToOriginalPage();
     }
 
- //  @Test(groups = {"default"}, enabled=false,dependsOnMethods = { "positiveTest"}, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
-  //move  to incorrect test
-   public void alreadyRegisterEmail (String simpleName, String simpleOrg ){
-       log.log( Level.INFO, "Already get  email test start . LANG: \" + language ");
-       app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, correctEmail);
-       app.getRegistrationHelper().clickRegisterButtonPage1();
-       assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constants.getAlreadyExistErrorLanguage(language)));
-       log.log( Level.INFO, Constants.getAlreadyExistErrorLanguage(language));
-   }
-
-    // @Test ( dependsOnMethods = { "positiveTest"})
 
     public void checkMailText() {
          //пока запускается before и меняется lang
@@ -82,7 +54,6 @@ public class SmokeRegistration_test extends testBase{
         log.log( Level.INFO, app.getMailHelper().getMailtext());
          assertThat(app.getMailHelper().getMailtext().contains(Constants.getMailText(language)), equalTo(true));
     }
-
     public void checkMailLink() {
         //пока запускается before и меняется lang
         //need refactor
@@ -97,19 +68,13 @@ public class SmokeRegistration_test extends testBase{
         assertThat(app.getWindowsHelper().getCurrentUrl() , containsString(app.getRegistrationHelper().getNewUserURL()));
         app.getWindowsHelper().switchToOriginalPage();
     }
-
-
-    //begin register in CMS!
-  //  @Test(groups = {"default"}, enabled=false, dependsOnMethods = { "positiveTest","alreadyRegisterEmail" }, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
-    //move  to incorrect test
-    public void alreadyExistInDataBaseEmail (String simpleName, String simpleOrg ){
-        log.log( Level.INFO, "Already register email start. LANG: " + language );
-        correctEmail = "bvozgzesqzaq@dropmail.me";
-        app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, correctEmail);
-        app.getRegistrationHelper().clickRegisterButtonPage1();
-        assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constants.getAlreadyExistInDatabaseErrorLanguage(language)));
-        log.log( Level.INFO, Constants.getAlreadyExistInDatabaseErrorLanguage(language));
+    public String  getEMail()
+    {   app.getWindowsHelper().openNewMailWindow(app.getProperty("temporaryMail"));
+        return  app.getMailHelper().getTemporaryEmail();
     }
+
+
+
 
 
 
