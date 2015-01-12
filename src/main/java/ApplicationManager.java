@@ -10,7 +10,6 @@ public class ApplicationManager {
 
     private static ApplicationManager singleton;
     private WebDriverHelper webDriverHelper;
-
     private Properties props;
     private ScreenshotHelper screenshotHelper;
     private RegistrationHelper registrationHelper;
@@ -18,7 +17,7 @@ public class ApplicationManager {
     private WindowsHelper windowHandlerHelper;
     private UIMap uiMap;
     private LanguagesHelper languagesHelper;
-
+    private NavigationHelper navigationHelper;
 
     public static ApplicationManager getInstance() {
         if (singleton == null) {
@@ -77,7 +76,12 @@ public class ApplicationManager {
         }
         return uiMap;
     }
-
+    public NavigationHelper getNavigationHelper() {
+        if (navigationHelper == null) {
+            navigationHelper = new NavigationHelper(this);
+        }
+        return navigationHelper;
+    }
 
     //properties
 	public void setProperties(Properties props) {

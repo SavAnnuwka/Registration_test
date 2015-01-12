@@ -1,6 +1,7 @@
 package test.java;
 
 
+import main.java.Helpers.RegistrationHelper;
 import main.java.UI.Constants;
 import main.java.testBase;
 import org.testng.annotations.Test;
@@ -33,8 +34,9 @@ public class IncorrectRegistration_test extends testBase {
    @Test (enabled = true, dataProvider = "registrationLongData", dataProviderClass = DataGenerator.class )
     public void incorrectAllLongFields(String longName, String longOrg, String longEmail) throws InterruptedException {
         log.log(Level.INFO, "Incorrect test: All Long fields start. Use lang:" + language);
-        app.getWebDriverHelper().openUrl(app.getRegistrationHelper().getRegistrationURL());
+        app.getWebDriverHelper().openUrl(app.getNavigationHelper().getRegistrationURL());
         app.getRegistrationHelper().fillRegistrationFormFromClipBoard(longName, longOrg, longEmail);
+       // переделать
         assertThat(app.getRegistrationHelper().getValue("register.name"), equalTo(longName.substring(0, 255)));
         assertThat(app.getRegistrationHelper().getValue("register.organisation"), equalTo(longOrg.substring(0, 255)));
         assertThat(app.getRegistrationHelper().getValue("register.email"), equalTo(longEmail.substring(0, 255)));

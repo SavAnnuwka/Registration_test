@@ -64,8 +64,8 @@ public class SmokeRegistration_test extends testBase{
         Set<String> NewList = app.getWindowsHelper().getCurrentListOfHandles();
         app.getWindowsHelper().getCMSHandles(OldList, NewList);
         app.getWindowsHelper().switchToCMSPage();
-        log.log( Level.INFO, app.getWindowsHelper().getCurrentUrl());
-        assertThat(app.getWindowsHelper().getCurrentUrl() , containsString(app.getRegistrationHelper().getNewUserURL()));
+        log.log( Level.INFO, app.getNavigationHelper().getCurrentUrl());
+        assertThat(app.getNavigationHelper().getCurrentUrl() , containsString(app.getNavigationHelper().getNewUserURL()));
         app.getWindowsHelper().switchToOriginalPage();
     }
     public String  getEMail()
