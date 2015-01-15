@@ -13,15 +13,17 @@ public class ErrorPage extends AnyPage {
         super(pages);
     }
 
-    @FindBy(id = "register.username.error")
+    @FindBy(css = ".error[for=registration_user_name]")
     private WebElement nameError;
 
-    @FindBy(id = "register.organisation.error")
+    @FindBy(css = ".error[for=registration_content_provider_name]")
     private WebElement organisationError;
 
-    @FindBy(id = "register.email.error")
+    @FindBy(css = ".error[for=registration_user_email]")
     private WebElement emailError;
 
+    @FindBy(css = ".error[for=\"registration[confirm]\"]")
+    private WebElement licenceAgreeError;
 
 
     public String getNameError() {
@@ -34,5 +36,9 @@ public class ErrorPage extends AnyPage {
 
     public String getEmailError() {
         return emailError.getText();
+    }
+
+    public String getLicenceAgreeError() {
+        return licenceAgreeError.getText();
     }
 }
