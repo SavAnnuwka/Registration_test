@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="11" passed="11">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Contact suite" duration-ms="59144" started-at="2014-12-25T10:43:43Z" finished-at="2014-12-25T10:44:42Z">
+    <groups>
+    </groups>
+    <test name="tests" duration-ms="59144" started-at="2014-12-25T10:43:43Z" finished-at="2014-12-25T10:44:42Z">
+      <class name="test.java.IncorrectRegistration_test">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="setUp" is-config="true" duration-ms="6" started-at="2014-12-25T14:43:43Z" finished-at="2014-12-25T14:43:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="18698" started-at="2014-12-25T14:43:43Z" finished-at="2014-12-25T14:44:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="alreadyExistInDataBaseEmail(java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="alreadyExistInDataBaseEmail" duration-ms="1873" started-at="2014-12-25T14:44:01Z" data-provider="registrationSimpleDataWithoutEmail" finished-at="2014-12-25T14:44:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Test name]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test organisation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- alreadyExistInDataBaseEmail -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:03Z" finished-at="2014-12-25T14:44:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=alreadyExistInDataBaseEmail status=SUCCESS method=IncorrectRegistration_test.alreadyExistInDataBaseEmail(java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="2117" started-at="2014-12-25T14:44:03Z" finished-at="2014-12-25T14:44:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="alreadyRegisterEmail(java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="alreadyRegisterEmail" duration-ms="353" started-at="2014-12-25T14:44:05Z" data-provider="registrationSimpleDataWithoutEmail" finished-at="2014-12-25T14:44:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Test name]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test organisation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- alreadyRegisterEmail -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:06Z" finished-at="2014-12-25T14:44:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=alreadyRegisterEmail status=SUCCESS method=IncorrectRegistration_test.alreadyRegisterEmail(java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="2848" started-at="2014-12-25T14:44:06Z" finished-at="2014-12-25T14:44:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="checkBoxIsUnselected(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="checkBoxIsUnselected" duration-ms="1593" started-at="2014-12-25T14:44:09Z" data-provider="registrationSimpleData" finished-at="2014-12-25T14:44:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Test name]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test organisation]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[testic@test.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkBoxIsUnselected -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:10Z" finished-at="2014-12-25T14:44:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=checkBoxIsUnselected status=SUCCESS method=IncorrectRegistration_test.checkBoxIsUnselected(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="3137" started-at="2014-12-25T14:44:10Z" finished-at="2014-12-25T14:44:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="incorrectAllEmptyFields()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="incorrectAllEmptyFields" duration-ms="612" started-at="2014-12-25T14:44:13Z" finished-at="2014-12-25T14:44:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectAllEmptyFields -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="1" started-at="2014-12-25T14:44:14Z" finished-at="2014-12-25T14:44:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=incorrectAllEmptyFields status=SUCCESS method=IncorrectRegistration_test.incorrectAllEmptyFields()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="2829" started-at="2014-12-25T14:44:14Z" finished-at="2014-12-25T14:44:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="incorrectAllLongFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="incorrectAllLongFields" duration-ms="1782" started-at="2014-12-25T14:44:17Z" data-provider="registrationLongData" finished-at="2014-12-25T14:44:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[xt*fxX+)g'%p!LRlC6X^L'O7(I-{%qbhkkT]%?/ox!|hn;T#@Hq^PtzP}DCS6@\#)3c_W%-c*:8}!T"v)Ao4rdC`,M<<d'B)$,7Dn6'_vtM~_@e+i,`}{5KZ?gp/qr%xnUgoU6q|W`P_A=Xc~%(P>'h"!s,#gd.4?u`,'h)$gY/}MV45rxO#|SD}Wr}G_d17YyB `)20IG(q7Qax()2~zsA9C0sDhFlVd<ayPLT~-qAMu}asNu]gc/}esgYQ}=`T]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[|QP{m\Dzc!U8/x,K2QVZS:&ANlljaFx>7)!;,WbWIPm-}#QW0`~!eDe1hPvXY0/:io6\VCIx.F@i7jh}1g~J+eyh`(mydKW+@*zN[O1E==wH\z[u2k4`M$Rw0j4tg@@&c;T26;qg`NI'JW{k2Fc/P3\g;~a_k(EL.b=L^?EJ&[.%iBFwL3b!Q/;Ja?U=gt3Q>l#$TJzz_M}j~l{/e?y<y^g@[v<fG*g1}o~lTgvc!U7@sS!P""W'5GgjCcXa66CO]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[vKso#C-W_Q90(hZ@;O~!Rb <W8Q|N^S__EW.P}e&hyRdwVR`hDbK8}* d&/k/N@e94+`)784Q1Y+Iv<@]x^}'2QUbR*#)&%+N(#GO4I\0O8"T<JrRZ2v?a5Ex-74CY,ii:'0FZW(vL;\SnDQ+Selz_kBLfezjC|/V(kJ^}8A.r}^PR,S58xOBxd|tz<gF/dBkUQb8O7+ZzShi(b>HDMK#5g~2a$|k'0b34_l@jQCn%oI9+"UnY<mVM#rX{so+^HA]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectAllLongFields -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:19Z" finished-at="2014-12-25T14:44:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=incorrectAllLongFields status=SUCCESS method=IncorrectRegistration_test.incorrectAllLongFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="3492" started-at="2014-12-25T14:44:19Z" finished-at="2014-12-25T14:44:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="incorrectEmailFields" duration-ms="831" started-at="2014-12-25T14:44:22Z" data-provider="registrationIncorrectEmailData" finished-at="2014-12-25T14:44:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[simple_name]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[simple_organisation]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[emailWithoutSobaka]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectEmailFields -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:23Z" finished-at="2014-12-25T14:44:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="2796" started-at="2014-12-25T14:44:23Z" finished-at="2014-12-25T14:44:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="incorrectEmailFields" duration-ms="830" started-at="2014-12-25T14:44:26Z" data-provider="registrationIncorrectEmailData" finished-at="2014-12-25T14:44:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[simple_name]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[simple_organisation]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[emailWithSobakaIntheEnd@]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectEmailFields -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:26Z" finished-at="2014-12-25T14:44:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="3209" started-at="2014-12-25T14:44:26Z" finished-at="2014-12-25T14:44:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="incorrectEmailFields" duration-ms="828" started-at="2014-12-25T14:44:30Z" data-provider="registrationIncorrectEmailData" finished-at="2014-12-25T14:44:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[simple_name]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[simple_organisation]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[email@WithoutTochka]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectEmailFields -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:30Z" finished-at="2014-12-25T14:44:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="2866" started-at="2014-12-25T14:44:30Z" finished-at="2014-12-25T14:44:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="incorrectEmailFields" duration-ms="869" started-at="2014-12-25T14:44:33Z" data-provider="registrationIncorrectEmailData" finished-at="2014-12-25T14:44:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[simple_name]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[simple_organisation]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[email@Withnumbers.111]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectEmailFields -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:34Z" finished-at="2014-12-25T14:44:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="2683" started-at="2014-12-25T14:44:34Z" finished-at="2014-12-25T14:44:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="incorrectEmailFields" duration-ms="858" started-at="2014-12-25T14:44:37Z" data-provider="registrationIncorrectEmailData" finished-at="2014-12-25T14:44:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[simple_name]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[simple_organisation]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[emailSpecSimbols!@#$%@%^&*().ru]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectEmailFields -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:38Z" finished-at="2014-12-25T14:44:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="goToRegisterPageAndSelectLang()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="goToRegisterPageAndSelectLang" is-config="true" duration-ms="3221" started-at="2014-12-25T14:44:38Z" finished-at="2014-12-25T14:44:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToRegisterPageAndSelectLang -->
+        <test-method status="PASS" signature="incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="incorrectEmailFields" duration-ms="801" started-at="2014-12-25T14:44:41Z" data-provider="registrationIncorrectEmailData" finished-at="2014-12-25T14:44:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[simple_name]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[simple_organisation]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[emailSpecSimbols@ru.@$%^&*()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectEmailFields -->
+        <test-method status="PASS" signature="takeScreenshotWhenFail(org.testng.ITestResult)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="takeScreenshotWhenFail" is-config="true" duration-ms="0" started-at="2014-12-25T14:44:42Z" finished-at="2014-12-25T14:44:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmailFields(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotWhenFail -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:test.java.IncorrectRegistration_test@7fe8ea47]" name="tearDown" is-config="true" duration-ms="306" started-at="2014-12-25T14:44:42Z" finished-at="2014-12-25T14:44:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- test.java.IncorrectRegistration_test -->
+    </test> <!-- tests -->
+  </suite> <!-- Contact suite -->
+</testng-results>

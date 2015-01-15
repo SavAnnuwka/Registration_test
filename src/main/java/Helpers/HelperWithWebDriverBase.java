@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
-public abstract class HelperWithWebDriverBase extends WebDriverHelper{
+public class HelperWithWebDriverBase extends HelperBase{
 
 
 	private WebDriver driver;
@@ -29,18 +29,18 @@ public abstract class HelperWithWebDriverBase extends WebDriverHelper{
     public WebElement findElement(By linkText) {
         return driver.findElement(linkText);
     }
-  /*  protected void fillTextField( String text, By locator) {
+    protected void fillTextField( String text, By locator) {
             WebElement field = findElement(locator);
             field.clear();
             field.sendKeys(text);
 
-    }*/
-   /* protected void fillTextFieldFromClipBoard(String text, By locator) {
+    }
+    protected void fillTextFieldFromClipBoard(String text, By locator) {
         app.getWindowsHelper().setClipBoardContent(text);
         WebElement field = findElement(locator);
         field.clear();
         field.sendKeys(Keys.CONTROL+"v");
-    }*/
+    }
     public String getText(String locator) {
         return findElement(app.getUIMap().getLocator(locator)).getText();
 
@@ -71,6 +71,5 @@ public abstract class HelperWithWebDriverBase extends WebDriverHelper{
                 .executeScript("window.open(arguments[0],\"" + name + "\")", url);
         return name;
     }
-
 
 }

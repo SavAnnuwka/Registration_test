@@ -17,7 +17,10 @@ public class Additional_tests extends testBase {
 
 
     private void checkFieldIsEmpty(String name, String org, String email, String error) throws UnsupportedEncodingException {
-        app.getRegistrationHelper().fillRegistrationForm(name, org, email);
+        app.getRegistrationHelper().fillRegistrationForm(
+                name,
+                org,
+                email);
         app.getRegistrationHelper().clickRegisterButtonPage1();
         assertThat(app.getRegistrationHelper().getText(error), equalTo(Constants.getEmptyErrorLanguage(language)));
         log.info(Constants.getEmptyErrorLanguage(language));
@@ -49,7 +52,7 @@ public class Additional_tests extends testBase {
 
     //@Test  ()
     public void failMethod() throws InterruptedException, IOException {
-        app.getNavigationHelper().goToRegistrationPageFromURL();
+        app.getRegistrationHelper().goToRegistrationPageFromURL();
         assertThat(0,equalTo(0));
     }
 

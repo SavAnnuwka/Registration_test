@@ -39,6 +39,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.17</version>
                 <configuration>
+                    <reportsDirectory>${basedir}/test-output</reportsDirectory>
                     <suiteXmlFiles>
                         <suiteXmlFile>testng-customsuite.xml</suiteXmlFile>
                     </suiteXmlFiles>

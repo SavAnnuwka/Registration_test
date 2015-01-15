@@ -80,11 +80,14 @@ public class WindowsHelper extends HelperWithWebDriverBase {
     /**
      * Action with keyBoard
      */
-   /* public void setClipBoardContent (String text){
+    public void setClipBoardContent (String text){
         StringSelection stringSelection=new StringSelection(text);
         Clipboard clipboard= Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
-    }*/
+    }
+    public String getCurrentUrl() {
+        return super.currentUrl();
+    }
 
 
 }

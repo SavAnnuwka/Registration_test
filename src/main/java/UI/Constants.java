@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 
 public class Constants {
    // languages
-   public static String EN =  "en";
+    public static String EN =  "en";
     public static String DE =  "de";
     public static String ES =  "es";
     public static String FR =  "fr";

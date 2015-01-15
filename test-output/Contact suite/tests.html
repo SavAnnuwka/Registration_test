@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>TestNG:  tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Dec 25 14:43:43 MSK 2014</td>
+</tr>
+<tr><td>Total time:</td><td>59 seconds (59144 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.alreadyExistInDataBaseEmail()'><b>alreadyExistInDataBaseEmail</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: Test name, Test organisation</td>
+<td></td>
+<td>1</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.alreadyRegisterEmail()'><b>alreadyRegisterEmail</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: Test name, Test organisation</td>
+<td></td>
+<td>0</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.checkBoxIsUnselected()'><b>checkBoxIsUnselected</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: Test name, Test organisation, testic@test.com</td>
+<td></td>
+<td>1</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.incorrectAllEmptyFields()'><b>incorrectAllEmptyFields</b><br>Test class: test.java.IncorrectRegistration_test</td>
+<td></td>
+<td>0</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.incorrectAllLongFields()'><b>incorrectAllLongFields</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: xt*fxX+)g'%p!LRlC6X^L'O7(I-{%qbhkkT]%?/ox!|hn;T#@Hq^PtzP}DCS6@\#)3c_W%-c*:8}!T"v)Ao4rdC`,M<<d'B)$,7Dn6'_vtM~_@e+i,`}{5KZ?gp/qr%xnUgoU6q|W`P_A=Xc~%(P>'h"!s,#gd.4?u`,'h)$gY/}MV45rxO#|SD}Wr}G_d17YyB `)20IG(q7Qax()2~zsA9C0sDhFlVd<ayPLT~-qAMu}asNu]gc/}esgYQ}=`T, |QP{m\Dzc!U8/x,K2QVZS:&ANlljaFx>7)!;,WbWIPm-}#QW0`~!eDe1hPvXY0/:io6\VCIx.F@i7jh}1g~J+eyh`(mydKW+@*zN[O1E==wH\z[u2k4`M$Rw0j4tg@@&c;T26;qg`NI'JW{k2Fc/P3\g;~a_k(EL.b=L^?EJ&[.%iBFwL3b!Q/;Ja?U=gt3Q>l#$TJzz_M}j~l{/e?y<y^g@[v<fG*g1}o~lTgvc!U7@sS!P""W'5GgjCcXa66CO, vKso#C-W_Q90(hZ@;O~!Rb <W8Q|N^S__EW.P}e&hyRdwVR`hDbK8}* d&/k/N@e94+`)784Q1Y+Iv<@]x^}'2QUbR*#)&%+N(#GO4I\0O8"T<JrRZ2v?a5Ex-74CY,ii:'0FZW(vL;\SnDQ+Selz_kBLfezjC|/V(kJ^}8A.r}^PR,S58xOBxd|tz<gF/dBkUQb8O7+ZzShi(b>HDMK#5g~2a$|k'0b34_l@jQCn%oI9+"UnY<mVM#rX{so+^HA</td>
+<td></td>
+<td>1</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.incorrectEmailFields()'><b>incorrectEmailFields</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: simple_name, simple_organisation, emailWithoutSobaka</td>
+<td></td>
+<td>0</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.incorrectEmailFields()'><b>incorrectEmailFields</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: simple_name, simple_organisation, emailWithSobakaIntheEnd@</td>
+<td></td>
+<td>0</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.incorrectEmailFields()'><b>incorrectEmailFields</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: simple_name, simple_organisation, email@WithoutTochka</td>
+<td></td>
+<td>0</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.incorrectEmailFields()'><b>incorrectEmailFields</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: simple_name, simple_organisation, email@Withnumbers.111</td>
+<td></td>
+<td>0</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.incorrectEmailFields()'><b>incorrectEmailFields</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: simple_name, simple_organisation, emailSpecSimbols!@#$%@%^&*().ru</td>
+<td></td>
+<td>0</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+<tr>
+<td title='test.java.IncorrectRegistration_test.incorrectEmailFields()'><b>incorrectEmailFields</b><br>Test class: test.java.IncorrectRegistration_test<br>Parameters: simple_name, simple_organisation, emailSpecSimbols@ru.@$%^&*()</td>
+<td></td>
+<td>0</td>
+<td>test.java.IncorrectRegistration_test@7fe8ea47</td></tr>
+</table><p>
+</body>
+</html>

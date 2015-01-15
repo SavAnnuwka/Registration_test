@@ -20,11 +20,11 @@ public class testBase {
 
     static{
 
-        Logger.getLogger("").setLevel(Level.ALL);
-       /*for (Handler h:Logger.getLogger("").getHandlers())
+      Logger.getLogger("").setLevel(Level.ALL);
+      for (Handler h:Logger.getLogger("").getHandlers())
       {
             Logger.getLogger("").removeHandler(h);
-        }     */
+        }
         SLF4JBridgeHandler.install();
         SysOutOverSLF4J.sendSystemOutAndErrToSLF4J();
         StatusPrinter.print((LoggerContext) LoggerFactory.getILoggerFactory());
@@ -62,13 +62,23 @@ public class testBase {
         log.log(Level.FINE, "setUp end");
 	  }
     
-   @BeforeMethod ()
+   @BeforeMethod (groups = {"default"})
     public void goToRegisterPageAndSelectLang()
     {
-        app.getNavigationHelper().goToRegistrationPageFromURL();
+
+        app.getRegistrationHelper().goToRegistrationPageFromURL();
         language =  app.getLanguagesHelper().selectLanguage();
     }
 
+
+
+    @AfterSuite
+	public void tearDown() throws Exception {
+        log.log(Level.FINE, "tearDown start");
+        ApplicationManager.getInstance().getWebDriverHelper().stop();
+        log.log(Level.FINE, "tearDown end");
+        log.log(Level.INFO, "-------------------------------------------------------------");
+	  }
 
     @AfterMethod (alwaysRun = true)
       public void takeScreenshotWhenFail(ITestResult result) throws IOException {
@@ -78,12 +88,6 @@ public class testBase {
         }
     }
 
-    @AfterSuite
-    public void tearDown() throws Exception {
-        log.log(Level.FINE, "tearDown start");
-        ApplicationManager.getInstance().getWebDriverHelper().stop();
-        log.log(Level.FINE, "tearDown end");
-    }
 
 
 }

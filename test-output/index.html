@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Contact_suite">
+              <span class="suite-name border-passed">Contact suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Contact_suite">
+                    <span>D:\Annuwka\QA\AutoTests\Travel_tests\testng-customsuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Contact_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Contact_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Contact_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Contact_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Contact_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Contact_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">11 methods,   11 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Contact_suite" class="hide-methods passed suite-Contact_suite"> (hide)</a> <!-- hide-methods passed suite-Contact_suite -->
+                      <a href="#" panel-name="suite-Contact_suite" class="show-methods passed suite-Contact_suite"> (show)</a> <!-- show-methods passed suite-Contact_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Contact_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="alreadyExistInDataBaseEmail(Test name, Test organisation)">alreadyExistInDataBaseEmail(Test name, Test organisation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="alreadyRegisterEmail(Test name, Test organisation)">alreadyRegisterEmail(Test name, Test organisation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="checkBoxIsUnselected(Test name, Test organisation, testic@test.com)">checkBoxIsUnselected(Test name, Test organisation, testic@test.com)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="incorrectAllEmptyFields">incorrectAllEmptyFields</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="incorrectAllLongFields(xt*fxX+)g&#039;%p!LRlC6X^L&#039;O7(I-{%qbhkkT]%?/ox!|hn;T#@Hq^PtzP}DCS6@\#)3c_W%-c*:8}!T&quot;v)Ao4rdC`,M&lt;&lt;d&#039;B)$,7D...)">incorrectAllLongFields(xt*fxX+)g'%p!LRlC6X^L'O7(I-{%qbhkkT]%?/ox!|hn;T#@Hq^PtzP}DCS6@\#)3c_W%-c*:8}!T"v)Ao4rdC`,M<<d'B)$,7D...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="incorrectEmailFields(simple_name, simple_organisation, email@Withnumbers.111)">incorrectEmailFields(simple_name, simple_organisation, email@Withnumbers.111)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols!@#$%@%^&amp;*().ru)">incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols!@#$%@%^&*().ru)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols@ru.@$%^&amp;*())">incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols@ru.@$%^&*())</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="incorrectEmailFields(simple_name, simple_organisation, emailWithoutSobaka)">incorrectEmailFields(simple_name, simple_organisation, emailWithoutSobaka)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="incorrectEmailFields(simple_name, simple_organisation, emailWithSobakaIntheEnd@)">incorrectEmailFields(simple_name, simple_organisation, emailWithSobakaIntheEnd@)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Contact_suite" title="test.java.IncorrectRegistration_test" hash-for-method="incorrectEmailFields(simple_name, simple_organisation, email@WithoutTochka)">incorrectEmailFields(simple_name, simple_organisation, email@WithoutTochka)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Contact_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Contact_suite" class="panel Contact_suite">
+          <div class="suite-Contact_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">test.java.IncorrectRegistration_test</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="alreadyExistInDataBaseEmail(Test name, Test organisation)">
+                  </a> <!-- alreadyExistInDataBaseEmail(Test name, Test organisation) -->
+                  <span class="method-name">alreadyExistInDataBaseEmail</span>
+                  <span class="parameters">(Test name, Test organisation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="alreadyRegisterEmail(Test name, Test organisation)">
+                  </a> <!-- alreadyRegisterEmail(Test name, Test organisation) -->
+                  <span class="method-name">alreadyRegisterEmail</span>
+                  <span class="parameters">(Test name, Test organisation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkBoxIsUnselected(Test name, Test organisation, testic@test.com)">
+                  </a> <!-- checkBoxIsUnselected(Test name, Test organisation, testic@test.com) -->
+                  <span class="method-name">checkBoxIsUnselected</span>
+                  <span class="parameters">(Test name, Test organisation, testic@test.com)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectAllEmptyFields">
+                  </a> <!-- incorrectAllEmptyFields -->
+                  <span class="method-name">incorrectAllEmptyFields</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectAllLongFields(xt*fxX+)g&#039;%p!LRlC6X^L&#039;O7(I-{%qbhkkT]%?/ox!|hn;T#@Hq^PtzP}DCS6@\#)3c_W%-c*:8}!T&quot;v)Ao4rdC`,M&lt;&lt;d&#039;B)$,7D...)">
+                  </a> <!-- incorrectAllLongFields(xt*fxX+)g'%p!LRlC6X^L'O7(I-{%qbhkkT]%?/ox!|hn;T#@Hq^PtzP}DCS6@\#)3c_W%-c*:8}!T"v)Ao4rdC`,M<<d'B)$,7D...) -->
+                  <span class="method-name">incorrectAllLongFields</span>
+                  <span class="parameters">(xt*fxX+)g'%p!LRlC6X^L'O7(I-{%qbhkkT]%?/ox!|hn;T#@Hq^PtzP}DCS6@\#)3c_W%-c*:8}!T"v)Ao4rdC`,M<<d'B)$,7Dn6'_vtM~_@e+i,`}{5KZ?gp/qr%xnUgoU6q|W`P_A=Xc~%(P>'h"!s,#gd.4?u`,'h)$gY/}MV45rxO#|SD}Wr}G_d17YyB `)20IG(q7Qax()2~zsA9C0sDhFlVd<ayPLT~-qAMu}asNu]gc/}esgYQ}=`T, |QP{m\Dzc!U8/x,K2QVZS:&ANlljaFx>7)!;,WbWIPm-}#QW0`~!eDe1hPvXY0/:io6\VCIx.F@i7jh}1g~J+eyh`(mydKW+@*zN[O1E==wH\z[u2k4`M$Rw0j4tg@@&c;T26;qg`NI'JW{k2Fc/P3\g;~a_k(EL.b=L^?EJ&[.%iBFwL3b!Q/;Ja?U=gt3Q>l#$TJzz_M}j~l{/e?y<y^g@[v<fG*g1}o~lTgvc!U7@sS!P""W'5GgjCcXa66CO, vKso#C-W_Q90(hZ@;O~!Rb <W8Q|N^S__EW.P}e&hyRdwVR`hDbK8}* d&/k/N@e94+`)784Q1Y+Iv<@]x^}'2QUbR*#)&%+N(#GO4I\0O8"T<JrRZ2v?a5Ex-74CY,ii:'0FZW(vL;\SnDQ+Selz_kBLfezjC|/V(kJ^}8A.r}^PR,S58xOBxd|tz<gF/dBkUQb8O7+ZzShi(b>HDMK#5g~2a$|k'0b34_l@jQCn%oI9+"UnY<mVM#rX{so+^HA)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectEmailFields(simple_name, simple_organisation, email@Withnumbers.111)">
+                  </a> <!-- incorrectEmailFields(simple_name, simple_organisation, email@Withnumbers.111) -->
+                  <span class="method-name">incorrectEmailFields</span>
+                  <span class="parameters">(simple_name, simple_organisation, email@Withnumbers.111)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols!@#$%@%^&amp;*().ru)">
+                  </a> <!-- incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols!@#$%@%^&*().ru) -->
+                  <span class="method-name">incorrectEmailFields</span>
+                  <span class="parameters">(simple_name, simple_organisation, emailSpecSimbols!@#$%@%^&*().ru)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols@ru.@$%^&amp;*())">
+                  </a> <!-- incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols@ru.@$%^&*()) -->
+                  <span class="method-name">incorrectEmailFields</span>
+                  <span class="parameters">(simple_name, simple_organisation, emailSpecSimbols@ru.@$%^&*())</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectEmailFields(simple_name, simple_organisation, emailWithoutSobaka)">
+                  </a> <!-- incorrectEmailFields(simple_name, simple_organisation, emailWithoutSobaka) -->
+                  <span class="method-name">incorrectEmailFields</span>
+                  <span class="parameters">(simple_name, simple_organisation, emailWithoutSobaka)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectEmailFields(simple_name, simple_organisation, emailWithSobakaIntheEnd@)">
+                  </a> <!-- incorrectEmailFields(simple_name, simple_organisation, emailWithSobakaIntheEnd@) -->
+                  <span class="method-name">incorrectEmailFields</span>
+                  <span class="parameters">(simple_name, simple_organisation, emailWithSobakaIntheEnd@)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="incorrectEmailFields(simple_name, simple_organisation, email@WithoutTochka)">
+                  </a> <!-- incorrectEmailFields(simple_name, simple_organisation, email@WithoutTochka) -->
+                  <span class="method-name">incorrectEmailFields</span>
+                  <span class="parameters">(simple_name, simple_organisation, email@WithoutTochka)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Contact_suite-class-passed -->
+        </div> <!-- panel Contact_suite -->
+        <div panel-name="test-xml-Contact_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">D:\Annuwka\QA\AutoTests\Travel_tests\testng-customsuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite verbose=&quot;0&quot; name=&quot;Contact suite&quot;&gt;
+  &lt;test name=&quot;tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;test.java.IncorrectRegistration_test&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- tests --&gt;
+&lt;/suite&gt; &lt;!-- Contact suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Contact_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Contact suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">tests (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Contact_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Contact suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Contact_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Contact suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Contact_suite');
+function tableData_Contact_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(11);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'alreadyExistInDataBaseEmail')
+data.setCell(0, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(0, 3, 1873);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'incorrectAllLongFields')
+data.setCell(1, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(1, 3, 1782);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'checkBoxIsUnselected')
+data.setCell(2, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(2, 3, 1593);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'incorrectEmailFields')
+data.setCell(3, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(3, 3, 869);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'incorrectEmailFields')
+data.setCell(4, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(4, 3, 858);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'incorrectEmailFields')
+data.setCell(5, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(5, 3, 831);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'incorrectEmailFields')
+data.setCell(6, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(6, 3, 830);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'incorrectEmailFields')
+data.setCell(7, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(7, 3, 828);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'incorrectEmailFields')
+data.setCell(8, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(8, 3, 801);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'incorrectAllEmptyFields')
+data.setCell(9, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(9, 3, 612);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'alreadyRegisterEmail')
+data.setCell(10, 2, 'test.java.IncorrectRegistration_test')
+data.setCell(10, 3, 353);
+window.suiteTableData['Contact_suite']= { tableData: data, tableDiv: 'times-div-Contact_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 11 seconds</span>
+              <div id="times-div-Contact_suite">
+              </div> <!-- times-div-Contact_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Contact_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Contact suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Contact_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Contact_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">test.java.IncorrectRegistration_test</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">12 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">alreadyExistInDataBaseEmail(Test name, Test organisation)</span>
+                <span class="method-start">18710 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=alreadyExistInDataBaseEmail status=SUCCESS method=IncorrectRegistration_test.alread...)</span>
+                <span class="method-start">20583 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">20584 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">alreadyRegisterEmail(Test name, Test organisation)</span>
+                <span class="method-start">22701 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">23055 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=alreadyRegisterEmail status=SUCCESS method=IncorrectRegistration_test.alreadyRegist...)</span>
+                <span class="method-start">23055 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">checkBoxIsUnselected(Test name, Test organisation, testic@test.com)</span>
+                <span class="method-start">25903 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=checkBoxIsUnselected status=SUCCESS method=IncorrectRegistration_test.checkBoxIsUns...)</span>
+                <span class="method-start">27496 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">27497 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">incorrectAllEmptyFields</span>
+                <span class="method-start">30635 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=incorrectAllEmptyFields status=SUCCESS method=IncorrectRegistration_test.incorrectA...)</span>
+                <span class="method-start">31247 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">31250 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">incorrectAllLongFields(xt*fxX+)g'%p!LRlC6X^L'O7(I-{%qbhkkT]%?/ox!|hn;T#@Hq^PtzP}DCS6@\#)3c_W%-c*:8}!T"v)Ao4rdC`,M<<d'B)$,7D...)</span>
+                <span class="method-start">34079 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=incorrectAllLongFields status=SUCCESS method=IncorrectRegistration_test.incorrectAl...)</span>
+                <span class="method-start">35861 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">35862 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">incorrectEmailFields(simple_name, simple_organisation, emailWithoutSobaka)</span>
+                <span class="method-start">39354 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmai...)</span>
+                <span class="method-start">40185 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">40186 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">incorrectEmailFields(simple_name, simple_organisation, emailWithSobakaIntheEnd@)</span>
+                <span class="method-start">42982 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">43812 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmai...)</span>
+                <span class="method-start">43812 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">incorrectEmailFields(simple_name, simple_organisation, email@WithoutTochka)</span>
+                <span class="method-start">47021 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">47849 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmai...)</span>
+                <span class="method-start">47849 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">incorrectEmailFields(simple_name, simple_organisation, email@Withnumbers.111)</span>
+                <span class="method-start">50715 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmai...)</span>
+                <span class="method-start">51584 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">51585 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols!@#$%@%^&*().ru)</span>
+                <span class="method-start">54268 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmai...)</span>
+                <span class="method-start">55126 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">goToRegisterPageAndSelectLang</span>
+                <span class="method-start">55127 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">incorrectEmailFields(simple_name, simple_organisation, emailSpecSimbols@ru.@$%^&*())</span>
+                <span class="method-start">58348 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">takeScreenshotWhenFail([TestResult name=incorrectEmailFields status=SUCCESS method=IncorrectRegistration_test.incorrectEmai...)</span>
+                <span class="method-start">59149 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-suite after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">59162 ms</span>
+              </div> <!-- configuration-suite after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

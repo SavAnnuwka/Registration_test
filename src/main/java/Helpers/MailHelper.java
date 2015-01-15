@@ -16,6 +16,8 @@ public class MailHelper   extends HelperWithWebDriverBase {
     public MailHelper(ApplicationManager app) {
         super(app);
     }
+
+
     public String getTemporaryEmail() {
         WebElement email = findElement(app.getUIMap().getLocator("email.name"));
         return  email.getText();
@@ -32,6 +34,10 @@ public class MailHelper   extends HelperWithWebDriverBase {
                 return Boolean.parseBoolean(null);
             }
         }
+
+
+
+
     public String  getMailtext() {
         try{
        return  findElement(app.getUIMap().getLocator("email.text")).getText();
@@ -51,6 +57,7 @@ public class MailHelper   extends HelperWithWebDriverBase {
             return null;
         }
     }
+
     public void goToMailLink() {
          WebElement linkFromMail =   getMailLink();
          linkFromMail.click();
