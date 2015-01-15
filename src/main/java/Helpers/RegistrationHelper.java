@@ -1,6 +1,7 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
+import main.java.UI.Constant;
 import org.openqa.selenium.WebElement;
 
 
@@ -26,13 +27,26 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     }
 
 
-    public void clickRegisterButtonPage1() {
+    public void clickRegisterButton() {
         pages.registrationPage.clickSubmitButton();
     }
-    public String getValue(String locator) {
+
+   public String getValue(String locator) {
         return  findElement(app.getUIMap().getLocator(locator)).getAttribute("value").toString();
     }
 
+    public String getTextError(String field) {
+        if (field == Constant.NAME) {
+            return   pages.errorPage.getNameError();
+        }
+        if (field == Constant.ORGANISATION) {
+            return  pages.errorPage.getOrganisationError();
+        }
+        if (field == Constant.EMAIL) {
+            return  pages.errorPage.getEmailError();
+        }
+        return  "Incorrect result. No  error";
+    }
 
 
     /**
@@ -41,7 +55,7 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     public void confirmCheckbox() {
         findElement(app.getUIMap().getLocator("register.page2.confirm")).click();
     }
-    public void clickRegisterButtonPage2() {
+    public void clickRegisterLicencePageButton() {
         findElement(app.getUIMap().getLocator("register.page2.button")).click();
     }
 
@@ -68,6 +82,7 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
 
 
     }
+
 
 
 }

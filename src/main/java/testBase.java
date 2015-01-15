@@ -3,6 +3,7 @@ package main.java;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
+import main.java.Helpers.HelperWithWebDriverBase;
 import org.slf4j.LoggerFactory;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 import org.testng.ITestResult;
@@ -16,7 +17,7 @@ import java.util.logging.*;
 //import org.slf4j.Logger;
 
 
-public class testBase {
+public class testBase{
 
     static{
 
@@ -33,6 +34,7 @@ public class testBase {
     protected   Logger log = Logger.getLogger("main.java.testLogFile");
 	public  ApplicationManager app;
     protected  String language;
+
 
     private void logFile() throws IOException {
         FileHandler handler;
@@ -57,8 +59,8 @@ public class testBase {
 		Properties props = new Properties();
 		props.load(new FileReader(configFile));
         log.log(Level.FINE, "setUp start");
-		 app =  ApplicationManager.getInstance();
-		 app.setProperties(props);
+		app =  ApplicationManager.getInstance();
+		app.setProperties(props);
         log.log(Level.FINE, "setUp end");
 	  }
     
@@ -66,7 +68,7 @@ public class testBase {
     public void goToRegisterPageAndSelectLang()
     {
 
-        app.getRegistrationHelper().goToRegistrationPageFromURL();
+        app.getNavigationHelper().goToRegistrationPageFromURL();
         language =  app.getLanguagesHelper().selectLanguage();
     }
 
@@ -75,9 +77,9 @@ public class testBase {
     @AfterSuite
 	public void tearDown() throws Exception {
         log.log(Level.FINE, "tearDown start");
+      //  ApplicationManager.getInstance().getWebDriverHelper().stop();
         ApplicationManager.getInstance().getWebDriverHelper().stop();
         log.log(Level.FINE, "tearDown end");
-        log.log(Level.INFO, "-------------------------------------------------------------");
 	  }
 
     @AfterMethod (alwaysRun = true)

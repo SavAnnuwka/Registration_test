@@ -2,7 +2,7 @@ package main.java.Helpers;
 
 import main.java.ApplicationManager;
 
-/*public class HelperBase {
+ public class HelperBase {
 	
 	protected final ApplicationManager app;
 	
@@ -10,4 +10,4 @@ import main.java.ApplicationManager;
 		this.app = app;
 	}
 
-}*/
+}

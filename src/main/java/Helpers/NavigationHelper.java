@@ -18,9 +18,12 @@ public class NavigationHelper extends HelperWithWebDriverBase {
         return  app.getProperty("newUserURL");
     }
     public  void goToRegistrationPageFromURL( ) {
-        if (currentUrl() != getRegistrationURL())
-        {
-            app.getWebDriverHelper().openUrl(getRegistrationURL());
+        String currentURL = currentUrl();
+        if (currentURL.indexOf("?") > 0) {
+            currentURL =  (currentURL.substring(0, currentURL.indexOf("?")));
+        }
+        if (currentURL != getRegistrationURL()) {
+         app.getWebDriverHelper().openUrl(getRegistrationURL());
         }
     }
 

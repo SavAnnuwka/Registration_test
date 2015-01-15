@@ -2,6 +2,7 @@ package main.java;
 
 
 import main.java.Helpers.*;
+import main.java.Pages.PageManager;
 import main.java.UI.UIMap;
 
 import java.util.Properties;
@@ -18,6 +19,8 @@ public class ApplicationManager {
     private UIMap uiMap;
     private LanguagesHelper languagesHelper;
     private NavigationHelper navigationHelper;
+    private PageManager pageManager;
+    // private HelperWithWebDriverBase helperWithWebDriverBase;
 
     public static ApplicationManager getInstance() {
         if (singleton == null) {
@@ -27,14 +30,19 @@ public class ApplicationManager {
     }
 
 
-    public WebDriverHelper getWebDriverHelper() {
+   public WebDriverHelper getWebDriverHelper() {
         if (webDriverHelper == null) {
             webDriverHelper = new WebDriverHelper(this);
         }
         return webDriverHelper;
     }
 
-
+    /*    public HelperWithWebDriverBase getHelperWithWebDriverBase() {
+       if (helperWithWebDriverBase == null) {
+           helperWithWebDriverBase = new HelperWithWebDriverBase(this);
+       }
+       return helperWithWebDriverBase;
+   }                     */
     public ScreenshotHelper getScreenshotHelper() {
         if (screenshotHelper == null) {
             screenshotHelper = new ScreenshotHelper(this);
@@ -83,6 +91,8 @@ public class ApplicationManager {
         return navigationHelper;
     }
 
+
+
     //properties
 	public void setProperties(Properties props) {
 		this.props = props;
@@ -93,6 +103,7 @@ public class ApplicationManager {
 	public String getProperty(String key, String defaultValue) {
 		return props.getProperty(key, defaultValue);
 	}
+
 
 }
 

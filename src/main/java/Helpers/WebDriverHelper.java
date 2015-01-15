@@ -10,12 +10,13 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverHelper {
 
-	protected WebDriver driver;
+    protected  WebDriver driver;
 	protected final ApplicationManager app;
-    protected PageManager pages;
+    protected final PageManager pages;
 	
 
     public WebDriverHelper(ApplicationManager app){
+        System.out.println("WebDriverHelper " + driver);
 		this.app = app;
 		String browser = app.getProperty("browser");
         if (driver==null) {

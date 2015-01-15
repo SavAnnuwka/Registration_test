@@ -83,4 +83,5 @@ public class RegistrationPage extends AnyPage {
         submitButton.click();
     }
 
+
 }

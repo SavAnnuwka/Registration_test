@@ -6,15 +6,16 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class PageManager {
 
+
   private WebDriver driver;
 
   public RegistrationPage registrationPage;
-
+  public  ErrorPage errorPage;
 
   public PageManager(WebDriver driver) {
     this.driver = driver;
     registrationPage = initElements(new RegistrationPage(this));
-
+    errorPage = initElements(new ErrorPage(this));
   }
   
   private <T extends Page> T initElements(T page) {
@@ -23,7 +24,7 @@ public class PageManager {
     // PageFactory.initElements(new DisplayedElementLocatorFactory(driver, 10), page);
     return page;
   }
-  
+
   public WebDriver getWebDriver() {
     return driver;
   }

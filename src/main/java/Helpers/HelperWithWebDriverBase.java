@@ -1,6 +1,7 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
+import main.java.Pages.PageManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,23 +10,26 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
-public abstract class HelperWithWebDriverBase extends WebDriverHelper{
+public  class HelperWithWebDriverBase  extends HelperBase{
 
 
-	private WebDriver driver;
+	protected WebDriver driver;
+    protected PageManager pages;    //init!!!!!!!!!!
 
-    public String currentUrl() {return driver.getCurrentUrl();
+	public HelperWithWebDriverBase(ApplicationManager app)  {
+        super(app);
+		driver = app.getWebDriverHelper().getDriver();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        System.out.println("HelperWithWebDriverBase construction");
+		}
+
+    public String currentUrl() {
+        return driver.getCurrentUrl();
     }
     public WebDriverWait waitElement(int time) {
         return new WebDriverWait(driver, time);
 
     }
-	public HelperWithWebDriverBase(ApplicationManager app) {
-        super(app);
-		driver = app.getWebDriverHelper().getDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		}
-
     public WebElement findElement(By linkText) {
         return driver.findElement(linkText);
     }

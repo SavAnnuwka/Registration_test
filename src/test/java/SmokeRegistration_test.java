@@ -1,9 +1,9 @@
 package test.java;
 
 
-import main.java.UI.Constants;
+import main.java.ApplicationManager;
+import main.java.UI.Constant;
 import main.java.testBase;
-import org.hamcrest.core.StringContains;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,7 +18,9 @@ import static org.hamcrest.Matchers.equalTo;
 public class SmokeRegistration_test extends testBase{
     String correctEmail;
 
-     // correctRegister
+
+
+    // correctRegister
      @Test( dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class )
     public void positiveTest(String correctName, String correctOrg ) throws InterruptedException {
         log.log( Level.INFO, "positiveTest start. LANG = " + language);
@@ -27,11 +29,11 @@ public class SmokeRegistration_test extends testBase{
         Assert.assertEquals( app.getRegistrationHelper().checkPage(1), true);
         log.log(Level.INFO, "Page 1 was open ");
         app.getRegistrationHelper().fillRegistrationFormFromClipBoard(correctName, correctOrg, correctEmail);
-        app.getRegistrationHelper().clickRegisterButtonPage1();
+        app.getRegistrationHelper().clickRegisterButton();
         Assert.assertEquals( app.getRegistrationHelper().checkPage(2), true) ;  //добавить wait
         log.log( Level.INFO, "Page 2 was open");
         app.getRegistrationHelper().confirmCheckbox();
-        app.getRegistrationHelper().clickRegisterButtonPage2();
+        app.getRegistrationHelper().clickRegisterLicencePageButton();
         Assert.assertEquals( app.getRegistrationHelper().checkPage(3), true) ;     //добавить wait
         log.log( Level.INFO, "Page 3 was open");
         app.getWindowsHelper().switchToMailPage();
