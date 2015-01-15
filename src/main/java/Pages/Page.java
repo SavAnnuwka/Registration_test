@@ -22,10 +22,6 @@ public abstract class Page {
 		return driver;
 	}
 
-	public String getTitle() {
-		return driver.getTitle();
-	}
-
 	public Page ensurePageLoaded() {
 	  return this;
 	}

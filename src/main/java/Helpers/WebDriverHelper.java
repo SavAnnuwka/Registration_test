@@ -12,7 +12,7 @@ public class WebDriverHelper {
 
     protected  WebDriver driver;
 	protected final ApplicationManager app;
-    protected final PageManager pages;
+   // protected final PageManager pages;
 	
 
     public WebDriverHelper(ApplicationManager app){
@@ -33,7 +33,7 @@ public class WebDriverHelper {
 		driver.manage().timeouts().implicitlyWait(
 				Integer.parseInt(temp), TimeUnit.SECONDS);
 		driver.get(app.getProperty("baseURL"));
-        pages = new PageManager(driver);
+        //pages = new PageManager(driver);
 	}
 
 	public WebDriver getDriver() {

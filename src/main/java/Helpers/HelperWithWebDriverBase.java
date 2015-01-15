@@ -14,12 +14,13 @@ public  class HelperWithWebDriverBase  extends HelperBase{
 
 
 	protected WebDriver driver;
-    protected PageManager pages;    //init!!!!!!!!!!
+    protected final PageManager pages;    //init!!!!!!!!!!
 
 	public HelperWithWebDriverBase(ApplicationManager app)  {
         super(app);
 		driver = app.getWebDriverHelper().getDriver();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        pages = new PageManager(driver);
         System.out.println("HelperWithWebDriverBase construction");
 		}
 
@@ -45,10 +46,10 @@ public  class HelperWithWebDriverBase  extends HelperBase{
         field.clear();
         field.sendKeys(Keys.CONTROL+"v");
     }*/
-    public String getText(String locator) {
+   /* public String getText(String locator) {
         return findElement(app.getUIMap().getLocator(locator)).getText();
 
-    }
+    }*/
 
 
     protected void  switchTo(String handle) {

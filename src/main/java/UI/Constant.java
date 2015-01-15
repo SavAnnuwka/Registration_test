@@ -6,11 +6,14 @@ import java.io.UnsupportedEncodingException;
 
 
 public class Constant {
-    //Constants
-    public static String NAME;
-    public static String ORGANISATION;
-    public static String EMAIL;
 
+    //Constants
+    public  static String NAME ="USERNAME";
+    public static String ORGANISATION = "ORGANISATION";
+    public static String EMAIL = "EMAIL";
+    public static String LICENCE_AGREE = "LICENCE";
+    public static final String TITLE = "TITLE";
+    public static final String DESCRIPTION = "DESCRIPTION";
    // languages
    public static String EN =  "en";
     public static String DE =  "de";
