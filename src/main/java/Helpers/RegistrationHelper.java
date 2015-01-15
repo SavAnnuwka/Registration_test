@@ -57,7 +57,10 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         return  "Incorrect result. No  error";
     }
     public String getText(String field) {
-
+        if (field == Constant.LICENCE_AGREE)
+        {
+            return  pages.registrationPage.getLicenceAgree();
+        }
         if (field == Constant.TITLE) {
             return pages.registrationPage.getTitle();
         }

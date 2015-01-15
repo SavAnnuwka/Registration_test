@@ -83,11 +83,11 @@ public class RegistrationPage extends AnyPage {
     }
 
     public String getTitle() {
-        return title.getAttribute("value").toString();
+        return title.getText();
     }
 
     public String getDescription() {
-        return description.getAttribute("value").toString();
+        return description.getText();
     }
 
     public RegistrationPage setLicenceAgree() {
@@ -95,7 +95,7 @@ public class RegistrationPage extends AnyPage {
         return this;
     }
     public String getLicenceAgree() {
-        return  licenceAgree.getAttribute("value").toString();
+        return  licenceAgree.getText();
     }
 
     public void clickSubmitButton() {
