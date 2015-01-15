@@ -52,7 +52,7 @@ public class SmokeRegistration_test extends testBase{
         app.getWindowsHelper().switchToMailPage();
         //move to main test
         log.log( Level.INFO, app.getMailHelper().getMailtext());
-         assertThat(app.getMailHelper().getMailtext().contains(Constants.getMailText(language)), equalTo(true));
+         assertThat(app.getMailHelper().getMailtext().contains(Constant.getMailText(language)), equalTo(true));
     }
     public void checkMailLink() {
         //пока запускается before и меняется lang

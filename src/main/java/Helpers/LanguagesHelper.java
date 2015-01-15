@@ -1,7 +1,7 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
-import main.java.UI.Constants;
+import main.java.UI.Constant;
 import main.java.testBase;
 import org.openqa.selenium.support.ui.Select;
 
@@ -24,7 +24,7 @@ public class LanguagesHelper extends HelperWithWebDriverBase{
     }
 
     public  String getRandomLanguage() {
-      String[] allLang = {Constants.DE, Constants.EN, Constants.ES, Constants.FR, Constants.IT, Constants.NL, Constants.PT, Constants.RO, Constants.RU, Constants.SV, Constants.ZH};
+      String[] allLang = {Constant.DE, Constant.EN, Constant.ES, Constant.FR, Constant.IT, Constant.NL, Constant.PT, Constant.RO, Constant.RU, Constant.SV, Constant.ZH};
         Random rand = new Random();
         int i= rand.nextInt(10);
         return  allLang[i];

@@ -2,7 +2,7 @@ package test.java;
 
 
 import main.java.Helpers.RegistrationHelper;
-import main.java.UI.Constants;
+import main.java.UI.Constant;
 import main.java.testBase;
 import org.testng.annotations.Test;
 
@@ -22,11 +22,11 @@ public class IncorrectRegistration_test extends testBase {
         log.log(Level.INFO, "Incorrect test: All Empty fields start. Use lang:" + language);
         app.getRegistrationHelper().fillRegistrationForm("", "", "");
         app.getRegistrationHelper().clickRegisterButtonPage1();
-        assertThat( app.getRegistrationHelper().getText("register.username.error"), equalTo(Constants.getEmptyErrorLanguage(language)));
+        assertThat( app.getRegistrationHelper().getText("register.username.error"), equalTo(Constant.getEmptyErrorLanguage(language)));
         log.log( Level.INFO,app.getRegistrationHelper().getText("register.username.error"));
-        assertThat( app.getRegistrationHelper().getText("register.organisation.error"), equalTo(Constants.getEmptyErrorLanguage(language)));
+        assertThat( app.getRegistrationHelper().getText("register.organisation.error"), equalTo(Constant.getEmptyErrorLanguage(language)));
         log.log( Level.INFO,app.getRegistrationHelper().getText("register.organisation.error"));
-        assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constants.getEmptyErrorLanguage(language)));
+        assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constant.getEmptyErrorLanguage(language)));
         log.log( Level.INFO,  app.getRegistrationHelper().getText("register.email.error"));
     }
 
@@ -50,7 +50,7 @@ public class IncorrectRegistration_test extends testBase {
          app.getRegistrationHelper().fillRegistrationFormFromClipBoard(name, org, incorrectEmail);
          app.getRegistrationHelper().clickRegisterButtonPage1();
          log.log( Level.INFO, app.getRegistrationHelper().getText("register.email.error"));
-         assertThat(app.getRegistrationHelper().getText("register.email.error"), equalTo(Constants.getIncorrectEmailErrorLanguage(language)));
+         assertThat(app.getRegistrationHelper().getText("register.email.error"), equalTo(Constant.getIncorrectEmailErrorLanguage(language)));
 
      }
 
@@ -62,7 +62,7 @@ public class IncorrectRegistration_test extends testBase {
          app.getRegistrationHelper().clickRegisterButtonPage1();
          app.getRegistrationHelper().clickRegisterButtonPage2();
         log.log( Level.INFO, app.getRegistrationHelper().getText("register.checkbox.error"));
-         assertThat(app.getRegistrationHelper().getText("register.checkbox.error"), equalTo(Constants.getIncorrectCheckBoxLanguage(language)));
+         assertThat(app.getRegistrationHelper().getText("register.checkbox.error"), equalTo(Constant.getIncorrectCheckBoxLanguage(language)));
 
     }
 
@@ -74,7 +74,7 @@ public class IncorrectRegistration_test extends testBase {
         app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, email);
         app.getRegistrationHelper().clickRegisterButtonPage1();
         log.log( Level.INFO, app.getRegistrationHelper().getText("register.email.error"));
-        assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constants.getAlreadyExistErrorLanguage(language)));
+        assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constant.getAlreadyExistErrorLanguage(language)));
     }
 
 
@@ -86,6 +86,6 @@ public class IncorrectRegistration_test extends testBase {
         app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, email);
         app.getRegistrationHelper().clickRegisterButtonPage1();
         log.log( Level.INFO,  app.getRegistrationHelper().getText("register.email.error"));
-        assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constants.getAlreadyExistInDatabaseErrorLanguage(language)));
+        assertThat( app.getRegistrationHelper().getText("register.email.error"), equalTo(Constant.getAlreadyExistInDatabaseErrorLanguage(language)));
      }
     }
