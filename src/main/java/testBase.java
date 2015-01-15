@@ -20,11 +20,11 @@ public class testBase {
 
     static{
 
-      Logger.getLogger("").setLevel(Level.ALL);
-      for (Handler h:Logger.getLogger("").getHandlers())
+        Logger.getLogger("").setLevel(Level.ALL);
+      /*for (Handler h:Logger.getLogger("").getHandlers())
       {
             Logger.getLogger("").removeHandler(h);
-        }
+        }     */
         SLF4JBridgeHandler.install();
         SysOutOverSLF4J.sendSystemOutAndErrToSLF4J();
         StatusPrinter.print((LoggerContext) LoggerFactory.getILoggerFactory());

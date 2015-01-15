@@ -10,48 +10,26 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         super(app);
     }
 
-    /**
-     * URL
-     */
-    public String getRegistrationURL() {
-        return app.getProperty("baseURL") + app.getProperty("registerURL");
-    }
-
-    public String getNewUserURL() {
-        return  app.getProperty("newUserURL");
-    }
-   public  void goToRegistrationPageFromURL() {
-       if (currentUrl() != getRegistrationURL())
-       {
-           app.getWebDriverHelper().openUrl(getRegistrationURL());
-       }
-    }
-
-   /* public void goToRegistrationFromMainPage()  {
-        WebElement link = findElement(app.getUIMap().getLocator("registration_link"));
-        link.click();
-    } */
 
     /**
      * PAGE 1
      */
-    public void fillRegistrationForm(String name, String org, String email) {
-        fillTextField(name,app.getUIMap().getLocator("register.name"));
-        fillTextField(org, app.getUIMap().getLocator("register.organisation"));
-        fillTextField(email, app.getUIMap().getLocator("register.email"));
+   public void fillRegistrationForm(String name, String org, String email) {
+        pages.registrationPage.setNameField(name);
+        pages.registrationPage.setOrganisationField(org);
+        pages.registrationPage.setEmailField(email);
     }
     public void fillRegistrationFormFromClipBoard(String name, String org, String email) {
-        fillTextFieldFromClipBoard(name, app.getUIMap().getLocator("register.name"));
-        fillTextFieldFromClipBoard(org, app.getUIMap().getLocator("register.organisation"));
-        fillTextFieldFromClipBoard(email, app.getUIMap().getLocator("register.email"));
+        pages.registrationPage.setNameFieldfromClipBoard(name);
+        pages.registrationPage.setOrganisationFieldfromClipBoard(org);
+        pages.registrationPage.setEmailFieldgromClipBoard(email);
     }
 
 
     public void clickRegisterButtonPage1() {
-        findElement(app.getUIMap().getLocator("register.page1.button")).click();
+        pages.registrationPage.clickSubmitButton();
     }
-    public String getValue(String locator)
-    {
+    public String getValue(String locator) {
         return  findElement(app.getUIMap().getLocator(locator)).getAttribute("value").toString();
     }
 
@@ -70,8 +48,7 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     /**
      * ALL PAGEs
      */
-    public boolean checkPage(int page) throws InterruptedException
-    {
+    public boolean checkPage(int page) throws InterruptedException {
         WebElement element = null;
         if (page == 1)
              {

@@ -5,7 +5,12 @@ import org.hamcrest.Matcher;
 import java.io.UnsupportedEncodingException;
 
 
-public class Constants {
+public class Constant {
+    //Constants
+    public static String NAME;
+    public static String ORGANISATION;
+    public static String EMAIL;
+
    // languages
    public static String EN =  "en";
     public static String DE =  "de";
@@ -18,7 +23,7 @@ public class Constants {
     public static  String PT =  "pt";
     public static String RO =  "ro";
     public static  String ZH =  "zh";
-     public static String  SimpleName = "Name Surname";
+    public static String  SimpleName = "Name Surname";
     public static String  SimpleOrganisation= "Organisation Museum";
     public static String  SimpleEmail = "testannaiziteq@gmail.com";
 
