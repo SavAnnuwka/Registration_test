@@ -2,6 +2,7 @@ package main.java.Pages;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -14,7 +15,7 @@ public abstract class Page {
 	public Page(PageManager pages) {
 		this.pages = pages;
 		driver = pages.getWebDriver();
-		wait = new WebDriverWait(driver, 10);
+
 	}
 
 
@@ -22,7 +23,7 @@ public abstract class Page {
 		return driver;
 	}
 
-	public Page ensurePageLoaded() {
+	/*public Page ensurePageLoaded() {
 	  return this;
 	}
 
@@ -33,5 +34,5 @@ public abstract class Page {
     } catch (TimeoutException to) {
       return false;
     }
-  }
+  }    */
 }

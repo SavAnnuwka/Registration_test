@@ -1,6 +1,7 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
+import main.java.Pages.LicencePage;
 import main.java.Pages.PageManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,7 +22,6 @@ public  class HelperWithWebDriverBase  extends HelperBase{
 		driver = app.getWebDriverHelper().getDriver();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         pages = new PageManager(driver);
-        System.out.println("HelperWithWebDriverBase construction");
 		}
 
     public String currentUrl() {
@@ -58,9 +58,9 @@ public  class HelperWithWebDriverBase  extends HelperBase{
     protected void  activeElement() {
         driver.switchTo().activeElement();
     }
-    public void  wait(By linkText)
+    public void  wait(WebElement element)
     { WebDriverWait wait = new WebDriverWait(driver, 60);
-      wait.until(ExpectedConditions.visibilityOfElementLocated(linkText));
+      wait.until(ExpectedConditions.visibilityOf(element));
     }
 
 
@@ -72,9 +72,10 @@ public  class HelperWithWebDriverBase  extends HelperBase{
     }
     public String openInNewWindow(String url) {
         String name = "mail";
-        ((JavascriptExecutor) driver)
-                .executeScript("window.open(arguments[0],\"" + name + "\")", url);
-        return name;
+     //  ((JavascriptExecutor) driver)
+     //           .executeScript( "(window.open(arguments[0],\"" + name + "\"))", url);
+        ((JavascriptExecutor) driver).executeScript("(window.open('" +url+ "',\"" + name + "\"))");
+        return  name;
     }
 
 

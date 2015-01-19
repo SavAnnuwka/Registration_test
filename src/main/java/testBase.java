@@ -85,7 +85,7 @@ public class testBase{
     @AfterMethod (alwaysRun = true)
       public void takeScreenshotWhenFail(ITestResult result) throws IOException {
         if (!result.isSuccess()) {
-            app.getScreenshotHelper().takeScreenShot(result.getName());
+            app.getWindowsHelper().takeScreenShot(result.getName());
             log.log(Level.SEVERE, "<a href='" + app.getProperty("pathScreenshot") + result.getName() + ".png'>" +  result.getName() + "</a>");
         }
     }

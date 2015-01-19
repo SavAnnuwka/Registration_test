@@ -26,7 +26,6 @@ public class NavigationHelper extends HelperWithWebDriverBase {
          app.getWebDriverHelper().openUrl(getRegistrationURL());
         }
     }
-
     public String getCurrentUrl() {
         return super.currentUrl();
     }

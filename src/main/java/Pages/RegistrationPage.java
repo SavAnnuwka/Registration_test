@@ -12,7 +12,7 @@ public class RegistrationPage extends AnyPage {
     }
 
     @FindBy(className = "step1")
-    private WebElement registrationPageDisplay;
+    private WebElement registrationPage;
 
     @FindBy(id = "registration_user_name")
     private WebElement nameField;
@@ -32,9 +32,9 @@ public class RegistrationPage extends AnyPage {
     @FindBy(className = "text-content")
     private WebElement description;
 
-    @FindBy(css = "label[for=registration_confirm]")
-    private WebElement licenceAgree;
-
+    public WebElement getRegistrationPage() {
+        return registrationPage;
+    }
 
     public RegistrationPage setNameField(String text) {
         nameField.clear();
@@ -85,21 +85,17 @@ public class RegistrationPage extends AnyPage {
     public String getTitle() {
         return title.getText();
     }
-
     public String getDescription() {
         return description.getText();
     }
 
-    public RegistrationPage setLicenceAgree() {
-        licenceAgree.click();
-        return this;
-    }
-    public String getLicenceAgree() {
-        return  licenceAgree.getText();
-    }
-
     public void clickSubmitButton() {
         submitButton.click();
+    }
+
+
+    public boolean IsLoadRegistrationPage() {
+        return registrationPage.isDisplayed();
     }
 
 
