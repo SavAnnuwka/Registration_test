@@ -12,7 +12,6 @@ public class ApplicationManager {
     private static ApplicationManager singleton;
     private WebDriverHelper webDriverHelper;
     private Properties props;
-    private ScreenshotHelper screenshotHelper;
     private RegistrationHelper registrationHelper;
     private MailHelper mailHelper;
     private WindowsHelper windowHandlerHelper;
@@ -43,12 +42,6 @@ public class ApplicationManager {
        }
        return helperWithWebDriverBase;
    }                     */
-    public ScreenshotHelper getScreenshotHelper() {
-        if (screenshotHelper == null) {
-            screenshotHelper = new ScreenshotHelper(this);
-        }
-        return screenshotHelper;
-    }
 
     public RegistrationHelper getRegistrationHelper() {
         if (registrationHelper == null) {

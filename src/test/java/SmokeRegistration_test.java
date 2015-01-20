@@ -26,22 +26,20 @@ public class SmokeRegistration_test extends testBase{
         log.log( Level.INFO, "positiveTest start. LANG = " + language);
         correctEmail = getEMail();
         app.getWindowsHelper().switchToOriginalPage();
-        Assert.assertEquals( app.getRegistrationHelper().checkPage(1), true);
+        Assert.assertEquals( app.getRegistrationHelper().checkRegistrationPage(), true);
         log.log(Level.INFO, "Page 1 was open ");
         app.getRegistrationHelper().fillRegistrationFormFromClipBoard(correctName, correctOrg, correctEmail);
         app.getRegistrationHelper().clickRegisterButton();
-        Assert.assertEquals( app.getRegistrationHelper().checkPage(2), true) ;  //добавить wait
+       Assert.assertEquals( app.getRegistrationHelper().checkLicencePage(), true) ;
         log.log( Level.INFO, "Page 2 was open");
         app.getRegistrationHelper().confirmCheckbox();
         app.getRegistrationHelper().clickRegisterLicencePageButton();
-        Assert.assertEquals( app.getRegistrationHelper().checkPage(3), true) ;     //добавить wait
+        Assert.assertEquals( app.getRegistrationHelper().checkFinishRegistrationPage(), true) ;
         log.log( Level.INFO, "Page 3 was open");
         app.getWindowsHelper().switchToMailPage();
         Assert.assertEquals(app.getMailHelper().emptyMail(), false);
         log.log( Level.INFO, "mail "+ correctEmail +" is not empty");
-         //отдельно
          checkMailText();
-         //отдельно
          checkMailLink();
         log.log( Level.INFO, "positiveTest stop");
         app.getWindowsHelper().switchToOriginalPage();
@@ -72,6 +70,7 @@ public class SmokeRegistration_test extends testBase{
     }
     public String  getEMail()
     {   app.getWindowsHelper().openNewMailWindow(app.getProperty("temporaryMail"));
+        //reload if no email
         return  app.getMailHelper().getTemporaryEmail();
     }
 

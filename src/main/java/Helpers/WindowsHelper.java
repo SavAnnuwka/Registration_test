@@ -1,10 +1,15 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -77,14 +82,9 @@ public class WindowsHelper extends HelperWithWebDriverBase {
     public void switchToCMSPage() {
         goToWindow(CMSHandle);}
 
-    /**
-     * Action with keyBoard
-     */
-   /* public void setClipBoardContent (String text){
-        StringSelection stringSelection=new StringSelection(text);
-        Clipboard clipboard= Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
-    }*/
-
+    public void  takeScreenShot(String fileName) throws IOException {
+        File scrFile = ((TakesScreenshot) app.getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File(app.getProperty("pathScreenshot") + fileName + ".png"));
+    }
 
 }

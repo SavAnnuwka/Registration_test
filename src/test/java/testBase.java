@@ -1,8 +1,9 @@
-package main.java;
+package test.java;
 
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
+import main.java.ApplicationManager;
 import main.java.Helpers.HelperWithWebDriverBase;
 import org.slf4j.LoggerFactory;
 import org.slf4j.bridge.SLF4JBridgeHandler;
@@ -32,7 +33,7 @@ public class testBase{
     }
 
     protected   Logger log = Logger.getLogger("main.java.testLogFile");
-	public  ApplicationManager app;
+	public ApplicationManager app;
     protected  String language;
 
 
@@ -85,7 +86,7 @@ public class testBase{
     @AfterMethod (alwaysRun = true)
       public void takeScreenshotWhenFail(ITestResult result) throws IOException {
         if (!result.isSuccess()) {
-            app.getScreenshotHelper().takeScreenShot(result.getName());
+            app.getWindowsHelper().takeScreenShot(result.getName());
             log.log(Level.SEVERE, "<a href='" + app.getProperty("pathScreenshot") + result.getName() + ".png'>" +  result.getName() + "</a>");
         }
     }

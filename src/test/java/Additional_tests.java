@@ -42,9 +42,7 @@ public class Additional_tests extends testBase {
          assertThat(app.getRegistrationHelper().getText(Constant.DESCRIPTION), equalTo(Constant.getDescriptionLanguage(language)));
          app.getRegistrationHelper().fillRegistrationForm(name, org, email);
          app.getRegistrationHelper().clickRegisterButton();
-        /*update*/
-         Assert.assertEquals(app.getRegistrationHelper().checkPage(2), true) ;
-         /**/
+         Assert.assertEquals(app.getRegistrationHelper().checkLicencePage(), true) ;
         log.log(Level.INFO, "checkBox:" + app.getRegistrationHelper().getText(Constant.LICENCE_AGREE));
          assertThat(  app.getRegistrationHelper().getText(Constant.LICENCE_AGREE), equalTo(Constant.getConfirmCheckboxLanguage(language)));
      }

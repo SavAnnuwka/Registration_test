@@ -12,7 +12,7 @@ public class RegistrationPage extends AnyPage {
     }
 
     @FindBy(className = "step1")
-    private WebElement registrationPageDisplay;
+    private WebElement registrationPage;
 
     @FindBy(id = "registration_user_name")
     private WebElement nameField;
@@ -23,6 +23,7 @@ public class RegistrationPage extends AnyPage {
     @FindBy(id = "registration_user_email")
     private WebElement emailField;
 
+
     @FindBy(className = "btn")
     private WebElement submitButton;
 
@@ -32,9 +33,9 @@ public class RegistrationPage extends AnyPage {
     @FindBy(className = "text-content")
     private WebElement description;
 
-    @FindBy(css = "label[for=registration_confirm]")
-    private WebElement licenceAgree;
-
+    public WebElement getRegistrationPage() {
+        return registrationPage;
+    }
 
     public RegistrationPage setNameField(String text) {
         nameField.clear();
@@ -72,6 +73,7 @@ public class RegistrationPage extends AnyPage {
         emailField.sendKeys(text);
         return this;
     }
+
     public RegistrationPage setEmailFieldgromClipBoard(String text) {
         setClipBoardContent(text);
         emailField.clear();
@@ -83,23 +85,19 @@ public class RegistrationPage extends AnyPage {
     }
 
     public String getTitle() {
-        return title.getAttribute("value").toString();
+        return title.getText();
     }
-
     public String getDescription() {
-        return description.getAttribute("value").toString();
-    }
-
-    public RegistrationPage setLicenceAgree() {
-        licenceAgree.click();
-        return this;
-    }
-    public String getLicenceAgree() {
-        return  licenceAgree.getAttribute("value").toString();
+        return description.getText();
     }
 
     public void clickSubmitButton() {
         submitButton.click();
+    }
+
+
+    public boolean IsLoadRegistrationPage() {
+        return registrationPage.isDisplayed();
     }
 
 

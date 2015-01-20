@@ -2,7 +2,6 @@ package main.java.Helpers;
 
 
 import main.java.ApplicationManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,14 +16,15 @@ public class MailHelper   extends HelperWithWebDriverBase {
         super(app);
     }
     public String getTemporaryEmail() {
-        WebElement email = findElement(app.getUIMap().getLocator("email.name"));
-        return  email.getText();
+        return pages.mailPage.getMailName();
+       /* WebElement email = findElement(app.getUIMap().getLocator("email.name"));
+          email.getText();    */
     }
     public boolean emptyMail() {
-     By locator = app.getUIMap().getLocator("email.counter");
-        waitElement(20).until(ExpectedConditions.visibilityOfElementLocated(locator));
+   //  locator =     app.getUIMap().getLocator("email.counter");
+        waitElement(20).until(ExpectedConditions.visibilityOf(pages.mailPage.getEmailCounter())) ;  //visibilityOfElementLocated(locator));
             try {
-                if (findElement(locator).getText().isEmpty())
+                if (pages.mailPage.MailWasNotReceived())
                     return true;
                 else return false;
             } catch (NoSuchElementException e) {
@@ -32,19 +32,19 @@ public class MailHelper   extends HelperWithWebDriverBase {
                 return Boolean.parseBoolean(null);
             }
         }
+
     public String  getMailtext() {
         try{
-       return  findElement(app.getUIMap().getLocator("email.text")).getText();
+       return  pages.mailPage.getMailtext();   //findElement(app.getUIMap().getLocator("email.text")).getText();
         }
         catch (NoSuchElementException  e) {
             System.err.println(MessageFormat.format("No element and exception ", e.getMessage()));
             return null;
         }
     }
-
     public WebElement getMailLink() {
         try{
-            return  findElement(app.getUIMap().getLocator("email.link"));
+            return pages.mailPage.getEmailLink(); // findElement(app.getUIMap().getLocator("email.link"));
         }
         catch (NoSuchElementException  e) {
             System.err.println(MessageFormat.format("No element and exception ", e.getMessage()));
@@ -52,7 +52,7 @@ public class MailHelper   extends HelperWithWebDriverBase {
         }
     }
     public void goToMailLink() {
-         WebElement linkFromMail =   getMailLink();
+         WebElement linkFromMail = getMailLink();
          linkFromMail.click();
     }
 }

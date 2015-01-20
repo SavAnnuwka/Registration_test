@@ -10,8 +10,6 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
     public RegistrationHelper(ApplicationManager app) {
         super(app);
     }
-
-
     /**
      * PAGE 1
      */
@@ -56,8 +54,11 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
        }
         return  "Incorrect result. No  error";
     }
-    public String getText(String field) {
-
+   public String getText(String field) {
+        if (field == Constant.LICENCE_AGREE)
+        {
+            return  pages.licencePage.getLicenceAgree();
+        }
         if (field == Constant.TITLE) {
             return pages.registrationPage.getTitle();
         }
@@ -66,25 +67,34 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
         }
           return  "Incorrect result. No  text";
     }
+   public boolean checkRegistrationPage() throws InterruptedException {
+        wait(pages.registrationPage.getRegistrationPage());
+        return  pages.registrationPage.IsLoadRegistrationPage();
+    }
 
     /**
      * PAGE 2
      */
-    public void confirmCheckbox() {
-        pages.registrationPage.setLicenceAgree();
+   public void confirmCheckbox() {
+        pages.licencePage.setLicenceAgree();
     }
-    public void clickRegisterLicencePageButton() {
-        findElement(app.getUIMap().getLocator("register.page2.button")).click();
+   public void clickRegisterLicencePageButton() {
+       pages.licencePage.clickSubmitButton();
+    }
+   public boolean checkLicencePage() throws InterruptedException {
+        wait(pages.licencePage.getLicencePage());
+        return  pages.licencePage.IsLoadLicencePage();
     }
 
     /**
-     * ALL PAGEs
+     * PAGE 3
      */
-   /* public boolean checkRegisterPage() {
+   public boolean checkFinishRegistrationPage() throws InterruptedException {
+        wait(pages.finishRegistrationPage.getFinishRegistrationPage());
+        return  pages.finishRegistrationPage.IsLoadFinishPage();
+    }
 
-    }*/
-
-    public boolean checkPage(int page) throws InterruptedException {
+   /* public boolean checkPage(int page) throws InterruptedException {
         WebElement element = null;
         if (page == 1)
              {
@@ -101,11 +111,7 @@ public class RegistrationHelper  extends HelperWithWebDriverBase {
                 element = findElement(app.getUIMap().getLocator("register.page3.isdisplayed"));
             }
              return element != null && element.isDisplayed();
-
-
-    }
-
-
+    } */
 
 }
 
