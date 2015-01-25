@@ -34,22 +34,6 @@ public  class HelperWithWebDriverBase  extends HelperBase{
     public WebElement findElement(By linkText) {
         return driver.findElement(linkText);
     }
-  /*  protected void fillTextField( String text, By locator) {
-            WebElement field = findElement(locator);
-            field.clear();
-            field.sendKeys(text);
-
-    }*/
-   /* protected void fillTextFieldFromClipBoard(String text, By locator) {
-        app.getWindowsHelper().setClipBoardContent(text);
-        WebElement field = findElement(locator);
-        field.clear();
-        field.sendKeys(Keys.CONTROL+"v");
-    }*/
-   /* public String getText(String locator) {
-        return findElement(app.getUIMap().getLocator(locator)).getText();
-
-    }*/
 
 
     protected void  switchTo(String handle) {

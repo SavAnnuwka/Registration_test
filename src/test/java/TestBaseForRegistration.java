@@ -1,7 +1,13 @@
 package test.java;
 
-/**
- * Created by Annet on 21.01.2015.
- */
-public class TestBaseForRegistration {
+import org.testng.annotations.BeforeMethod;
+
+public class testBaseForRegistration extends testBase {
+
+    @BeforeMethod()
+    public void goToRegisterPageAndSelectLang() {
+
+        app.getNavigationHelper().goToRegistrationPageFromURL();
+        language = app.getLanguagesHelper().selectLanguage();
+    }
 }

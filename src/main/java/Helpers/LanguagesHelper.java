@@ -17,17 +17,11 @@ public class LanguagesHelper extends HelperWithWebDriverBase{
 
 
     public  String selectLanguage() {
-        String language = app.getLanguagesHelper().getRandomLanguage();
+        String language = Constant.getRandomLanguage();
         app.getLanguagesHelper().selectLanguageInDropDownList(language);
         return  language;
     }
 
-    public  String getRandomLanguage() {
-      String[] allLang = {Constant.DE, Constant.EN, Constant.ES, Constant.FR, Constant.IT, Constant.NL, Constant.PT, Constant.RO, Constant.RU, Constant.SV, Constant.ZH};
-        Random rand = new Random();
-        int i= rand.nextInt(10);
-        return  allLang[i];
-    }
 
     public   void selectLanguageInDropDownList(String lang) {
         Select sel = new Select(findElement(app.getUIMap().getLocator("language")));

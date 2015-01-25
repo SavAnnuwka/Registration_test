@@ -1,8 +1,7 @@
 package main.java.UI;
 
-import org.hamcrest.Matcher;
-
 import java.io.UnsupportedEncodingException;
+import java.util.Random;
 
 
 public class Constant {
@@ -15,7 +14,8 @@ public class Constant {
     public static final String TITLE = "TITLE";
     public static final String DESCRIPTION = "DESCRIPTION";
    // languages
-   public static String EN =  "en";
+   public static String BROWSER_LANG;
+    public static String EN = "en";
     public static String DE =  "de";
     public static String ES =  "es";
     public static String FR =  "fr";
@@ -29,7 +29,31 @@ public class Constant {
     public static String  SimpleName = "Name Surname";
     public static String  SimpleOrganisation= "Organisation Museum";
     public static String  SimpleEmail = "testannaiziteq@gmail.com";
+    public static String CHROME = "chrome";
+    public static String FIREFOX = "firefox";
+    public static String IE = "ie";
 
+    //random ang
+    private static String getRandomValue(String[] allValues) {
+        Random rand = new Random();
+        int i = rand.nextInt(allValues.length - 1);
+        return allValues[i];
+    }
+
+    public static String getRandomLanguage() {
+        String[] allLang = {Constant.DE, Constant.EN, Constant.ES, Constant.FR, Constant.IT, Constant.NL, Constant.PT, Constant.RO, Constant.RU, Constant.SV, Constant.ZH};
+        return getRandomValue(allLang);
+    }
+
+
+    public static String selectRandomBrowser() {
+        String[] allBrowser = {Constant.CHROME, Constant.FIREFOX, Constant.IE};
+        return getRandomValue(allBrowser);
+    }
+
+    public static void setBrowserLang(String browserLang) {
+        Constant.BROWSER_LANG = browserLang;
+    }
 
     //EMPTY ERROR
     public static String getEmptyErrorLanguage(String language ) throws UnsupportedEncodingException {
@@ -379,5 +403,6 @@ public class Constant {
         }
         throw new Error("Unknown lang" + language);
     }
+
 
 }

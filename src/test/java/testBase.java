@@ -55,25 +55,14 @@ public class testBase{
 
     @BeforeSuite
 	public void setUp( ) throws Exception {
-       // logFile();
-        String	configFile = "application.properties";
-		Properties props = new Properties();
-		props.load(new FileReader(configFile));
+        // logFile();
+        String configFile = "application.properties";
+        Properties props = new Properties();
+        props.load(new FileReader(configFile));
         log.log(Level.FINE, "setUp start");
-		app =  ApplicationManager.getInstance();
-		app.setProperties(props);
-        log.log(Level.FINE, "setUp end");
-	  }
-    
-   @BeforeMethod (groups = {"default"})
-    public void goToRegisterPageAndSelectLang()
-    {
-
-        app.getNavigationHelper().goToRegistrationPageFromURL();
-        language =  app.getLanguagesHelper().selectLanguage();
+        app = ApplicationManager.getInstance();
+        app.setProperties(props);
     }
-
-
 
     @AfterSuite
 	public void tearDown() throws Exception {

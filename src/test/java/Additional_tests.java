@@ -1,8 +1,6 @@
 package test.java;
 
-import main.java.ApplicationManager;
 import main.java.UI.Constant;
-import main.java.testBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,14 +12,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 
-public class Additional_tests extends testBase {
+public class Additional_tests extends testBaseForRegistration {
 
 
     private void checkFieldIsEmpty(String name, String org, String email, String field) throws UnsupportedEncodingException {
         app.getRegistrationHelper().fillRegistrationForm(name, org, email);
         app.getRegistrationHelper().clickRegisterButton();
         assertThat( app.getRegistrationHelper().getTextError(field) , equalTo(Constant.getEmptyErrorLanguage(language)));
-        log.log( Level.INFO,  app.getRegistrationHelper().getTextError(field));
+        log.log(Level.INFO, app.getRegistrationHelper().getTextError(field));
     }
 
 

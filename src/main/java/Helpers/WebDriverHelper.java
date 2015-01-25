@@ -1,10 +1,14 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
-import main.java.Pages.PageManager;
+import main.java.UI.Constant;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,24 +20,31 @@ public class WebDriverHelper {
 	
 
     public WebDriverHelper(ApplicationManager app){
-        System.out.println("WebDriverHelper " + driver);
 		this.app = app;
 		String browser = app.getProperty("browser");
+        // String browser = Constant.selectRandomBrowser();
+        Constant.setBrowserLang(Constant.getRandomLanguage());
         if (driver==null) {
-            if ("firefox".equals(browser)) {
-                driver = new FirefoxDriver();
+            if (Constant.FIREFOX.equals(browser)) {
+                FirefoxProfile profile = new FirefoxProfile();
+                profile.setPreference("intl.accept_languages", Constant.BROWSER_LANG);
+                driver = new FirefoxDriver(profile);
 
-            } else if ("chrome".equals(browser)) {
-                String path = app.getProperty("pathWebDriverChrome");
-                System.setProperty("webdriver.chrome.driver", path);
-                driver = new ChromeDriver();
+            } else if (Constant.CHROME.equals(browser)) {
+                DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--lang=" + Constant.BROWSER_LANG);
+                capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+                driver = new ChromeDriver(capabilities);
+            } else if (Constant.IE.equals(browser)) {
+                driver = new InternetExplorerDriver();
+
             }
         }
 		String temp = app.getProperty("implicitWait");
 		driver.manage().timeouts().implicitlyWait(
 				Integer.parseInt(temp), TimeUnit.SECONDS);
 		driver.get(app.getProperty("baseURL"));
-        //pages = new PageManager(driver);
 	}
 
 	public WebDriver getDriver() {

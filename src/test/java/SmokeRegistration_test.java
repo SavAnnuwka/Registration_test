@@ -1,9 +1,7 @@
 package test.java;
 
 
-import main.java.ApplicationManager;
 import main.java.UI.Constant;
-import main.java.testBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-public class SmokeRegistration_test extends testBase{
+public class SmokeRegistration_test extends testBaseForRegistration {
     String correctEmail;
 
 

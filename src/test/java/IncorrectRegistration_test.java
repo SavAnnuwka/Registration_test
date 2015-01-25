@@ -1,9 +1,7 @@
 package test.java;
 
 
-import main.java.ApplicationManager;
 import main.java.UI.Constant;
-import main.java.testBase;
 import org.testng.annotations.Test;
 
 import java.io.UnsupportedEncodingException;
@@ -12,9 +10,7 @@ import java.util.logging.Level;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class IncorrectRegistration_test extends testBase {
-
-    //protected  String language;
+public class IncorrectRegistration_test extends testBaseForRegistration {
 
 
 
