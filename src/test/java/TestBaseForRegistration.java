@@ -2,7 +2,7 @@ package test.java;
 
 import org.testng.annotations.BeforeMethod;
 
-public class testBaseForRegistration extends testBase {
+public class TestBaseForRegistration extends testBase {
 
     @BeforeMethod()
     public void goToRegisterPageAndSelectLang() {

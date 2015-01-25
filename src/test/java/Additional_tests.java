@@ -12,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 
-public class Additional_tests extends testBaseForRegistration {
+public class Additional_tests extends TestBaseForRegistration {
 
 
     private void checkFieldIsEmpty(String name, String org, String email, String field) throws UnsupportedEncodingException {

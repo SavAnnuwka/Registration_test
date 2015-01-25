@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class IncorrectRegistration_test extends testBaseForRegistration {
+public class IncorrectRegistration_test extends TestBaseForRegistration {
 
 
 
