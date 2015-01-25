@@ -6,7 +6,7 @@ public class testBaseForRegistration extends testBase {
 
     @BeforeMethod()
     public void goToRegisterPageAndSelectLang() {
-
+//ug
         app.getNavigationHelper().goToRegistrationPageFromURL();
         language = app.getLanguagesHelper().selectLanguage();
     }
