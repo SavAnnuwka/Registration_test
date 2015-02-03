@@ -99,7 +99,11 @@ public class RegistrationPage extends AnyPage {
     public boolean IsLoadRegistrationPage() {
         return registrationPage.isDisplayed();
     }
+    public String  getLanguageForRegistration() {
+        return "/registrations/new?locale=";
 
+
+    }
 
 
 }

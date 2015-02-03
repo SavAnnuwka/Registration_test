@@ -24,7 +24,9 @@ public class LanguagesHelper extends HelperWithWebDriverBase{
 
 
     public   void selectLanguageInDropDownList(String lang) {
-        Select sel = new Select(findElement(app.getUIMap().getLocator("language")));
+        lang = pages.registrationPage.getLanguageForRegistration() + lang;
+        Select sel = new Select(pages.registrationPage.getLanguages()) ;
+       // Select sel = new Select(findElement(app.getUIMap().getLocator("language")));
         sel.selectByValue(lang);
     }
 }

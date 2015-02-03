@@ -29,9 +29,9 @@ public class Constant {
     public static String  SimpleName = "Name Surname";
     public static String  SimpleOrganisation= "Organisation Museum";
     public static String  SimpleEmail = "testannaiziteq@gmail.com";
-    public static String CHROME = "chrome";
-    public static String FIREFOX = "firefox";
-    public static String IE = "ie";
+    public static String CHROME = "CHROME";
+    public static String FIREFOX = "FF";
+    public static String IE = "IE";
 
     //random ang
     private static String getRandomValue(String[] allValues) {
