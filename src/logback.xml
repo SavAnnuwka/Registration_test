@@ -1,12 +1,12 @@
-<configuration>
+<configuration debug="false" info="true"> >
     <timestamp key="bySecond" datePattern="yyyyMMdd'_'HHmmss"/>
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{36} - %msg%n</pattern>
         </encoder>
-        <filter class ="ch.qos.logback.classic.filter.ThresholdFilter" >
-            <level> "INFO" </level>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>"INFO"</level>
         </filter>
     </appender>
 
@@ -19,9 +19,8 @@
     </appender>
 
 
-
     <root level="INFO">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>

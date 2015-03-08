@@ -1,6 +1,5 @@
 package main.java.Pages;
 
-import main.java.UI.UIMap;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,12 +41,14 @@ public class RegistrationPage extends AnyPage {
         nameField.sendKeys(text);
         return this;
     }
+
     public RegistrationPage setNameFieldfromClipBoard(String text) {
         setClipBoardContent(text);
         nameField.clear();
-        nameField.sendKeys(Keys.CONTROL+"v");
+        nameField.sendKeys(Keys.CONTROL + "v");
         return this;
     }
+
     public String getUsername() {
         return nameField.getAttribute("value").toString();
 
@@ -58,12 +59,14 @@ public class RegistrationPage extends AnyPage {
         organisationField.sendKeys(text);
         return this;
     }
+
     public RegistrationPage setOrganisationFieldfromClipBoard(String text) {
         setClipBoardContent(text);
         organisationField.clear();
-        organisationField.sendKeys(Keys.CONTROL+"v");
+        organisationField.sendKeys(Keys.CONTROL + "v");
         return this;
     }
+
     public String getOrganisation() {
         return organisationField.getAttribute("value").toString();
     }
@@ -77,16 +80,18 @@ public class RegistrationPage extends AnyPage {
     public RegistrationPage setEmailFieldgromClipBoard(String text) {
         setClipBoardContent(text);
         emailField.clear();
-        emailField.sendKeys(Keys.CONTROL+"v");
+        emailField.sendKeys(Keys.CONTROL + "v");
         return this;
     }
+
     public String getEmail() {
-        return  emailField.getAttribute("value").toString();
+        return emailField.getAttribute("value").toString();
     }
 
     public String getTitle() {
         return title.getText();
     }
+
     public String getDescription() {
         return description.getText();
     }
@@ -99,7 +104,8 @@ public class RegistrationPage extends AnyPage {
     public boolean IsLoadRegistrationPage() {
         return registrationPage.isDisplayed();
     }
-    public String  getLanguageForRegistration() {
+
+    public String getLanguageForRegistration() {
         return "/registrations/new?locale=";
 
 

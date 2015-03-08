@@ -9,16 +9,16 @@ import java.awt.datatransfer.StringSelection;
 
 public abstract class AnyPage extends Page {
 
-    @FindBy(id = "locale" )
+    @FindBy(id = "locale")
     private WebElement language;
 
     public AnyPage(PageManager pages) {
         super(pages);
     }
 
-    public void setClipBoardContent (String text){
-        StringSelection stringSelection=new StringSelection(text);
-        Clipboard clipboard= Toolkit.getDefaultToolkit().getSystemClipboard();
+    public void setClipBoardContent(String text) {
+        StringSelection stringSelection = new StringSelection(text);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
     }
 

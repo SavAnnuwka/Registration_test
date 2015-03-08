@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by Anna on 19.01.2015.
  */
-public class LicencePage extends AnyPage{
+public class LicencePage extends AnyPage {
     public LicencePage(PageManager pages) {
         super(pages);
     }
@@ -26,11 +26,13 @@ public class LicencePage extends AnyPage{
     }
 
     public String getLicenceAgree() {
-        return  licenceAgree.getText();
+        return licenceAgree.getText();
     }
+
     public boolean IsLoadLicencePage() {
         return licencePage.isDisplayed();
     }
+
     public LicencePage setLicenceAgree() {
         licenceAgree.click();
         return this;

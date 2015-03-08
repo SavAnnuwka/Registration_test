@@ -1,6 +1,5 @@
 package main.java.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -9,7 +8,8 @@ import org.openqa.selenium.support.FindBy;
  */
 public class MailPage extends AnyPage {
     public MailPage(PageManager pages) {
-       super(pages);}
+        super(pages);
+    }
 
     @FindBy(css = "span.email")
     private WebElement emailName;
@@ -23,9 +23,12 @@ public class MailPage extends AnyPage {
     @FindBy(css = "pre a[href*='invitation']")
     private WebElement link;
 
+    public WebElement getMail() {
+        return emailName;
+    }
 
     public String getMailName() {
-        return  emailName.getText();
+        return emailName.getText();
     }
 
     public WebElement getEmailCounter() {

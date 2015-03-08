@@ -18,6 +18,7 @@ public class ApplicationManager {
     private UIMap uiMap;
     private LanguagesHelper languagesHelper;
     private NavigationHelper navigationHelper;
+    private AllureReportHelper allureReportHelper;
     private PageManager pageManager;
     // private HelperWithWebDriverBase helperWithWebDriverBase;
 
@@ -29,7 +30,7 @@ public class ApplicationManager {
     }
 
 
-   public WebDriverHelper getWebDriverHelper() {
+    public WebDriverHelper getWebDriverHelper() {
         if (webDriverHelper == null) {
             webDriverHelper = new WebDriverHelper(this);
         }
@@ -48,6 +49,12 @@ public class ApplicationManager {
             registrationHelper = new RegistrationHelper(this);
         }
         return registrationHelper;
+    }
+    public AllureReportHelper getAllureReportHelper() {
+        if (allureReportHelper == null) {
+            allureReportHelper = new AllureReportHelper(this);
+        }
+        return allureReportHelper;
     }
 
     public MailHelper getMailHelper() {
@@ -77,6 +84,7 @@ public class ApplicationManager {
         }
         return uiMap;
     }
+
     public NavigationHelper getNavigationHelper() {
         if (navigationHelper == null) {
             navigationHelper = new NavigationHelper(this);
@@ -85,17 +93,18 @@ public class ApplicationManager {
     }
 
 
-
     //properties
-	public void setProperties(Properties props) {
-		this.props = props;
-	}
-	public String getProperty(String key) {
-		return props.getProperty(key);
-	}
-	public String getProperty(String key, String defaultValue) {
-		return props.getProperty(key, defaultValue);
-	}
+    public void setProperties(Properties props) {
+        this.props = props;
+    }
+
+    public String getProperty(String key) {
+        return props.getProperty(key);
+    }
+
+    public String getProperty(String key, String defaultValue) {
+        return props.getProperty(key, defaultValue);
+    }
 
 
 }

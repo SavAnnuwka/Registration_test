@@ -4,7 +4,6 @@ import main.java.ApplicationManager;
 import main.java.Helpers.HelperWithWebDriverBase;
 import org.openqa.selenium.By;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -22,6 +21,7 @@ public class UIMap extends HelperWithWebDriverBase {
     public UIMap(ApplicationManager app) {
         super(app);
     }
+
     private Properties getProperties() {
         Properties map = new Properties();
         try {
@@ -33,7 +33,7 @@ public class UIMap extends HelperWithWebDriverBase {
     }
 
 
-    public By getLocator(String key)  {
+    public By getLocator(String key) {
         Properties map = getProperties();
         String locator = map.getProperty(key);
         if (locator.startsWith(CSS)) {
@@ -44,9 +44,8 @@ public class UIMap extends HelperWithWebDriverBase {
             return By.xpath(locator.substring(XPATH.length()));
         } else if (locator.startsWith(CLASS)) {
             return By.className(locator.substring(CLASS.length()));
-        }
-        else {
-            throw  new Error("Unrecognized locator"+locator);
+        } else {
+            throw new Error("Unrecognized locator" + locator);
 
         }
     }
@@ -60,7 +59,7 @@ public class UIMap extends HelperWithWebDriverBase {
     }*/
 
 
-    public String getLocatorNameforFindBy (String key)  {
+    public String getLocatorNameforFindBy(String key) {
         Properties map = getProperties();
         String locator = map.getProperty(key);
         if (locator.startsWith(CSS)) {
@@ -68,12 +67,11 @@ public class UIMap extends HelperWithWebDriverBase {
         } else if (locator.startsWith(ID)) {
             return ID;
         } else if (locator.startsWith(XPATH)) {
-            return XPATH ;
+            return XPATH;
         } else if (locator.startsWith(CLASS)) {
             return CLASS;
-        }
-        else {
-            throw  new Error("Unrecognized locator"+locator);
+        } else {
+            throw new Error("Unrecognized locator" + locator);
         }
     }
 }
