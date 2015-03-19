@@ -3,6 +3,8 @@ package test.java;
 import main.java.UI.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -22,8 +24,9 @@ public class Additional_tests extends TestBaseForRegistration {
         log.log(Level.INFO, app.getRegistrationHelper().getTextError(field));
     }
 
-
-    @Test()
+    @Features("Регистрация.Дополнительные тесты")
+    @Stories("Одно поле пустое, остальные заполнены")
+    @Test
     public void incorrectOneEmptyFields() throws InterruptedException, UnsupportedEncodingException {
         log.log(Level.INFO, "Incorrect test: One empty fields start. Use lang:" + language);
         checkFieldIsEmpty("", Constant.SimpleOrganisation, Constant.SimpleEmail, Constant.NAME);
@@ -32,6 +35,9 @@ public class Additional_tests extends TestBaseForRegistration {
 
     }
 
+
+    @Features("Регистрация.Дополнительные тесты")
+    @Stories("Тексты на странице Регистрации")
     @Test(dataProvider = "registrationSimpleData", dataProviderClass = DataGenerator.class)
     public void checkMainRegistrationPage(String name, String org, String email) throws InterruptedException {
         log.log(Level.INFO, "Check title and description. Use lang:" + language);
@@ -47,11 +53,6 @@ public class Additional_tests extends TestBaseForRegistration {
     }
 
 
-    //@Test  ()
-    public void failMethod() throws InterruptedException, IOException {
-        app.getNavigationHelper().goToRegistrationPageFromURL();
-        assertThat(0, equalTo(0));
-    }
 
 
 }

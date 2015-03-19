@@ -15,9 +15,6 @@ import org.testng.annotations.BeforeSuite;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import uk.org.lidalia.sysoutslf4j.context.SysOutOverSLF4J;
 
-import javax.imageio.ImageIO;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -25,10 +22,6 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-import org.testng.ITestListener;
-
-//import org.slf4j.Logger;
-
 
 public class testBase  {
 
@@ -65,8 +58,10 @@ public class testBase  {
     }
 
     @BeforeSuite
+
     public void setUp() throws Exception {
-        // logFile();
+
+        System.err.println("BeforeSuite");
         String configFile = "application.properties";
         Properties props = new Properties();
         props.load(new FileReader(configFile));
@@ -78,6 +73,7 @@ public class testBase  {
 
     @AfterSuite
     public void tearDown() throws Exception {
+        System.err.println( "AfterSuite");
         log.log(Level.FINE, "tearDown start");
         ApplicationManager.getInstance().getWebDriverHelper().stop();
         log.log(Level.FINE, "tearDown end");
@@ -86,6 +82,7 @@ public class testBase  {
 
     @AfterMethod(alwaysRun = true)
     public void  takeScreenshotWhenFail(ITestResult result) throws IOException   {
+
         if (!result.isSuccess()) {
             String filename =  app.getWindowsHelper().takeScreenShot(result.getName());
             log.log(Level.WARNING, "<a href='" +filename +  "</a>");

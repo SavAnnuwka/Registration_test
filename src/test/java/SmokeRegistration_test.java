@@ -4,6 +4,8 @@ package test.java;
 import main.java.UI.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import java.util.Set;
 import java.util.logging.Level;
@@ -16,7 +18,9 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
     String correctEmail;
 
 
-    // correctRegister
+
+    @Features("Регистрация. Основные тесты")
+    @Stories("Смоук тест. Прохождение всего сценария регистрации")
     @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class)
     public void positiveTest(String correctName, String correctOrg) throws InterruptedException {
         log.log(Level.INFO, "positiveTest start. LANG = " + language);

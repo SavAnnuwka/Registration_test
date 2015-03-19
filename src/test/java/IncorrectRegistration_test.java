@@ -18,7 +18,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
     @Stories("Пустые поля")
     @Test(enabled = true)
     //all fields are EMPTY
-    public void incorrectAllEmptyFields() throws InterruptedException, UnsupportedEncodingException {
+    public void EmptyFields() throws InterruptedException, UnsupportedEncodingException {
         log.log(Level.INFO, "Incorrect test: All Empty fields start. Use lang:" + language);
         app.getRegistrationHelper().fillRegistrationForm("", "", "");
         app.getRegistrationHelper().clickRegisterButton();
@@ -34,7 +34,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
     @Features("Регистрация.Некорректные данные")
     @Stories("Длинные значения")
     @Test(enabled = true, dataProvider = "registrationLongData", dataProviderClass = DataGenerator.class)
-    public void incorrectAllLongFields(String longName, String longOrg, String longEmail) throws InterruptedException {
+    public void LongFields(String longName, String longOrg, String longEmail) throws InterruptedException {
         log.log(Level.INFO, "Incorrect test: All Long fields start. Use lang:" + language);
         app.getRegistrationHelper().fillRegistrationFormFromClipBoard(longName, longOrg, longEmail);
         assertThat(app.getRegistrationHelper().getValue(Constant.NAME), equalTo(longName.substring(0, 255)));
@@ -45,7 +45,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
     @Features("Регистрация.Некорректные данные")
     @Stories("Некорректный Email")
     @Test(enabled = true, dataProvider = "registrationIncorrectEmailData", dataProviderClass = DataGenerator.class)
-    public void incorrectEmailFields(String name, String org, String incorrectEmail) {
+    public void BadTypeEmail(String name, String org, String incorrectEmail) {
         log.log(Level.INFO, "Incorrect test: email. Use lang:" + language);
         app.getRegistrationHelper().fillRegistrationFormFromClipBoard(name, org, incorrectEmail);
         app.getRegistrationHelper().clickRegisterButton();

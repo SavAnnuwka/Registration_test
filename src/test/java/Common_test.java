@@ -13,7 +13,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
  * Created by Annet on 21.01.2015.
  */
 public class Common_test extends testBase {
-    @Features("Общие проверки")
+       @Features("Общие проверки")
         @Stories("Проверка, что браузер откроется на языке браузера. Язык выбирается рандомно")
        @Test
         public void CheckDefaultLanguage() {
