@@ -7,8 +7,8 @@ public class TestBaseForRegistration extends testBase {
 
     @BeforeMethod()
     public void goToRegisterPageAndSelectLang() {
-        System.err.println("BeforeMethod");
-         app.getNavigationHelper().goToRegistrationPageFromURL();
+        System.out.println("BeforeMethod");
+        app.getNavigationHelper().goToRegistrationPageFromURL();
         language = app.getLanguagesHelper().selectLanguage();
     }
 }

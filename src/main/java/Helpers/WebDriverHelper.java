@@ -14,15 +14,15 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverHelper {
 
-    protected WebDriver driver;
+    protected static    WebDriver driver;
     protected final ApplicationManager app;
     // protected final PageManager pages;
 
 
     public WebDriverHelper(ApplicationManager app) {
         this.app = app;
-         Constant.BROWSER = app.getProperty("browser");
-        //   Constant.BROWSER = Constant.selectRandomBrowser();
+        Constant.BROWSER = app.getProperty("browser");
+        //  Constant.BROWSER = Constant.selectRandomBrowser();
         Constant.setBrowserLang(Constant.getRandomLanguage());
         if (driver == null) {
             if (Constant.FIREFOX.equals(Constant.BROWSER)) {

@@ -3,6 +3,8 @@ package test.java;
 
 import main.java.UI.Constant;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
@@ -21,10 +23,10 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
 
     @Features("Регистрация. Основные тесты")
     @Stories("Смоук тест. Прохождение всего сценария регистрации")
-    @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class)
+    @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class, priority = 1)
     public void positiveTest(String correctName, String correctOrg) throws InterruptedException {
         log.log(Level.INFO, "positiveTest start. LANG = " + language);
-        correctEmail = app.getLanguagesHelper().getEMail();
+        correctEmail = app.getMailHelper().getEMail();
         app.getWindowsHelper().switchToOriginalPage();
         Assert.assertEquals(app.getRegistrationHelper().checkRegistrationPage(), true);
         log.log(Level.INFO, "Page 1 was open ");
@@ -68,5 +70,7 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         app.getWindowsHelper().switchToOriginalPage();
     }
 
-
+    @AfterClass
+    private void makeMainRegisterPage()
+    { app.getWindowsHelper().switchToOriginalPage();}
 }

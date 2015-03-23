@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 public class PageManager {
 
 
-    private WebDriver driver;
+    protected static WebDriver driver;
 
     public RegistrationPage registrationPage;
     public ErrorPage errorPage;

@@ -15,26 +15,7 @@ public class LanguagesHelper extends HelperWithWebDriverBase {
         super(app);
     }
 
-    public boolean waitMailLoad(Integer time) {
-        waitElement(time).until(ExpectedConditions.visibilityOf(pages.mailPage.getMail()));
-        try {
-            if (pages.mailPage.getMailName().isEmpty())
-                return false;
-            else return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
 
-
-    public String getEMail() {
-        app.getWindowsHelper().openNewMailWindow(app.getProperty("temporaryMail"));
-        if (!waitMailLoad(5)) {
-            app.getNavigationHelper().reloadPage();
-            waitMailLoad(10);
-        }
-        return app.getMailHelper().getTemporaryEmail();
-    }
 
 
     public String selectLanguage() {

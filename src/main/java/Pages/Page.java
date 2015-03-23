@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public abstract class Page {
-    protected WebDriver driver;
+    protected  WebDriver driver;
     protected WebDriverWait wait;
     protected PageManager pages;
 
@@ -17,9 +17,7 @@ public abstract class Page {
     }
 
 
-    public WebDriver getWebDriver() {
-        return driver;
-    }
+
 
 	/*public Page ensurePageLoaded() {
       return this;

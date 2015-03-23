@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class HelperWithWebDriverBase extends HelperBase {
 
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
     protected final PageManager pages;
 
     public HelperWithWebDriverBase(ApplicationManager app) {

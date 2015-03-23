@@ -2,9 +2,11 @@ package test.java;
 
 
 import main.java.UI.Constant;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
+import sun.invoke.util.VerifyAccess;
 
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
@@ -16,7 +18,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
 
     @Features("Регистрация.Некорректные данные")
     @Stories("Пустые поля")
-    @Test(enabled = true)
+    @Test(priority = 3)
     //all fields are EMPTY
     public void EmptyFields() throws InterruptedException, UnsupportedEncodingException {
         log.log(Level.INFO, "Incorrect test: All Empty fields start. Use lang:" + language);
@@ -33,7 +35,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
 
     @Features("Регистрация.Некорректные данные")
     @Stories("Длинные значения")
-    @Test(enabled = true, dataProvider = "registrationLongData", dataProviderClass = DataGenerator.class)
+    @Test(priority = 3, dataProvider = "registrationLongData", dataProviderClass = DataGenerator.class)
     public void LongFields(String longName, String longOrg, String longEmail) throws InterruptedException {
         log.log(Level.INFO, "Incorrect test: All Long fields start. Use lang:" + language);
         app.getRegistrationHelper().fillRegistrationFormFromClipBoard(longName, longOrg, longEmail);
@@ -44,7 +46,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
 
     @Features("Регистрация.Некорректные данные")
     @Stories("Некорректный Email")
-    @Test(enabled = true, dataProvider = "registrationIncorrectEmailData", dataProviderClass = DataGenerator.class)
+    @Test(priority = 3, dataProvider = "registrationIncorrectEmailData", dataProviderClass = DataGenerator.class)
     public void BadTypeEmail(String name, String org, String incorrectEmail) {
         log.log(Level.INFO, "Incorrect test: email. Use lang:" + language);
         app.getRegistrationHelper().fillRegistrationFormFromClipBoard(name, org, incorrectEmail);
@@ -55,11 +57,12 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
 
     @Features("Регистрация.Некорректные данные")
     @Stories("Не согласны с лицензионным соглашением")
-    @Test(enabled = true, dataProvider = "registrationSimpleData", dataProviderClass = DataGenerator.class)
-    public void checkBoxIsUnselected(String name, String org, String email) {
+    @Test(priority = 3, dataProvider = "registrationSimpleData", dataProviderClass = DataGenerator.class)
+    public void checkBoxIsUnselected(String name, String org, String email) throws InterruptedException {
         log.log(Level.INFO, "Incorrect test: checkbox is unchecked. Use lang:" + language);
         app.getRegistrationHelper().fillRegistrationFormFromClipBoard(name, org, email);
         app.getRegistrationHelper().clickRegisterButton();
+        Assert .assertEquals(app.getRegistrationHelper().checkLicencePage(), true);
         app.getRegistrationHelper().clickRegisterLicencePageButton();
         log.log(Level.INFO, app.getRegistrationHelper().getTextError(Constant.LICENCE_AGREE));
         assertThat(app.getRegistrationHelper().getTextError(Constant.LICENCE_AGREE), equalTo(Constant.getIncorrectCheckBoxLanguage(language)));
@@ -68,7 +71,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
 
     @Features("Регистрация.Некорректные данные")
     @Stories("Ужe зарегистрированный email")
-    @Test(enabled = true, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
+    @Test(priority = 3, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
     public void alreadyRegisterEmail(String simpleName, String simpleOrg) {
         String email = app.getProperty("email.already.register");
         log.log(Level.INFO, "Already register  email test start . Language: " + language + " and email: " + email);
@@ -81,7 +84,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
 
     @Features("Регистрация.Некорректные данные")
     @Stories("Ужe существующий в базе email")
-    @Test(dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
+    @Test(priority = 3, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
     public void alreadyExistInDataBaseEmail(String simpleName, String simpleOrg) {
         String email = app.getProperty("email.already.exist.in.db");
         log.log(Level.INFO, "Already exist in database email start. Language: " + language + " and email: " + email);

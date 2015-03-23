@@ -1,22 +1,19 @@
-<suite name="Register suite">
-    <!--  <test  name="Smoke">
+<suite name="Register suite"  parallel="false">
+    <test  name="Common">
+        <classes>
+            <class name="test.java.Common_test"/>
+        </classes>
+    </test>
+    <test  name="Smoke">
         <classes>
              <class name="test.java.SmokeRegistration_test"/>
          </classes>
-     </test> -->
-         <test  name="Negative">
-             <classes>
-                 <class name="test.java.IncorrectRegistration_test"/>
-             </classes>
-         </test>
-         <test  name="Additional">
-             <classes>
-                 <class name="test.java.Additional_tests"/>
-             </classes>
-         </test>
-     <!--     <test  name="Common">
-          <classes>
-              <class name="test.java.Common_test"/>
-          </classes>
-      </test>-->
+     </test>
+
+    <test  name="Not main suite">
+        <classes>
+            <class name="test.java.IncorrectRegistration_test"/>
+            <class name="test.java.Additional_tests"/>
+        </classes>
+    </test>
   </suite>

@@ -9,9 +9,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.slf4j.LoggerFactory;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Attachment;
 import uk.org.lidalia.sysoutslf4j.context.SysOutOverSLF4J;
 
@@ -28,17 +26,13 @@ public class testBase  {
     static {
 
         Logger.getLogger("").setLevel(Level.ALL);
-      /*for (Handler h:Logger.getLogger("").getHandlers())
-      {
-            Logger.getLogger("").removeHandler(h);
-        }     */
         SLF4JBridgeHandler.install();
         SysOutOverSLF4J.sendSystemOutAndErrToSLF4J();
         StatusPrinter.print((LoggerContext) LoggerFactory.getILoggerFactory());
     }
 
     protected Logger log = Logger.getLogger("main.java.testLogFile");
-    public ApplicationManager app;
+    public static ApplicationManager app;
     protected String language;
 
 
@@ -58,10 +52,7 @@ public class testBase  {
     }
 
     @BeforeSuite
-
     public void setUp() throws Exception {
-
-        System.err.println("BeforeSuite");
         String configFile = "application.properties";
         Properties props = new Properties();
         props.load(new FileReader(configFile));
@@ -73,14 +64,13 @@ public class testBase  {
 
     @AfterSuite
     public void tearDown() throws Exception {
-        System.err.println( "AfterSuite");
         log.log(Level.FINE, "tearDown start");
         ApplicationManager.getInstance().getWebDriverHelper().stop();
         log.log(Level.FINE, "tearDown end");
     }
 
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod()
     public void  takeScreenshotWhenFail(ITestResult result) throws IOException   {
 
         if (!result.isSuccess()) {
@@ -89,7 +79,7 @@ public class testBase  {
             }
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod()
     @Attachment("Скриншот")
     public byte[]  takeScreenshotForAllure () throws IOException   {
             return ((TakesScreenshot) app.getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.BYTES);
