@@ -63,7 +63,9 @@ public class HelperWithWebDriverBase extends HelperBase {
     }
 
     public String openInNewWindow(String url) {
-        String name = "mail";
+        String name =  getWindowHandle();
+         name = "mail";
+
         ((JavascriptExecutor) driver)
                 .executeScript("window.open(arguments[0],\"" + name + "\")", url);
         return name;

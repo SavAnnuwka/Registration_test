@@ -72,6 +72,7 @@ public class MailHelper extends HelperWithWebDriverBase {
             app.getNavigationHelper().reloadPage();
             waitMailLoad(10);
         }
+      app.getWindowsHelper().switchToMailPage();
         return app.getMailHelper().getTemporaryEmail();
     }
 }
