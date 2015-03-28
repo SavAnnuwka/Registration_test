@@ -1,0 +1,9 @@
+<suite name="Register suite"  parallel="false">
+
+
+    <test  name="Not main suite">
+        <classes>
+            <class name="test.java.SmokeRegistration_test"/>
+        </classes>
+    </test>
+  </suite>

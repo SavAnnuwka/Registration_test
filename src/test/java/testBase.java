@@ -62,7 +62,7 @@ public class testBase  {
 
     }
 
-    @AfterSuite
+    @AfterSuite (alwaysRun = true)
     public void tearDown() throws Exception {
         log.log(Level.FINE, "tearDown start");
         ApplicationManager.getInstance().getWebDriverHelper().stop();
@@ -70,7 +70,7 @@ public class testBase  {
     }
 
 
-    @AfterMethod()
+    @AfterMethod(alwaysRun = false)
     public void  takeScreenshotWhenFail(ITestResult result) throws IOException   {
 
         if (!result.isSuccess()) {
@@ -79,7 +79,7 @@ public class testBase  {
             }
     }
 
-    @AfterMethod()
+    @AfterMethod(alwaysRun = false)
     @Attachment("Скриншот")
     public byte[]  takeScreenshotForAllure () throws IOException   {
             return ((TakesScreenshot) app.getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.BYTES);

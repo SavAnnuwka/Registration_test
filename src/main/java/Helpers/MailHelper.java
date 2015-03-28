@@ -16,6 +16,7 @@ public class MailHelper extends HelperWithWebDriverBase {
     }
 
     public String getTemporaryEmail() {
+        app.getWindowsHelper().switchToMailPage();
         return pages.mailPage.getMailName();
        /* WebElement email = findElement(app.getUIMap().getLocator("email.name"));
           email.getText();    */
@@ -25,9 +26,7 @@ public class MailHelper extends HelperWithWebDriverBase {
         //  locator =     app.getUIMap().getLocator("email.counter");
         waitElement(20).until(ExpectedConditions.visibilityOf(pages.mailPage.getEmailCounter()));  //visibilityOfElementLocated(locator));
         try {
-            if (pages.mailPage.MailWasNotReceived())
-                return true;
-            else return false;
+            return pages.mailPage.MailWasNotReceived();
         } catch (NoSuchElementException e) {
             System.err.println(MessageFormat.format("No element and exception {0}", e.getMessage()));
             return Boolean.parseBoolean(null);
@@ -60,9 +59,7 @@ public class MailHelper extends HelperWithWebDriverBase {
     public boolean waitMailLoad(Integer time) {
         waitElement(time).until(ExpectedConditions.visibilityOf(pages.mailPage.getMail()));
         try {
-            if (pages.mailPage.getMailName().isEmpty())
-                return false;
-            else return true;
+            return !pages.mailPage.getMailName().isEmpty();
         } catch (NoSuchElementException e) {
             return false;
         }
