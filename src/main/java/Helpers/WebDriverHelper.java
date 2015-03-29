@@ -21,7 +21,9 @@ public class WebDriverHelper {
 
     public WebDriverHelper(ApplicationManager app) {
         this.app = app;
-        Constant.BROWSER = app.getProperty("browser");
+        if (System.getProperty("browser")!=null)
+            Constant.BROWSER = System.getProperty("browser");
+        else  Constant.BROWSER =app.getProperty("browser");
         //  Constant.BROWSER = Constant.selectRandomBrowser();
         Constant.setBrowserLang(Constant.getRandomLanguage());
         if (driver == null) {

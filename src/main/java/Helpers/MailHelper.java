@@ -2,6 +2,7 @@ package main.java.Helpers;
 
 
 import main.java.ApplicationManager;
+import main.java.UI.Constant;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -57,22 +58,24 @@ public class MailHelper extends HelperWithWebDriverBase {
     }
 
     public boolean waitMailLoad(Integer time) {
-        waitElement(time).until(ExpectedConditions.visibilityOf(pages.mailPage.getMail()));
-        try {
-            return !pages.mailPage.getMailName().isEmpty();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+        if (!Constant.BROWSER.equals(Constant.CHROME)){
+        waitElement(time).until(ExpectedConditions.visibilityOf(pages.mailPage.getMail()));}
+        else{
+        waitElement(time).until(ExpectedConditions.visibilityOf(pages.mailPage.getClipboard()));}
+        try {return pages.mailPage.displayMailName();}
+        catch (NoSuchElementException e) {return false;}
+
     }
 
 
     public String getEMail() {
         app.getWindowsHelper().openNewMailWindow(app.getProperty("temporaryMail"));
-        if (!waitMailLoad(5)) {
+        app.getWindowsHelper().switchToMailPage();
+       if (!waitMailLoad(5)) {
             app.getNavigationHelper().reloadPage();
-            waitMailLoad(10);
+            waitMailLoad(5);
         }
-      app.getWindowsHelper().switchToMailPage();
+
         return app.getMailHelper().getTemporaryEmail();
     }
 }

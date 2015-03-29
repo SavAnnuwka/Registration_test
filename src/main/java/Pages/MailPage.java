@@ -11,7 +11,7 @@ public class MailPage extends AnyPage {
         super(pages);
     }
 
-    @FindBy(css = "span.email")
+    @FindBy(className = "email")
     private WebElement emailName;
 
     @FindBy(css = "span.badge")
@@ -20,6 +20,10 @@ public class MailPage extends AnyPage {
     @FindBy(xpath = "//pre")
     private WebElement mailText;
 
+    @FindBy(css = "span.glyphicon.glyphicon-briefcase.clipboard")
+    private WebElement clipboardForMail;
+
+
     @FindBy(css = "pre a[href*='invitation']")
     private WebElement link;
 
@@ -27,8 +31,16 @@ public class MailPage extends AnyPage {
         return emailName;
     }
 
+    public WebElement getClipboard() {
+        return clipboardForMail;
+    }
+
     public String getMailName() {
         return emailName.getText();
+    }
+
+    public boolean displayMailName() {
+        return emailName.isDisplayed();
     }
 
     public WebElement getEmailCounter() {

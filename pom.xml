@@ -86,7 +86,7 @@
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng-customsuite1.xml</suiteXmlFile>
+                        <suiteXmlFile>testng-customsuite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
 

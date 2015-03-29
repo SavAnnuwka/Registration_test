@@ -4,7 +4,6 @@ package test.java;
 import main.java.UI.Constant;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
@@ -14,7 +13,6 @@ import java.util.logging.Level;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
 
 public class SmokeRegistration_test extends TestBaseForRegistration {
     String correctEmail;
@@ -23,14 +21,14 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
 
     @Features("Регистрация. Основные тесты")
     @Stories("Смоук тест. Прохождение всего сценария регистрации")
-    @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class, priority = 1)
+    @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class, priority = 1, groups = "ChangeLanguage")
     public void positiveTest(String correctName, String correctOrg) throws InterruptedException {
         log.log(Level.INFO, "positiveTest start. LANG = " + language);
         correctEmail = app.getMailHelper().getEMail();
         app.getWindowsHelper().switchToOriginalPage();
         Assert.assertEquals(app.getRegistrationHelper().checkRegistrationPage(), true);
         log.log(Level.INFO, "Page 1 was open ");
-        app.getRegistrationHelper().fillRegistrationFormFromClipBoard(correctName, correctOrg, correctEmail);
+        app.getRegistrationHelper().fillRegistrationForm(correctName, correctOrg, correctEmail);
         app.getRegistrationHelper().clickRegisterButton();
         Assert.assertEquals(app.getRegistrationHelper().checkLicencePage(), true);
         log.log(Level.INFO, "Page 2 was open");
@@ -41,23 +39,22 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         app.getWindowsHelper().switchToMailPage();
         Assert.assertEquals(app.getMailHelper().emptyMail(), false);
         log.log(Level.INFO, "mail " + correctEmail + " is not empty");
-        checkMailText();
-        checkMailLink();
+        getMailText();
+        getMailLink();
         log.log(Level.INFO, "positiveTest stop");
         app.getWindowsHelper().switchToOriginalPage();
     }
 
 
-    public void checkMailText() {
+    public void getMailText() {
         //пока запускается before и меняется lang
         log.log(Level.INFO, "check mail text start");
         app.getWindowsHelper().switchToMailPage();
-        //move to main test
-        log.log(Level.INFO, app.getMailHelper().getMailtext());
-        assertThat(app.getMailHelper().getMailtext().contains(Constant.getMailText(language)), equalTo(true));
+        Constant.MAILTEXT =  app.getMailHelper().getMailtext();
+        log.log(Level.INFO, Constant.MAILTEXT);
     }
 
-    public void checkMailLink() {
+    public void getMailLink() {
         log.log(Level.INFO, "check mail link  start");
         app.getWindowsHelper().switchToMailPage();
         Set<String> OldList = app.getWindowsHelper().getCurrentListOfHandles();
@@ -65,9 +62,27 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         Set<String> NewList = app.getWindowsHelper().getCurrentListOfHandles();
         app.getWindowsHelper().getCMSHandles(OldList, NewList);
         app.getWindowsHelper().switchToCMSPage();
-        log.log(Level.INFO, app.getNavigationHelper().getCurrentUrl());
-        assertThat(app.getNavigationHelper().getCurrentUrl(), containsString(app.getNavigationHelper().getNewUserURL()));
+        Constant.MAILLINK=  app.getNavigationHelper().getCurrentUrl();
+        log.log(Level.INFO,  Constant.MAILLINK);
         app.getWindowsHelper().switchToOriginalPage();
+    }
+
+
+    @Features("Регистрация. Основные тесты")
+    @Stories("Смоук тест. Проверка текста в письме")
+    @Test (dependsOnMethods ="positiveTest", priority = 1)
+    public void  checkMailText_withoutStartingBrowser()
+    {  log.log(Level.INFO, "checkMailText start");
+        assertThat(Constant.MAILTEXT, containsString(Constant.getMailText(language)));
+    }
+
+    @Features("Регистрация. Основные тесты")
+    @Stories("Смоук тест. Проверка ссылки  в письме")
+    @Test (dependsOnMethods ="positiveTest", priority = 1 )
+    public void  checkMailLink_withoutStartingBrowser()
+    {
+        log.log(Level.INFO, "checkMailLink start");
+        assertThat( Constant.MAILLINK, containsString(app.getNavigationHelper().getNewUserURL()));
     }
 
     @AfterClass

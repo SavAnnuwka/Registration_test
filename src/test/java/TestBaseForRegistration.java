@@ -1,14 +1,15 @@
 package test.java;
 
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import java.lang.reflect.Method;
 
 public class TestBaseForRegistration extends testBase {
 
     @BeforeMethod()
-    public void goToRegisterPageAndSelectLang() {
-        System.out.println("BeforeMethod");
-        app.getNavigationHelper().goToRegistrationPageFromURL();
-        language = app.getLanguagesHelper().selectLanguage();
+    public void goToRegisterPageAndSelectLang(Method method) {
+       if (!method.getName().contains("withoutStartingBrowser")) {
+           app.getNavigationHelper().goToRegistrationPageFromURL();
+           language = app.getLanguagesHelper().selectLanguage();
+       }
     }
 }

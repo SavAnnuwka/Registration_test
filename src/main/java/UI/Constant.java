@@ -6,6 +6,8 @@ import java.util.Random;
 
 public class Constant {
 
+    public static  String MAILTEXT ;
+    public static  String MAILLINK ;
     //Constants
     public static String NAME = "USERNAME";
     public static String ORGANISATION = "ORGANISATION";
@@ -34,6 +36,7 @@ public class Constant {
     public static String CHROME = "CHROME";
     public static String FIREFOX = "FF";
     public static String IE = "IE";
+
 
     //random ang
     private static String getRandomValue(String[] allValues) {
@@ -146,7 +149,7 @@ public class Constant {
             return "Um unseren Dienst nutzen zu können, müssen Sie den Lizenzbedingungen zustimmen";
         }
         if (language.equals(ES)) {
-            return "Formato de correo electrónico incorrecto";
+            return "Para utilizar nuestro servicio, debe aceptar los Términos de la licencia";
         }
         if (language.equals(FR)) {
             return "Pour utiliser notre service, vous devez accepter les Conditions de la licence";

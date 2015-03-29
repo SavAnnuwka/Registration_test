@@ -26,7 +26,7 @@ public class Additional_tests extends TestBaseForRegistration {
 
     @Features("Регистрация.Дополнительные тесты")
     @Stories("Одно поле пустое, остальные заполнены")
-    @Test(priority = 3)
+    @Test(priority = 3,groups = "ChangeLanguage")
     public void incorrectOneEmptyFields() throws InterruptedException, UnsupportedEncodingException {
         log.log(Level.INFO, "Incorrect test: One empty fields start. Use lang:" + language);
         checkFieldIsEmpty("", Constant.SimpleOrganisation, Constant.SimpleEmail, Constant.NAME);
@@ -38,7 +38,7 @@ public class Additional_tests extends TestBaseForRegistration {
 
     @Features("Регистрация.Дополнительные тесты")
     @Stories("Тексты на странице Регистрации")
-    @Test(priority = 3, dataProvider = "registrationSimpleData", dataProviderClass = DataGenerator.class)
+    @Test(priority = 3, dataProvider = "registrationSimpleData", dataProviderClass = DataGenerator.class,groups = "ChangeLanguage")
     public void checkMainRegistrationPage(String name, String org, String email) throws InterruptedException {
         log.log(Level.INFO, "Check title and description. Use lang:" + language);
         log.log(Level.INFO, "title:" + app.getRegistrationHelper().getText(Constant.TITLE));

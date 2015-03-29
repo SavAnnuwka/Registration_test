@@ -49,7 +49,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
     @Test(priority = 3, dataProvider = "registrationIncorrectEmailData", dataProviderClass = DataGenerator.class)
     public void BadTypeEmail(String name, String org, String incorrectEmail) {
         log.log(Level.INFO, "Incorrect test: email. Use lang:" + language);
-        app.getRegistrationHelper().fillRegistrationFormFromClipBoard(name, org, incorrectEmail);
+        app.getRegistrationHelper().fillRegistrationForm(name, org, incorrectEmail);
         app.getRegistrationHelper().clickRegisterButton();
         assertThat(app.getRegistrationHelper().getTextError(Constant.EMAIL), equalTo(Constant.getIncorrectEmailErrorLanguage(language)));
         log.log(Level.INFO, app.getRegistrationHelper().getTextError(Constant.EMAIL));
@@ -60,7 +60,7 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
     @Test(priority = 3, dataProvider = "registrationSimpleData", dataProviderClass = DataGenerator.class)
     public void checkBoxIsUnselected(String name, String org, String email) throws InterruptedException {
         log.log(Level.INFO, "Incorrect test: checkbox is unchecked. Use lang:" + language);
-        app.getRegistrationHelper().fillRegistrationFormFromClipBoard(name, org, email);
+        app.getRegistrationHelper().fillRegistrationForm(name, org, email);
         app.getRegistrationHelper().clickRegisterButton();
         Assert .assertEquals(app.getRegistrationHelper().checkLicencePage(), true);
         app.getRegistrationHelper().clickRegisterLicencePageButton();
