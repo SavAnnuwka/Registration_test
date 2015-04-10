@@ -21,23 +21,23 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
     @Test(priority = 3)
     //all fields are EMPTY
     public void EmptyFields() throws InterruptedException, UnsupportedEncodingException {
-        log.log(Level.INFO, "Incorrect test: All Empty fields start. Use lang:" + language);
+        log.log(Level.INFO, "Incorrect test. EmptyFields. Lang: " + language);
         app.getRegistrationHelper().fillRegistrationForm("", "", "");
         app.getRegistrationHelper().clickRegisterButton();
 
         assertThat(app.getRegistrationHelper().getTextError(Constant.NAME), equalTo(Constant.getEmptyErrorLanguage(language)));
-        log.log(Level.INFO, app.getRegistrationHelper().getTextError(Constant.NAME));
+        log.log(Level.INFO, "Incorrect test. EmptyFields. Empty name error: " + app.getRegistrationHelper().getTextError(Constant.NAME));
         assertThat(app.getRegistrationHelper().getTextError(Constant.ORGANISATION), equalTo(Constant.getEmptyErrorLanguage(language)));
-        log.log(Level.INFO, app.getRegistrationHelper().getTextError(Constant.ORGANISATION));
+        log.log(Level.INFO,"Incorrect test.EmptyFields. Empty organisation error: " + app.getRegistrationHelper().getTextError(Constant.ORGANISATION));
         assertThat(app.getRegistrationHelper().getTextError(Constant.EMAIL), equalTo(Constant.getEmptyErrorLanguage(language)));
-        log.log(Level.INFO, app.getRegistrationHelper().getTextError(Constant.EMAIL));
+        log.log(Level.INFO,"Incorrect test.EmptyFields. Empty organisation error: "+ app.getRegistrationHelper().getTextError(Constant.EMAIL));
     }
 
     @Features("Регистрация.Некорректные данные")
     @Stories("Длинные значения")
     @Test(priority = 3, dataProvider = "registrationLongData", dataProviderClass = DataGenerator.class)
     public void LongFields(String longName, String longOrg, String longEmail) throws InterruptedException {
-        log.log(Level.INFO, "Incorrect test: All Long fields start. Use lang:" + language);
+        log.log(Level.INFO, "Incorrect test. LongFields. Lang: " + language);
         app.getRegistrationHelper().fillRegistrationFormFromClipBoard(longName, longOrg, longEmail);
         assertThat(app.getRegistrationHelper().getValue(Constant.NAME), equalTo(longName.substring(0, 255)));
         assertThat(app.getRegistrationHelper().getValue(Constant.ORGANISATION), equalTo(longOrg.substring(0, 255)));
@@ -48,23 +48,23 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
     @Stories("Некорректный Email")
     @Test(priority = 3, dataProvider = "registrationIncorrectEmailData", dataProviderClass = DataGenerator.class)
     public void BadTypeEmail(String name, String org, String incorrectEmail) {
-        log.log(Level.INFO, "Incorrect test: email. Use lang:" + language);
+        log.log(Level.INFO, "Incorrect test: BadTypeEmail. Lang: " + language);
         app.getRegistrationHelper().fillRegistrationForm(name, org, incorrectEmail);
         app.getRegistrationHelper().clickRegisterButton();
         assertThat(app.getRegistrationHelper().getTextError(Constant.EMAIL), equalTo(Constant.getIncorrectEmailErrorLanguage(language)));
-        log.log(Level.INFO, app.getRegistrationHelper().getTextError(Constant.EMAIL));
+        log.log(Level.INFO,"Incorrect test: BadTypeEmail.Error:  "+ app.getRegistrationHelper().getTextError(Constant.EMAIL));
     }
 
     @Features("Регистрация.Некорректные данные")
     @Stories("Не согласны с лицензионным соглашением")
     @Test(priority = 3, dataProvider = "registrationSimpleData", dataProviderClass = DataGenerator.class)
     public void checkBoxIsUnselected(String name, String org, String email) throws InterruptedException {
-        log.log(Level.INFO, "Incorrect test: checkbox is unchecked. Use lang:" + language);
+        log.log(Level.INFO, "Incorrect test. CheckBoxIsUnselected. Lang: " + language);
         app.getRegistrationHelper().fillRegistrationForm(name, org, email);
         app.getRegistrationHelper().clickRegisterButton();
         Assert .assertEquals(app.getRegistrationHelper().checkLicencePage(), true);
         app.getRegistrationHelper().clickRegisterLicencePageButton();
-        log.log(Level.INFO, app.getRegistrationHelper().getTextError(Constant.LICENCE_AGREE));
+        log.log(Level.INFO, "Incorrect test. CheckBoxIsUnselected. Error: " + app.getRegistrationHelper().getTextError(Constant.LICENCE_AGREE));
         assertThat(app.getRegistrationHelper().getTextError(Constant.LICENCE_AGREE), equalTo(Constant.getIncorrectCheckBoxLanguage(language)));
 
     }
@@ -74,10 +74,10 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
     @Test(priority = 3, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
     public void alreadyRegisterEmail(String simpleName, String simpleOrg) {
         String email = app.getProperty("email.already.register");
-        log.log(Level.INFO, "Already register  email test start . Language: " + language + " and email: " + email);
+        log.log(Level.INFO, "Incorrect test. Already register  email test . Language: " + language + " and email: " + email);
         app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, email);
         app.getRegistrationHelper().clickRegisterButton();
-        log.log(Level.INFO, app.getRegistrationHelper().getTextError(Constant.EMAIL));
+        log.log(Level.INFO, "Incorrect test. Already register  email test . Error: " + app.getRegistrationHelper().getTextError(Constant.EMAIL));
         assertThat(app.getRegistrationHelper().getTextError(Constant.EMAIL), equalTo(Constant.getAlreadyExistErrorLanguage(language)));
     }
 
@@ -87,10 +87,10 @@ public class IncorrectRegistration_test extends TestBaseForRegistration {
     @Test(priority = 3, dataProvider = "registrationSimpleDataWithoutEmail", dataProviderClass = DataGenerator.class)
     public void alreadyExistInDataBaseEmail(String simpleName, String simpleOrg) {
         String email = app.getProperty("email.already.exist.in.db");
-        log.log(Level.INFO, "Already exist in database email start. Language: " + language + " and email: " + email);
+        log.log(Level.INFO, "Incorrect test. Already exist in database email. Lang: " + language + " and email: " + email);
         app.getRegistrationHelper().fillRegistrationForm(simpleName, simpleOrg, email);
         app.getRegistrationHelper().clickRegisterButton();
-        log.log(Level.INFO, app.getRegistrationHelper().getTextError(Constant.EMAIL));
+        log.log(Level.INFO, "Incorrect test. Already exist in database email. Error: " +  app.getRegistrationHelper().getTextError(Constant.EMAIL));
         assertThat(app.getRegistrationHelper().getTextError(Constant.EMAIL), equalTo(Constant.getAlreadyExistInDatabaseErrorLanguage(language)));
     }
 }

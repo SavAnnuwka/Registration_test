@@ -45,7 +45,7 @@ public class RegistrationPage extends AnyPage {
     public RegistrationPage setNameFieldfromClipBoard(String text) {
         setClipBoardContent(text);
         nameField.clear();
-        nameField.sendKeys(Keys.CONTROL, "v");
+        nameField.sendKeys(Keys.chord(Keys.CONTROL, "v"), ""); //sendKeys(Keys.CONTROL, "v");
         return this;
     }
 

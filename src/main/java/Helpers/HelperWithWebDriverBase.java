@@ -1,5 +1,6 @@
 package main.java.Helpers;
 
+import ch.qos.logback.classic.Level;
 import main.java.ApplicationManager;
 import main.java.Pages.PageManager;
 import org.openqa.selenium.By;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 
 public class HelperWithWebDriverBase extends HelperBase {
@@ -18,11 +20,12 @@ public class HelperWithWebDriverBase extends HelperBase {
 
     protected static WebDriver driver;
     protected final PageManager pages;
+    protected Logger log = Logger.getLogger("main.java.javaLogFile");
 
     public HelperWithWebDriverBase(ApplicationManager app) {
         super(app);
         driver = app.getWebDriverHelper().getDriver();
-       // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         pages = new PageManager(driver);
     }
 
@@ -31,9 +34,16 @@ public class HelperWithWebDriverBase extends HelperBase {
     }
 
     public WebDriverWait waitElement(int time) {
-        return new WebDriverWait(driver, time);
+        try {
+            return new WebDriverWait(driver, time);
+        } catch (Exception e) {
+            log.severe(e.getMessage());
+            return null;
+        }
 
     }
+
+
 
     public WebElement findElement(By linkText) {
         return driver.findElement(linkText);
@@ -62,13 +72,9 @@ public class HelperWithWebDriverBase extends HelperBase {
         return driver.getWindowHandle();
     }
 
-    public String openInNewWindow(String url) {
-        String name =  getWindowHandle();
-         name = "mail";
-
+    public void openInNewWindow(String url) {
         ((JavascriptExecutor) driver)
-                .executeScript("window.open(arguments[0],\"" + name + "\")", url);
-        return name;
+                .executeScript("window.open(arguments[0])", url);
     }
 
     protected void refreshCurrentPage() {

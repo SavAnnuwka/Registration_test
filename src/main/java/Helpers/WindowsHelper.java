@@ -41,17 +41,19 @@ public  class WindowsHelper extends HelperWithWebDriverBase  {
                 }
             }
         } catch (Exception e) {
+            log.log(Level.SEVERE, "Couldn't get  page", e.getMessage());
             System.err.println("Couldn't get  page");
         }
     }
 
     public void openNewMailWindow(String url) {
-        final Set<String> WindowsSet = getWindowHandles();
+        final Set<String> OldList = getWindowHandles();
         WindowsHelper.getOriginalHandle(originalHandle);
-        mailHandle = openInNewWindow(url);
+        openInNewWindow(url);
+        Set<String> NewList = getWindowHandles();
+        mailHandle = getMailHandler(OldList, NewList);
         goToWindow(mailHandle);
         waitLoadHandle(mailHandle);
-
     }
 
 
@@ -62,6 +64,15 @@ public  class WindowsHelper extends HelperWithWebDriverBase  {
     public void getCMSHandles(Set<String> OldList, Set<String> NewList) {
         NewList.removeAll(OldList);
         CMSHandle = NewList.iterator().next();
+      /* for(String winHandle: NewList ){
+           CMSHandle =  winHandle;
+        }   */
+    }
+
+    public String getMailHandler(Set<String> OldList, Set<String> NewList) {
+        NewList.removeAll(OldList);
+        mailHandle = NewList.iterator().next();
+        return mailHandle;
       /* for(String winHandle: NewList ){
            CMSHandle =  winHandle;
         }   */

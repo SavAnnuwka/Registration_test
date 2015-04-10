@@ -3,7 +3,7 @@
 
     <test  name="main suite">
         <classes>
-            <class name="test.java.SmokeRegistration_test"/>
+            <class name="test.java.Common_test"/>
         </classes>
     </test>
   </suite>

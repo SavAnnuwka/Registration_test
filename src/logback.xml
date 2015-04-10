@@ -1,26 +1,34 @@
-<configuration debug="false" info="true"> >
+<configuration info="true">
     <timestamp key="bySecond" datePattern="yyyyMMdd'_'HHmmss"/>
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <append>false</append>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %logger{36} - %msg%n</pattern>
+            <pattern>%d{ISO8601} [%-5p] [%16.32c] - %msg%n </pattern>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>"INFO"</level>
-        </filter>
+        <outputPatternAsPresentationHeader>true</outputPatternAsPresentationHeader>
     </appender>
-
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <file>logs/log-${bySecond}.txt</file>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{ISO8601} [%-5p] [%36.32c] - %msg%n </pattern>
+          <!--  <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern> -->
         </encoder>
     </appender>
 
 
-    <root level="INFO">
+
+      <!-- <logger name="main.java.testLogFile" additivity="false">
+        <appender-ref ref="STDOUT" />
+       </logger>-->
+
+
+    <root level="INFO"  additivity="false">
         <appender-ref ref="FILE"/>
-        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="STDOUT" />
     </root>
+
+
+
 </configuration>

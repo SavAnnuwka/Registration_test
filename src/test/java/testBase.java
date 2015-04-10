@@ -11,10 +11,14 @@ import org.slf4j.bridge.SLF4JBridgeHandler;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Attachment;
+import uk.org.lidalia.sysoutslf4j.context.LogLevel;
 import uk.org.lidalia.sysoutslf4j.context.SysOutOverSLF4J;
+import uk.org.lidalia.sysoutslf4j.context.exceptionhandlers.ExceptionHandlingStrategy;
+import uk.org.lidalia.sysoutslf4j.context.exceptionhandlers.ExceptionHandlingStrategyFactory;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -27,8 +31,11 @@ public class testBase  {
 
         Logger.getLogger("").setLevel(Level.ALL);
         SLF4JBridgeHandler.install();
-        SysOutOverSLF4J.sendSystemOutAndErrToSLF4J();
-        StatusPrinter.print((LoggerContext) LoggerFactory.getILoggerFactory());
+       SysOutOverSLF4J.sendSystemOutAndErrToSLF4J();
+        LoggerContext loggerContext =(LoggerContext) LoggerFactory.getILoggerFactory();
+       StatusPrinter.printInCaseOfErrorsOrWarnings(loggerContext);
+     //   loggerContext.stop();
+
     }
 
     protected Logger log = Logger.getLogger("main.java.testLogFile");
@@ -36,7 +43,7 @@ public class testBase  {
     protected String language;
 
 
-    private void logFile() throws IOException {
+  /*  private void logFile() throws IOException {
         FileHandler handler;
         try {
 
@@ -49,7 +56,7 @@ public class testBase  {
         } catch (SecurityException e) {
             System.err.println("Security exception while initialising logger : " + e.getMessage());
         }
-    }
+    }*/
 
     @BeforeSuite
     public void setUp() throws Exception {
@@ -75,7 +82,8 @@ public class testBase  {
 
         if (!result.isSuccess()) {
             String filename =  app.getWindowsHelper().takeScreenShot(result.getName());
-            log.log(Level.WARNING, "<a href='" +filename +  "</a>");
+            log.log(Level.SEVERE, "<a href='" +filename +  "</a>");
+            log.severe("RRRR");
             }
     }
 

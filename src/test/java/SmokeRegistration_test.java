@@ -23,39 +23,39 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
     @Stories("Смоук тест. Прохождение всего сценария регистрации")
     @Test(dataProvider = "registrationCorrectData", dataProviderClass = DataGenerator.class, priority = 1, groups = "ChangeLanguage")
     public void positiveTest(String correctName, String correctOrg) throws InterruptedException {
-        log.log(Level.INFO, "positiveTest start. LANG = " + language);
+        log.log(Level.INFO, "PositiveTest. Lang: " + language);
         correctEmail = app.getMailHelper().getEMail();
         app.getWindowsHelper().switchToOriginalPage();
         Assert.assertEquals(app.getRegistrationHelper().checkRegistrationPage(), true);
-        log.log(Level.INFO, "Page 1 was open ");
+        log.log(Level.INFO, "PositiveTest. Page 1 was open ");
         app.getRegistrationHelper().fillRegistrationForm(correctName, correctOrg, correctEmail);
         app.getRegistrationHelper().clickRegisterButton();
         Assert.assertEquals(app.getRegistrationHelper().checkLicencePage(), true);
-        log.log(Level.INFO, "Page 2 was open");
+        log.log(Level.INFO, "PositiveTest. Page 2 was open");
         app.getRegistrationHelper().confirmCheckbox();
         app.getRegistrationHelper().clickRegisterLicencePageButton();
         Assert.assertEquals(app.getRegistrationHelper().checkFinishRegistrationPage(), true);
-        log.log(Level.INFO, "Page 3 was open");
+        log.log(Level.INFO, "PositiveTest. Page 3 was open");
         app.getWindowsHelper().switchToMailPage();
         Assert.assertEquals(app.getMailHelper().emptyMail(), false);
-        log.log(Level.INFO, "mail " + correctEmail + " is not empty");
+        log.log(Level.INFO, "PositiveTest. Mail " + correctEmail + " is not empty");
         getMailText();
         getMailLink();
-        log.log(Level.INFO, "positiveTest stop");
+        log.log(Level.INFO, "PositiveTest. Stop");
         app.getWindowsHelper().switchToOriginalPage();
     }
 
 
     public void getMailText() {
         //пока запускается before и меняется lang
-        log.log(Level.INFO, "check mail text start");
+        log.log(Level.INFO, "PositiveTest. Get mail text");
         app.getWindowsHelper().switchToMailPage();
         Constant.MAILTEXT =  app.getMailHelper().getMailtext();
-        log.log(Level.INFO, Constant.MAILTEXT);
+
     }
 
     public void getMailLink() {
-        log.log(Level.INFO, "check mail link  start");
+        log.log(Level.INFO, "PositiveTest. Get mail link");
         app.getWindowsHelper().switchToMailPage();
         Set<String> OldList = app.getWindowsHelper().getCurrentListOfHandles();
         app.getMailHelper().goToMailLink();
@@ -63,7 +63,7 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         app.getWindowsHelper().getCMSHandles(OldList, NewList);
         app.getWindowsHelper().switchToCMSPage();
         Constant.MAILLINK=  app.getNavigationHelper().getCurrentUrl();
-        log.log(Level.INFO,  Constant.MAILLINK);
+
         app.getWindowsHelper().switchToOriginalPage();
     }
 
@@ -72,8 +72,9 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
     @Stories("Смоук тест. Проверка текста в письме")
     @Test (dependsOnMethods ="positiveTest", priority = 1)
     public void  checkMailText_withoutStartingBrowser()
-    {  log.log(Level.INFO, "checkMailText start");
-        assertThat(Constant.MAILTEXT, containsString(Constant.getMailText(language)));
+    {  log.log(Level.INFO, "CheckMailText. Start");
+        log.log(Level.INFO, "CheckMailText. Text:" + Constant.MAILTEXT);
+                assertThat(Constant.MAILTEXT, containsString(Constant.getMailText(language)));
     }
 
     @Features("Регистрация. Основные тесты")
@@ -81,7 +82,8 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
     @Test (dependsOnMethods ="positiveTest", priority = 1 )
     public void  checkMailLink_withoutStartingBrowser()
     {
-        log.log(Level.INFO, "checkMailLink start");
+        log.log(Level.INFO, "CheckMailLink. Start");
+        log.log(Level.INFO,  "CheckMailText. Link: " + Constant.MAILLINK);
         assertThat( Constant.MAILLINK, containsString(app.getNavigationHelper().getNewUserURL()));
     }
 

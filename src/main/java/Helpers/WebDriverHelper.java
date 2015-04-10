@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -51,6 +52,8 @@ public class WebDriverHelper {
         else Constant.URL =app.getProperty("baseURL");
         driver.get(Constant.URL);
     }
+
+
 
     public WebDriver getDriver() {
         return driver;

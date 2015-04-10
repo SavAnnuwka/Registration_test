@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.Level;
 
 /**
  * Created by Annet on 16.11.2014.
@@ -27,6 +28,7 @@ public class UIMap extends HelperWithWebDriverBase {
         try {
             map.load(new FileReader(app.getProperty("locatorPropertyFile")));
         } catch (IOException e) {
+            log.log(Level.SEVERE,  e.getMessage());
             e.printStackTrace();
         }
         return map;

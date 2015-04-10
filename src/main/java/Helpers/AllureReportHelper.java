@@ -8,13 +8,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import ru.yandex.qatools.allure.annotations.Attachment;
-
+import java.util.logging.Level;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by Annet on 08.03.2015.
- */
 public class AllureReportHelper extends HelperWithWebDriverBase  implements ITestListener
 {
     public AllureReportHelper(ApplicationManager app)  {
@@ -24,14 +21,15 @@ public class AllureReportHelper extends HelperWithWebDriverBase  implements ITes
 
     public void takeScreenShot(String fileName) throws IOException {
         File scrFile = ((TakesScreenshot) app.getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.FILE);
-
-        FileUtils.copyFile(scrFile, new File(app.getProperty("pathScreenshot") + fileName + ".png"));}
+        FileUtils.copyFile(scrFile, new File(app.getProperty("pathScreenshot") + fileName + ".png"));
+    }
 
         @Override
         public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
             try {
                 makeScreenshot("Failure screenshot", iTestResult);
             } catch (IOException e) {
+                log.log(Level.SEVERE, e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -61,7 +59,9 @@ public class AllureReportHelper extends HelperWithWebDriverBase  implements ITes
             try {
                 makeScreenshot("Failure screenshot", iTestResult);
             } catch (IOException e) {
+                log.log(Level.SEVERE, e.getMessage());
                 e.printStackTrace();
+
             }
         }
 

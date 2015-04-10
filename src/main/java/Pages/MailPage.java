@@ -11,7 +11,7 @@ public class MailPage extends AnyPage {
         super(pages);
     }
 
-    @FindBy(className = "email")
+    @FindBy(css = "span.email")
     private WebElement emailName;
 
     @FindBy(css = "span.badge")

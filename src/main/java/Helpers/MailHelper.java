@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.text.MessageFormat;
+import java.util.logging.Level;
 
 public class MailHelper extends HelperWithWebDriverBase {
 
@@ -30,6 +31,7 @@ public class MailHelper extends HelperWithWebDriverBase {
             return pages.mailPage.MailWasNotReceived();
         } catch (NoSuchElementException e) {
             System.err.println(MessageFormat.format("No element and exception {0}", e.getMessage()));
+            log.log(Level.SEVERE, e.getMessage());
             return Boolean.parseBoolean(null);
         }
     }
@@ -38,6 +40,7 @@ public class MailHelper extends HelperWithWebDriverBase {
         try {
             return pages.mailPage.getMailtext();   //findElement(app.getUIMap().getLocator("email.text")).getText();
         } catch (NoSuchElementException e) {
+            log.log(Level.SEVERE, e.getMessage());
             System.err.println(MessageFormat.format("No element and exception ", e.getMessage()));
             return null;
         }
@@ -47,6 +50,7 @@ public class MailHelper extends HelperWithWebDriverBase {
         try {
             return pages.mailPage.getEmailLink(); // findElement(app.getUIMap().getLocator("email.link"));
         } catch (NoSuchElementException e) {
+            log.log(Level.SEVERE, e.getMessage());
             System.err.println(MessageFormat.format("No element and exception ", e.getMessage()));
             return null;
         }
@@ -58,12 +62,13 @@ public class MailHelper extends HelperWithWebDriverBase {
     }
 
     public boolean waitMailLoad(Integer time) {
-        if (!Constant.BROWSER.equals(Constant.CHROME)){
-        waitElement(time).until(ExpectedConditions.visibilityOf(pages.mailPage.getMail()));}
-        else{
-        waitElement(time).until(ExpectedConditions.visibilityOf(pages.mailPage.getClipboard()));}
-        try {return pages.mailPage.displayMailName();}
-        catch (NoSuchElementException e) {return false;}
+      //  if (!Constant.BROWSER.equals(Constant.CHROME)){
+        waitElement(time).until(ExpectedConditions.elementToBeClickable(pages.mailPage.getMail()));
+     //   else{
+     //   waitElement(time).until(ExpectedConditions.elementToBeClickable(pages.mailPage.getClipboard()));}
+        try {
+            return pages.mailPage.displayMailName();}
+        catch (NoSuchElementException e) {log.log(Level.SEVERE, e.getMessage()); return false;}
 
     }
 
