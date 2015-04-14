@@ -70,9 +70,12 @@ public class AllureReportHelper extends HelperWithWebDriverBase  implements ITes
 
         }
 
+
+
         @Attachment(value = "{0}", type = "image/png")
         public void makeScreenshot(String name, ITestResult iTestResult) throws IOException {
             if (!iTestResult.isSuccess()) {
+                System.out.println("1");
                 takeScreenShot(iTestResult.getName());
             }
         }

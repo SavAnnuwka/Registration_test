@@ -1,5 +1,6 @@
 package test.java;
 
+import main.java.UI.Constant;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.DataProvider;
 
@@ -59,6 +60,15 @@ public class DataGenerator {
         };
 
     }
+        @DataProvider(name = "registrationEmptyData")
+        public static Object[][] generateRegistrationIncorrectEmptyOnefieldData() {
+            return new Object[][]{
+                    {Constant.SimpleName, Constant.SimpleOrganisation, ""},
+                    {Constant.SimpleName, "", Constant.SimpleEmail},
+                    {"", Constant.SimpleOrganisation, Constant.SimpleEmail}
+            };
+
+        }
 
 
 }
