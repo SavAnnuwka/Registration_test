@@ -83,7 +83,7 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
     public void  checkMailLink_withoutStartingBrowser()
     {
         log.log(Level.INFO, "CheckMailLink. Start");
-        log.log(Level.INFO,  "CheckMailText. Link: " + Constant.MAILLINK);
+        log.log(Level.INFO,  "CheckMailLink. Link: " + Constant.MAILLINK);
         assertThat( Constant.MAILLINK, containsString(app.getNavigationHelper().getNewUserURL()));
     }
 

@@ -41,6 +41,7 @@ public class DataGenerator {
 
     @DataProvider(name = "registrationLongData")
     public static Object[][] generateRegistrationLongData() {
+
         return new Object[][]{{RandomGenerateLongString(), RandomGenerateLongString(), RandomGenerateLongString()}
         };
 

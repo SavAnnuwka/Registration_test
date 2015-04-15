@@ -25,7 +25,7 @@ public class LanguagesHelper extends HelperWithWebDriverBase {
     }
 
     public void selectLanguageInDropDownList(String lang) {
-        lang = pages.registrationPage.getLanguageForRegistration() + lang;
+     //   lang = pages.registrationPage.getLanguageForRegistration() + lang;  //for new CMS register
         Select sel = new Select(pages.registrationPage.getLanguages());
         sel.selectByValue(lang);
     }

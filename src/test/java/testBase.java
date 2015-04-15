@@ -83,7 +83,6 @@ public class testBase  {
         if (!result.isSuccess()) {
             String filename =  app.getWindowsHelper().takeScreenShot(result.getName());
             log.log(Level.SEVERE, "<a href='" +filename +  "</a>");
-            log.severe("RRRR");
             }
     }
 

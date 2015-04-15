@@ -62,8 +62,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
-
                 <configuration>
+                        <skip>true</skip>
                   <!-- <properties>
                         <property>
                             <name>listener</name>
@@ -76,15 +76,14 @@
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng-customsuite1.xml</suiteXmlFile>
+                        <suiteXmlFile>testng-customsuite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
-
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
+                        <version>1.8.5</version>
                     </dependency>
                 </dependencies>
               </plugin>
@@ -118,7 +117,7 @@
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-site-plugin</artifactId>
-            <version>3.3</version>
+            <version>3.4</version>
         </dependency>
 
         <!-- logging -->
