@@ -11,25 +11,27 @@ import ru.yandex.qatools.allure.annotations.Attachment;
 import java.util.logging.Level;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Logger;
 
-public class AllureReportHelper extends HelperWithWebDriverBase  implements ITestListener
-{
-    public AllureReportHelper(ApplicationManager app)  {
-        super(app);
-    }
+public class AllureReportHelper    implements ITestListener
+    { protected Logger log = Logger.getLogger("main.java.TestNGLog");
 
 
-    public void takeScreenShot(String fileName) throws IOException {
-        File scrFile = ((TakesScreenshot) app.getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File(app.getProperty("pathScreenshot") + fileName + ".png"));
-    }
+
+
+
+        /* public void takeScreenShot(String fileName) throws IOException {
+                File scrFile = ((TakesScreenshot) app.getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(scrFile, new File(app.getProperty("pathScreenshot") + fileName + ".png"));
+            }
+        */
 
         @Override
         public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
             try {
                 makeScreenshot("Failure screenshot", iTestResult);
             } catch (IOException e) {
-                log.log(Level.SEVERE, e.getMessage());
+               log.log(Level.SEVERE, e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -51,7 +53,13 @@ public class AllureReportHelper extends HelperWithWebDriverBase  implements ITes
 
         @Override
         public void onTestSuccess(ITestResult iTestResult) {
+            try {
+                makeScreenshot("Pass screenshot", iTestResult);
+            } catch (IOException e) {
+              log.log(Level.SEVERE, e.getMessage());
+                e.printStackTrace();
 
+            }
         }
 
         @Override
@@ -59,7 +67,7 @@ public class AllureReportHelper extends HelperWithWebDriverBase  implements ITes
             try {
                 makeScreenshot("Failure screenshot", iTestResult);
             } catch (IOException e) {
-                log.log(Level.SEVERE, e.getMessage());
+              log.log(Level.SEVERE, e.getMessage());
                 e.printStackTrace();
 
             }
@@ -73,10 +81,12 @@ public class AllureReportHelper extends HelperWithWebDriverBase  implements ITes
 
 
         @Attachment(value = "{0}", type = "image/png")
-        public void makeScreenshot(String name, ITestResult iTestResult) throws IOException {
-            if (!iTestResult.isSuccess()) {
-                System.out.println("1");
-                takeScreenShot(iTestResult.getName());
-            }
-        }
+        public byte [] makeScreenshot(String name, ITestResult iTestResult) throws IOException {
+           //if (!iTestResult.isSuccess()) {
+              return ((TakesScreenshot)   ApplicationManager.getInstance().getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.BYTES);
+              // takeScreenShot(iTestResult.getName());
+
+
+           }
+
 }

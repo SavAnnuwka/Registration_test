@@ -9,18 +9,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
 
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 
-public class HelperWithWebDriverBase extends HelperBase {
+public  class HelperWithWebDriverBase extends HelperBase {
 
 
     protected static WebDriver driver;
     protected final PageManager pages;
     protected Logger log = Logger.getLogger("main.java.javaLogFile");
+
+
 
     public HelperWithWebDriverBase(ApplicationManager app) {
         super(app);
@@ -80,5 +84,6 @@ public class HelperWithWebDriverBase extends HelperBase {
     protected void refreshCurrentPage() {
         driver.navigate().refresh();
     }
+
 
 }

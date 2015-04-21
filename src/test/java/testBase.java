@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+@Listeners (main.java.Helpers.AllureReportHelper.class)
 public class testBase  {
 
     static {
@@ -43,20 +44,7 @@ public class testBase  {
     protected String language;
 
 
-  /*  private void logFile() throws IOException {
-        FileHandler handler;
-        try {
 
-            handler = new FileHandler("application_log", true);
-            SimpleFormatter formatter = new SimpleFormatter();
-            handler.setFormatter(formatter);
-            log.addHandler(handler);
-
-            log.setLevel(Level.ALL);
-        } catch (SecurityException e) {
-            System.err.println("Security exception while initialising logger : " + e.getMessage());
-        }
-    }*/
 
     @BeforeSuite
     public void setUp() throws Exception {
@@ -77,26 +65,15 @@ public class testBase  {
     }
 
 
-  /* @AfterMethod(alwaysRun = false)
-    public void  takeScreenshotWhenFail(ITestResult result) throws IOException   {
-
-        if (!result.isSuccess()) {
-            String filename =  app.getWindowsHelper().takeScreenShot(result.getName());
-            log.log(Level.SEVERE, filename );
-
-            }
-    }*/
 
 
-    @AfterMethod(alwaysRun = true)
-    @Attachment("Скриншот {0}")
-   // @Listeners ({main.java.Helpers.AllureReportHelper.class})
+    /*@AfterMethod(alwaysRun = true)
+    @Attachment(value = " Screenshot {0}")
     private byte[]  takeScreenshotForAllure() throws IOException   {
+        System.out.println("Скриншот ");
             return ((TakesScreenshot) app.getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.BYTES);
-
-
         }
-
+*/
 
 
 }
