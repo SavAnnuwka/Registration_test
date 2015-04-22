@@ -50,12 +50,12 @@ public class ApplicationManager {
         }
         return registrationHelper;
     }
-    public AllureReportHelper getAllureReportHelper() {
+  /*  public AllureReportHelper getAllureReportHelper() {
         if (allureReportHelper == null) {
             allureReportHelper = new AllureReportHelper(this);
         }
         return allureReportHelper;
-    }
+    }*/
 
     public MailHelper getMailHelper() {
         if (mailHelper == null) {
