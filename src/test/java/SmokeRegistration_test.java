@@ -13,6 +13,7 @@ import java.util.logging.Level;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
 
 public class SmokeRegistration_test extends TestBaseForRegistration {
     String correctEmail;
@@ -26,18 +27,18 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         log.log(Level.INFO, "PositiveTest. Lang: " + language);
         correctEmail = app.getMailHelper().getEMail();
         app.getWindowsHelper().switchToOriginalPage();
-        Assert.assertEquals(app.getRegistrationHelper().checkRegistrationPage(), true);
+        assertThat("Registration page is not opened", app.getRegistrationHelper().checkRegistrationPage(), equalTo(true));
         log.log(Level.INFO, "PositiveTest. Page 1 was open ");
         app.getRegistrationHelper().fillRegistrationForm(correctName, correctOrg, correctEmail);
         app.getRegistrationHelper().clickRegisterButton();
-        Assert.assertEquals(app.getRegistrationHelper().checkLicencePage(), true);
+        assertThat("Licence page is not opened", app.getRegistrationHelper().checkLicencePage(), equalTo(true));
         log.log(Level.INFO, "PositiveTest. Page 2 was open");
         app.getRegistrationHelper().confirmCheckbox();
         app.getRegistrationHelper().clickRegisterLicencePageButton();
-        Assert.assertEquals(app.getRegistrationHelper().checkFinishRegistrationPage(), true);
+        assertThat("Finish  page is not opened", app.getRegistrationHelper().checkFinishRegistrationPage(), equalTo(true));
         log.log(Level.INFO, "PositiveTest. Page 3 was open");
         app.getWindowsHelper().switchToMailPage();
-        Assert.assertEquals(app.getMailHelper().emptyMail(), false);
+        assertThat("Email is empty", app.getMailHelper().emptyMail(),equalTo(false));
         log.log(Level.INFO, "PositiveTest. Mail " + correctEmail + " is not empty");
         getMailText();
         getMailLink();
@@ -71,20 +72,20 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
     @Features("Регистрация. Основные тесты")
     @Stories("Смоук тест. Проверка текста в письме")
     @Test (dependsOnMethods ="positiveTest", priority = 1)
-    public void  checkMailText_withoutStartingBrowser()
+    public void  checkMailText_withoutStartingBrowserTest()
     {  log.log(Level.INFO, "CheckMailText. Start");
         log.log(Level.INFO, "CheckMailText. Text:" + Constant.MAILTEXT);
-                assertThat(Constant.MAILTEXT, containsString(Constant.getMailText(language)));
+                assertThat(language + ": mail incorrect. ", Constant.MAILTEXT, containsString(Constant.getMailText(language)));
     }
 
     @Features("Регистрация. Основные тесты")
     @Stories("Смоук тест. Проверка ссылки  в письме")
     @Test (dependsOnMethods ="positiveTest", priority = 1 )
-    public void  checkMailLink_withoutStartingBrowser()
+    public void  checkMailLink_withoutStartingBrowserTest()
     {
         log.log(Level.INFO, "CheckMailLink. Start");
-        log.log(Level.INFO,  "CheckMailLink. Link: " + Constant.MAILLINK);
-        assertThat( Constant.MAILLINK, containsString(app.getNavigationHelper().getNewUserURL()));
+        log.log(Level.INFO,  "CheckMailText. Link: " + Constant.MAILLINK);
+        assertThat(language + ": link incorrect. ", Constant.MAILLINK, containsString(app.getNavigationHelper().getNewUserURL()));
     }
 
     @AfterClass

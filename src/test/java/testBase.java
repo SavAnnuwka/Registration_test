@@ -77,30 +77,27 @@ public class testBase  {
     }
 
 
-    @AfterMethod(alwaysRun = false)
+  /* @AfterMethod(alwaysRun = false)
     public void  takeScreenshotWhenFail(ITestResult result) throws IOException   {
 
         if (!result.isSuccess()) {
             String filename =  app.getWindowsHelper().takeScreenShot(result.getName());
-            log.log(Level.SEVERE, "<a href='" +filename +  "</a>");
-            }
-    }
+            log.log(Level.SEVERE, filename );
 
-    @AfterMethod(alwaysRun = false)
-    @Attachment("Скриншот")
-    public byte[]  takeScreenshotForAllure () throws IOException   {
+            }
+    }*/
+
+
+    @AfterMethod(alwaysRun = true)
+    @Attachment("Скриншот {0}")
+   // @Listeners ({main.java.Helpers.AllureReportHelper.class})
+    private byte[]  takeScreenshotForAllure() throws IOException   {
             return ((TakesScreenshot) app.getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.BYTES);
 
 
         }
 
-   /* @AfterMethod(alwaysRun = true)
-    @Attachment(value = "Снимок ''{0}''", type = "image/png")
-    public static byte[] saveScreenShot(Screenshot screenshot) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(screenshot.getImage(), "png", baos);
-        return baos.toByteArray();
-    }*/
+
 
 }
 
