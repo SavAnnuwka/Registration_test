@@ -4,22 +4,22 @@
       </listeners>-->
 
 
-      <!-- <test  name="Common">
+   <!--   <test  name="Common">
            <classes>
                <class name="test.java.Common_test"/>
            </classes>
-       </test> -->
-    <!--  <test  name="Smoke">
+       </test>         -->
+      <test  name="Smoke">
         <classes>
              <class name="test.java.SmokeRegistration_test"/>
          </classes>
-     </test>-->
+     </test>
 
-    <test  name="Not main suite">
+  <!--  <test  name="Not main suite">
         <classes>
-            <!--    <class name="test.java.IncorrectRegistration_test"/>-->
+               <class name="test.java.IncorrectRegistration_test"/>
 
               <class name="test.java.Additional_tests"/>
           </classes>
-      </test>
+      </test>      -->
     </suite>

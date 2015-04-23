@@ -1,6 +1,7 @@
 package test.java;
 
 
+import main.java.Helpers.DBRequests;
 import main.java.UI.Constant;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -8,6 +9,9 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Set;
 import java.util.logging.Level;
 
@@ -17,7 +21,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class SmokeRegistration_test extends TestBaseForRegistration {
     String correctEmail;
-
+    String userName;
 
 
     @Features("Регистрация. Основные тесты")
@@ -26,6 +30,7 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
     public void positiveTest(String correctName, String correctOrg) throws InterruptedException {
         log.log(Level.INFO, "PositiveTest. Lang: " + language);
         correctEmail = app.getMailHelper().getEMail();
+        userName = correctName;
         app.getWindowsHelper().switchToOriginalPage();
         assertThat("Registration page is not opened", app.getRegistrationHelper().checkRegistrationPage(), equalTo(true));
         log.log(Level.INFO, "PositiveTest. Page 1 was open ");
@@ -63,8 +68,18 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         Set<String> NewList = app.getWindowsHelper().getCurrentListOfHandles();
         app.getWindowsHelper().getCMSHandles(OldList, NewList);
         app.getWindowsHelper().switchToCMSPage();
-        Constant.MAILLINK=  app.getNavigationHelper().getCurrentUrl();
+        Constant.MAILLINK= app.getNavigationHelper().getCurrentUrl();
+        finishRegistration();
+        app.getWindowsHelper().switchToOriginalPage();
+    }
 
+    public void finishRegistration()
+    {
+        app.getWindowsHelper().switchToCMSPage();
+        app.getRegistrationHelper().enterPassword(Constant.SimplePassword);
+        app.getRegistrationHelper().enterConfirmPassword(Constant.SimplePassword);
+        app.getRegistrationHelper().clickSubmitPasswordButton();
+        app.getRegistrationHelper().clickSubmitPasswordButton();
         app.getWindowsHelper().switchToOriginalPage();
     }
 
@@ -86,6 +101,20 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         log.log(Level.INFO, "CheckMailLink. Start");
         log.log(Level.INFO,  "CheckMailText. Link: " + Constant.MAILLINK);
         assertThat(language + ": link incorrect. ", Constant.MAILLINK, containsString(app.getNavigationHelper().getNewUserURL()));
+    }
+
+
+    @Features("Регистрация. Основные тесты")
+    @Stories("Смоук тест. Проверка user  в DB")
+    @Test (dependsOnMethods ="positiveTest", priority = 1 )
+    public void  checkUserinDB_withoutStartingBrowserTest() throws SQLException {
+        log.log(Level.INFO, "checkUserinDB. Start");
+        log.log(Level.INFO, "checkUserinDB. Link: " + correctEmail);
+        DBRequests.init(app.getProperty("db.login"), app.getProperty("db.password"));
+       String userFromDB= DBRequests.getUserFromDB(correctEmail);
+        System.out.println(userFromDB);
+        assertThat("User don't find in DB " + userFromDB, userFromDB, equalTo(userName));
+
     }
 
     @AfterClass

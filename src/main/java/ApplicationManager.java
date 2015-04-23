@@ -18,9 +18,10 @@ public class ApplicationManager {
     private UIMap uiMap;
     private LanguagesHelper languagesHelper;
     private NavigationHelper navigationHelper;
-    private AllureReportHelper allureReportHelper;
+  //  private AllureReportHelper allureReportHelper;
     private PageManager pageManager;
-    // private HelperWithWebDriverBase helperWithWebDriverBase;
+
+
 
     public static ApplicationManager getInstance() {
         if (singleton == null) {
@@ -56,6 +57,7 @@ public class ApplicationManager {
         }
         return allureReportHelper;
     }*/
+
 
     public MailHelper getMailHelper() {
         if (mailHelper == null) {

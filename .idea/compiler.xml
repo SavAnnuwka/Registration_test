@@ -26,7 +26,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="IziTravel_tests" target="1.8" />
+      <module name="IziTravel_tests" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

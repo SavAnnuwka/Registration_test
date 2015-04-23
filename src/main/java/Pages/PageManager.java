@@ -12,6 +12,7 @@ public class PageManager {
     public ErrorPage errorPage;
     public LicencePage licencePage;
     public FinishRegistrationPage finishRegistrationPage;
+    public PasswordPage passwordPage;
     public MailPage mailPage;
 
     public PageManager(WebDriver driver) {
@@ -21,6 +22,7 @@ public class PageManager {
         licencePage = initElements(new LicencePage(this));
         finishRegistrationPage = initElements(new FinishRegistrationPage(this));
         mailPage = initElements(new MailPage(this));
+        passwordPage = initElements(new PasswordPage(this));
     }
 
     private <T extends Page> T initElements(T page) {

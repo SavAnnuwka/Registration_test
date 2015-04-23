@@ -36,7 +36,7 @@ public class Constant {
     public static String CHROME = "CHROME";
     public static String FIREFOX = "FF";
     public static String IE = "IE";
-
+    public static String SimplePassword = "123123";
 
     //random ang
     private static String getRandomValue(String[] allValues) {
@@ -407,6 +407,7 @@ public class Constant {
         }
         throw new Error("Unknown lang" + language);
     }
+
 
 
 }

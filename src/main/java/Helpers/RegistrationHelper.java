@@ -100,24 +100,22 @@ public class RegistrationHelper extends HelperWithWebDriverBase {
         return pages.finishRegistrationPage.IsLoadFinishPage();
     }
 
-   /* public boolean checkPage(int page) throws InterruptedException {
-        WebElement element = null;
-        if (page == 1)
-             {
-                 wait(app.getUIMap().getLocator("register.page1.isdisplayed"));
-                 element = findElement(app.getUIMap().getLocator("register.page1.isdisplayed"));
+    /**
+     * PAGE 4 (password)
+     *
+     */
 
-            }
-            if (page == 2)
-            {     wait(app.getUIMap().getLocator("register.page2.isdisplayed"));
-                element = findElement(app.getUIMap().getLocator("register.page2.isdisplayed"));
-            }
-            if (page == 3)
-            {    wait(app.getUIMap().getLocator("register.page3.isdisplayed"));
-                element = findElement(app.getUIMap().getLocator("register.page3.isdisplayed"));
-            }
-             return element != null && element.isDisplayed();
-    } */
+    public void enterPassword(String pass) {
+        pages.passwordPage.setPasswordField(pages.passwordPage.getPassword(), pass);
+    }
+    public void enterConfirmPassword(String pass) {
+        pages.passwordPage.setPasswordField(pages.passwordPage.getConfirmPassword(), pass);
+    }
+
+    public void clickSubmitPasswordButton() {
+        pages.passwordPage.clickSubmitButton();
+    }
+
 
 }
 

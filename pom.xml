@@ -10,7 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- versions-->
         <allure.version>1.4.10</allure.version>
-        <mvn_compiler.version>3.2</mvn_compiler.version>
+        <mvn_compiler.version>3.3</mvn_compiler.version>
         <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
         <testng.version>6.8.21</testng.version>
@@ -63,7 +63,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                        <skip>true</skip>
+
                   <!-- <properties>
                         <property>
                             <name>listener</name>
@@ -119,6 +119,7 @@
             <artifactId>maven-site-plugin</artifactId>
             <version>3.4</version>
         </dependency>
+
 
         <!-- logging -->
           <dependency>
@@ -207,7 +208,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+        </dependency>
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
