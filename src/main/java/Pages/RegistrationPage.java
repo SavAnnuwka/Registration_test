@@ -48,68 +48,54 @@ public class RegistrationPage extends AnyPage {
         nameField.sendKeys(Keys.chord(Keys.CONTROL, "v"), ""); //sendKeys(Keys.CONTROL, "v");
         return this;
     }
-
     public String getUsername() {
         return nameField.getAttribute("value").toString();
 
     }
-
     public RegistrationPage setOrganisationField(String text) {
         organisationField.clear();
         organisationField.sendKeys(text);
         return this;
     }
-
     public RegistrationPage setOrganisationFieldfromClipBoard(String text) {
         setClipBoardContent(text);
         organisationField.clear();
         organisationField.sendKeys(Keys.CONTROL + "v");
         return this;
     }
-
     public String getOrganisation() {
         return organisationField.getAttribute("value").toString();
     }
-
     public RegistrationPage setEmailField(String text) {
         emailField.clear();
         emailField.sendKeys(text);
         return this;
     }
-
     public RegistrationPage setEmailFieldgromClipBoard(String text) {
         setClipBoardContent(text);
         emailField.clear();
         emailField.sendKeys(Keys.CONTROL + "v");
         return this;
     }
-
     public String getEmail() {
         return emailField.getAttribute("value").toString();
     }
-
     public String getTitle() {
         return title.getText();
     }
-
     public String getDescription() {
         return description.getText();
     }
-
     public void clickSubmitButton() {
         submitButton.click();
     }
-
-
     public boolean IsLoadRegistrationPage() {
         return registrationPage.isDisplayed();
     }
-
     public String getLanguageForRegistration() {
         return "/registrations/new?locale=";
 
 
     }
-
 
 }

@@ -3,14 +3,11 @@ package test.java;
 
 import main.java.Helpers.DBRequests;
 import main.java.UI.Constant;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Set;
 import java.util.logging.Level;
@@ -33,20 +30,18 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         userName = correctName;
         app.getWindowsHelper().switchToOriginalPage();
         assertThat("Registration page is not opened", app.getRegistrationHelper().checkRegistrationPage(), equalTo(true));
-        log.log(Level.INFO, "PositiveTest. Page 1 was open ");
         app.getRegistrationHelper().fillRegistrationForm(correctName, correctOrg, correctEmail);
         app.getRegistrationHelper().clickRegisterButton();
         assertThat("Licence page is not opened", app.getRegistrationHelper().checkLicencePage(), equalTo(true));
-        log.log(Level.INFO, "PositiveTest. Page 2 was open");
         app.getRegistrationHelper().confirmCheckbox();
         app.getRegistrationHelper().clickRegisterLicencePageButton();
         assertThat("Finish  page is not opened", app.getRegistrationHelper().checkFinishRegistrationPage(), equalTo(true));
-        log.log(Level.INFO, "PositiveTest. Page 3 was open");
         app.getWindowsHelper().switchToMailPage();
         assertThat("Email is empty", app.getMailHelper().emptyMail(),equalTo(false));
         log.log(Level.INFO, "PositiveTest. Mail " + correctEmail + " is not empty");
         getMailText();
         getMailLink();
+        finishRegistration();
         log.log(Level.INFO, "PositiveTest. Stop");
         app.getWindowsHelper().switchToOriginalPage();
     }
@@ -59,7 +54,6 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         Constant.MAILTEXT =  app.getMailHelper().getMailtext();
 
     }
-
     public void getMailLink() {
         log.log(Level.INFO, "PositiveTest. Get mail link");
         app.getWindowsHelper().switchToMailPage();
@@ -69,12 +63,9 @@ public class SmokeRegistration_test extends TestBaseForRegistration {
         app.getWindowsHelper().getCMSHandles(OldList, NewList);
         app.getWindowsHelper().switchToCMSPage();
         Constant.MAILLINK= app.getNavigationHelper().getCurrentUrl();
-        finishRegistration();
         app.getWindowsHelper().switchToOriginalPage();
     }
-
-    public void finishRegistration()
-    {
+    public void finishRegistration() {
         app.getWindowsHelper().switchToCMSPage();
         app.getRegistrationHelper().enterPassword(Constant.SimplePassword);
         app.getRegistrationHelper().enterConfirmPassword(Constant.SimplePassword);

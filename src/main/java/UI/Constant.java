@@ -9,42 +9,41 @@ public class Constant {
     public static  String MAILTEXT ;
     public static  String MAILLINK ;
     //Constants
-    public static String NAME = "USERNAME";
-    public static String ORGANISATION = "ORGANISATION";
-    public static String EMAIL = "EMAIL";
-    public static String LICENCE_AGREE = "LICENCE";
-    public static final String TITLE = "TITLE";
-    public static final String DESCRIPTION = "DESCRIPTION";
+    public static final String NAME = "USERNAME";
+    public static final String ORGANISATION = "ORGANISATION";
+    public static final String EMAIL = "EMAIL";
+    public static final String LICENCE_AGREE = "LICENCE";
+    public static final  String TITLE = "TITLE";
+    public static final  String DESCRIPTION = "DESCRIPTION";
     // languages
     public static String BROWSER_LANG;
     public static String BROWSER;
     public static String URL;
-    public static String EN = "en";
-    public static String DE = "de";
-    public static String ES = "es";
-    public static String FR = "fr";
-    public static String IT = "it";
-    public static String NL = "nl";
-    public static String SV = "sv";
-    public static String RU = "ru";
-    public static String PT = "pt";
-    public static String RO = "ro";
-    public static String ZH = "zh";
-    public static String SimpleName = "Name Surname";
-    public static String SimpleOrganisation = "Organisation Museum";
-    public static String SimpleEmail = "testannaiziteq@gmail.com";
-    public static String CHROME = "CHROME";
-    public static String FIREFOX = "FF";
-    public static String IE = "IE";
-    public static String SimplePassword = "123123";
+    public static final String EN = "en";
+    public static final String DE = "de";
+    public static final String ES = "es";
+    public static final String FR = "fr";
+    public static final String IT = "it";
+    public static final String NL = "nl";
+    public static final String SV = "sv";
+    public static final String RU = "ru";
+    public static final String PT = "pt";
+    public static final String RO = "ro";
+    public static final String ZH = "zh";
+    public static final String SimpleName = "Name Surname";
+    public static final String SimpleOrganisation = "Organisation Museum";
+    public static final String SimpleEmail = "testannaiziteq@gmail.com";
+    public static final String CHROME = "CHROME";
+    public static final String FIREFOX = "FF";
+    public static final String IE = "IE";
+    public static final String SimplePassword = "123123";
 
-    //random ang
+    //random lang
     private static String getRandomValue(String[] allValues) {
         Random rand = new Random();
         int i = rand.nextInt(allValues.length - 1);
         return allValues[i];
     }
-
     public static String getRandomLanguage() {
         String[] allLang = {Constant.DE, Constant.EN, Constant.ES, Constant.FR, Constant.IT, Constant.NL, Constant.PT, Constant.RO, Constant.RU, Constant.SV, Constant.ZH};
         return getRandomValue(allLang);
@@ -56,13 +55,7 @@ public class Constant {
         return getRandomValue(allBrowser);
 
     }
-
-    public static void setBrowserLang(String browserLang) {
-        Constant.BROWSER_LANG = browserLang;
-    }
-
-    //EMPTY ERROR
-    public static String getEmptyErrorLanguage(String language) throws UnsupportedEncodingException {
+     public static String getEmptyErrorLanguage(String language) throws UnsupportedEncodingException {
         if (language.equals(EN)) {
             return "Required field can not be left blank.";
         }
@@ -100,8 +93,6 @@ public class Constant {
         throw new Error("Unknown lang" + language);
 
     }
-
-    //INCORRECT EMAIL
     public static String getIncorrectEmailErrorLanguage(String language) {
         if (language.equals(EN)) {
             return "Invalid e-mail format";
@@ -138,9 +129,6 @@ public class Constant {
         }
         throw new Error("Unknown lang" + language);
     }
-
-
-    //INCORRECT checkbox
     public static String getIncorrectCheckBoxLanguage(String language) {
         if (language.equals(EN)) {
             return "In order to use our service, you must agree to the License terms";
@@ -177,8 +165,6 @@ public class Constant {
         }
         throw new Error("Unknown lang" + language);
     }
-
-    //Already try to register
     public static String getAlreadyExistErrorLanguage(String language) {
         if (language.equals(EN)) {
             return "An e-mail containing instructions about how to complete the registration has sent to this address";
@@ -215,9 +201,6 @@ public class Constant {
         }
         throw new Error("Unknown lang" + language);
     }
-
-
-    //Already register
     public static String getAlreadyExistInDatabaseErrorLanguage(String language) {
         if (language.equals(EN)) {
             return "This e-mail address is already registered";
@@ -254,8 +237,6 @@ public class Constant {
         }
         throw new Error("Unknown lang" + language);
     }
-
-
     public static String getTitleLanguage(String language) {
         if (language.equals(EN)) {
             return "Creating an audio guide is easy!";
@@ -293,7 +274,6 @@ public class Constant {
         throw new Error("Unknown lang" + language);
 
     }
-
     public static String getDescriptionLanguage(String language) {
         if (language.equals(EN)) {
             return "The izi.TRAVEL CMS interface allows you to quickly create, test and publish an audio guide. All instructions and resources available on login under HELP menu.";
@@ -331,7 +311,6 @@ public class Constant {
         throw new Error("Unknown lang" + language);
 
     }
-
     public static String getConfirmCheckboxLanguage(String language) {
         if (language.equals(EN)) {
             return "I agree to the terms and conditions of the license agreement";
@@ -368,8 +347,6 @@ public class Constant {
         }
         throw new Error("Unknown lang" + language);
     }
-
-
     public static String getMailText(String language) {
         if (language.equals(EN)) {
             return "This e-mail was provided during registration for the";

@@ -29,15 +29,12 @@ public class ErrorPage extends AnyPage {
     public String getNameError() {
         return nameError.getText();
     }
-
     public String getOrganisationError() {
         return organisationError.getText();
     }
-
     public String getEmailError() {
         return emailError.getText();
     }
-
     public String getLicenceAgreeError() {
         return licenceAgreeError.getText();
     }

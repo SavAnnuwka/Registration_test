@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 
@@ -33,6 +32,7 @@ public class Additional_tests extends TestBaseForRegistration {
         app.getRegistrationHelper().fillRegistrationForm(name, org, email);
         app.getRegistrationHelper().clickRegisterButton();
         String field = checkFieldIsEmpty(name, org, email);
+      //  assertThat(language + ": " + app.getRegistrationHelper().getTextError(field), app.getRegistrationHelper().getTextError(field), equalTo(Constant.getEmptyErrorLanguage(language)));
         assertThat(language + ": " + app.getRegistrationHelper().getTextError(field), app.getRegistrationHelper().getTextError(field), equalTo(Constant.getEmptyErrorLanguage(language)));
         log.info("Additional test. One empty field. Error: " + app.getRegistrationHelper().getTextError(field));
 

@@ -15,11 +15,9 @@ public class NavigationHelper extends HelperWithWebDriverBase {
     public String getRegistrationURL() {
         return Constant.URL + app.getProperty("registerURL");
     }
-
     public String getNewUserURL() {
         return app.getProperty("newUserURL");
     }
-
     public void goToRegistrationPageFromURL() {
         String currentURL = currentUrl();
         if (currentURL.indexOf("?") > 0) {
@@ -29,11 +27,9 @@ public class NavigationHelper extends HelperWithWebDriverBase {
             app.getWebDriverHelper().openUrl(getRegistrationURL());
         }
     }
-
     public String getCurrentUrl() {
         return super.currentUrl();
     }
-
     public void reloadPage() {
         refreshCurrentPage();
     }

@@ -2,7 +2,6 @@ package main.java.Helpers;
 
 
 import main.java.ApplicationManager;
-import main.java.UI.Constant;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,7 +22,6 @@ public class MailHelper extends HelperWithWebDriverBase {
        /* WebElement email = findElement(app.getUIMap().getLocator("email.name"));
           email.getText();    */
     }
-
     public boolean emptyMail() {
         //  locator =     app.getUIMap().getLocator("email.counter");
         waitElement(20).until(ExpectedConditions.visibilityOf(pages.mailPage.getEmailCounter()));  //visibilityOfElementLocated(locator));
@@ -35,7 +33,6 @@ public class MailHelper extends HelperWithWebDriverBase {
             return Boolean.parseBoolean(null);
         }
     }
-
     public String getMailtext() {
         try {
             return pages.mailPage.getMailtext();   //findElement(app.getUIMap().getLocator("email.text")).getText();
@@ -45,7 +42,6 @@ public class MailHelper extends HelperWithWebDriverBase {
             return null;
         }
     }
-
     public WebElement getMailLink() {
         try {
             return pages.mailPage.getEmailLink(); // findElement(app.getUIMap().getLocator("email.link"));
@@ -55,12 +51,10 @@ public class MailHelper extends HelperWithWebDriverBase {
             return null;
         }
     }
-
     public void goToMailLink() {
         WebElement linkFromMail = getMailLink();
         linkFromMail.click();
     }
-
     public boolean waitMailLoad(Integer time) {
       //  if (!Constant.BROWSER.equals(Constant.CHROME)){
         waitElement(time).until(ExpectedConditions.elementToBeClickable(pages.mailPage.getMail()));
@@ -71,8 +65,6 @@ public class MailHelper extends HelperWithWebDriverBase {
         catch (NoSuchElementException e) {log.log(Level.SEVERE, e.getMessage()); return false;}
 
     }
-
-
     public String getEMail() {
         app.getWindowsHelper().openNewMailWindow(app.getProperty("temporaryMail"));
         app.getWindowsHelper().switchToMailPage();

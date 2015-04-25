@@ -15,12 +15,9 @@ public class FinishRegistrationPage extends AnyPage {
     @FindBy(className = "step3")
     private WebElement finishRegistrationPage;
 
-
     public WebElement getFinishRegistrationPage() {
         return finishRegistrationPage;
     }
-
-
     public boolean IsLoadFinishPage() {
         return finishRegistrationPage.isDisplayed();
     }

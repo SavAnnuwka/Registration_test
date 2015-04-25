@@ -16,19 +16,4 @@ public abstract class Page {
 
     }
 
-
-
-
-	/*public Page ensurePageLoaded() {
-      return this;
-	}
-
-  public boolean waitPageLoaded() {
-    try {
-      ensurePageLoaded();
-      return true;
-    } catch (TimeoutException to) {
-      return false;
-    }
-  }    */
 }

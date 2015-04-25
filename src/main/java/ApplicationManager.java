@@ -1,10 +1,8 @@
 package main.java;
 
-
 import main.java.Helpers.*;
 import main.java.Pages.PageManager;
 import main.java.UI.UIMap;
-
 import java.util.Properties;
 
 public class ApplicationManager {
@@ -18,10 +16,7 @@ public class ApplicationManager {
     private UIMap uiMap;
     private LanguagesHelper languagesHelper;
     private NavigationHelper navigationHelper;
-  //  private AllureReportHelper allureReportHelper;
-    private PageManager pageManager;
-
-
+    private PageManager pages;
 
     public static ApplicationManager getInstance() {
         if (singleton == null) {
@@ -29,69 +24,53 @@ public class ApplicationManager {
         }
         return singleton;
     }
-
-
     public WebDriverHelper getWebDriverHelper() {
         if (webDriverHelper == null) {
             webDriverHelper = new WebDriverHelper(this);
         }
         return webDriverHelper;
     }
-
-    /*    public HelperWithWebDriverBase getHelperWithWebDriverBase() {
-       if (helperWithWebDriverBase == null) {
-           helperWithWebDriverBase = new HelperWithWebDriverBase(this);
-       }
-       return helperWithWebDriverBase;
-   }                     */
-
     public RegistrationHelper getRegistrationHelper() {
         if (registrationHelper == null) {
             registrationHelper = new RegistrationHelper(this);
         }
         return registrationHelper;
     }
-  /*  public AllureReportHelper getAllureReportHelper() {
-        if (allureReportHelper == null) {
-            allureReportHelper = new AllureReportHelper(this);
-        }
-        return allureReportHelper;
-    }*/
-
-
     public MailHelper getMailHelper() {
         if (mailHelper == null) {
             mailHelper = new MailHelper(this);
         }
         return mailHelper;
     }
-
     public WindowsHelper getWindowsHelper() {
         if (windowHandlerHelper == null) {
             windowHandlerHelper = new WindowsHelper(this);
         }
         return windowHandlerHelper;
     }
-
     public LanguagesHelper getLanguagesHelper() {
         if (languagesHelper == null) {
             languagesHelper = new LanguagesHelper(this);
         }
         return languagesHelper;
     }
-
     public UIMap getUIMap() {
         if (uiMap == null) {
             uiMap = new UIMap(this);
         }
         return uiMap;
     }
-
     public NavigationHelper getNavigationHelper() {
         if (navigationHelper == null) {
             navigationHelper = new NavigationHelper(this);
         }
         return navigationHelper;
+    }
+    public PageManager getPageManager() {
+        if (pages == null) {
+            pages = new PageManager(this.getWebDriverHelper().getDriver());
+        }
+        return pages;
     }
 
 
@@ -99,13 +78,8 @@ public class ApplicationManager {
     public void setProperties(Properties props) {
         this.props = props;
     }
-
     public String getProperty(String key) {
         return props.getProperty(key);
-    }
-
-    public String getProperty(String key, String defaultValue) {
-        return props.getProperty(key, defaultValue);
     }
 
 

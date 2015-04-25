@@ -24,14 +24,10 @@ public class PageManager {
         mailPage = initElements(new MailPage(this));
         passwordPage = initElements(new PasswordPage(this));
     }
-
     private <T extends Page> T initElements(T page) {
         PageFactory.initElements(driver, page);
-        //PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), page);
-        // PageFactory.initElements(new DisplayedElementLocatorFactory(driver, 10), page);
-        return page;
+         return page;
     }
-
     public WebDriver getWebDriver() {
         return driver;
     }

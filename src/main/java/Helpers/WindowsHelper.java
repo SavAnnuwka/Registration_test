@@ -4,10 +4,6 @@ import main.java.ApplicationManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import ru.yandex.qatools.allure.annotations.Attachment;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +26,6 @@ public  class WindowsHelper extends HelperWithWebDriverBase  {
     public static String getOriginalHandle(String originalHandle) {
         return originalHandle;
     }
-
     public void waitLoadHandle(String handle) {
 
         try {
@@ -45,7 +40,6 @@ public  class WindowsHelper extends HelperWithWebDriverBase  {
             System.err.println("Couldn't get  page");
         }
     }
-
     public void openNewMailWindow(String url) {
         final Set<String> OldList = getWindowHandles();
         WindowsHelper.getOriginalHandle(originalHandle);
@@ -56,11 +50,9 @@ public  class WindowsHelper extends HelperWithWebDriverBase  {
         waitLoadHandle(mailHandle);
     }
 
-
     public Set<String> getCurrentListOfHandles() {
         return getWindowHandles();
     }
-
     public void getCMSHandles(Set<String> OldList, Set<String> NewList) {
         NewList.removeAll(OldList);
         CMSHandle = NewList.iterator().next();
@@ -68,7 +60,6 @@ public  class WindowsHelper extends HelperWithWebDriverBase  {
            CMSHandle =  winHandle;
         }   */
     }
-
     public String getMailHandler(Set<String> OldList, Set<String> NewList) {
         NewList.removeAll(OldList);
         mailHandle = NewList.iterator().next();
@@ -77,7 +68,6 @@ public  class WindowsHelper extends HelperWithWebDriverBase  {
            CMSHandle =  winHandle;
         }   */
     }
-
     public void goToWindow(String handle) {
         if (!handle.equals(getWindowHandle())) {
             if (handle != null) {
@@ -86,19 +76,15 @@ public  class WindowsHelper extends HelperWithWebDriverBase  {
             } else System.out.println(handle + "page is not exist");
         }
     }
-
     public void switchToOriginalPage() {
         goToWindow(originalHandle);
     }
-
     public void switchToMailPage() {
         goToWindow(mailHandle);
     }
-
     public void switchToCMSPage() {
         goToWindow(CMSHandle);
     }
-
     public String  takeScreenShot(String fileName) throws IOException {
         File scrFile = ((TakesScreenshot) app.getWebDriverHelper().getDriver()).getScreenshotAs(OutputType.FILE);
         String filename=app.getProperty("pathScreenshot") + fileName + System.currentTimeMillis()+".png";

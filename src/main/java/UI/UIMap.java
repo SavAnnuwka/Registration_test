@@ -14,15 +14,14 @@ import java.util.logging.Level;
  */
 public class UIMap extends HelperWithWebDriverBase {
 
-    public static final String CSS = "css:";
-    public static final String ID = "id:";
-    public static final String XPATH = "xpath:";
-    public static final String CLASS = "class:";
+    private static final String CSS = "css:";
+    private static final String ID = "id:";
+    private static final String XPATH = "xpath:";
+    private static final String CLASS = "class:";
 
     public UIMap(ApplicationManager app) {
         super(app);
     }
-
     private Properties getProperties() {
         Properties map = new Properties();
         try {
@@ -33,8 +32,6 @@ public class UIMap extends HelperWithWebDriverBase {
         }
         return map;
     }
-
-
     public By getLocator(String key) {
         Properties map = getProperties();
         String locator = map.getProperty(key);
@@ -51,16 +48,6 @@ public class UIMap extends HelperWithWebDriverBase {
 
         }
     }
-
-
-   /* public String getLocator(String key, String locatorName)  {
-        Properties map = getProperties();
-        String locator = map.getProperty(key);
-        return locator.substring((locatorName + ":").length());
-
-    }*/
-
-
     public String getLocatorNameforFindBy(String key) {
         Properties map = getProperties();
         String locator = map.getProperty(key);

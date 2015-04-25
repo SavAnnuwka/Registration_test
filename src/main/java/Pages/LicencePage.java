@@ -24,20 +24,16 @@ public class LicencePage extends AnyPage {
     public WebElement getLicencePage() {
         return licencePage;
     }
-
     public String getLicenceAgree() {
         return licenceAgree.getText();
     }
-
     public boolean IsLoadLicencePage() {
         return licencePage.isDisplayed();
     }
-
     public LicencePage setLicenceAgree() {
         licenceAgree.click();
         return this;
     }
-
     public void clickSubmitButton() {
         submitButton.click();
     }

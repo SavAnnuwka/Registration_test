@@ -2,9 +2,6 @@ package main.java.Helpers;
 
 import java.sql.*;
 
-/**
- * Created by Anna on 23.04.2015.
- */
 public class DBRequests {
     private static final String DEFAULT_SERVER = "sql.stage.izi.travel";
     private static final String DEFAULT_PORT = "5432";
@@ -19,11 +16,9 @@ public class DBRequests {
             e.printStackTrace();
         }
     }
-
     public static void init(String user, String password) {
         init(DEFAULT_SERVER, DEFAULT_PORT, DEFAULT_DB, user, password);
     }
-
     public static String getUserFromDB(String email) throws SQLException {
         String request = "SELECT U.name FROM public.users  U WHERE U.email=  \'" + email + "\'";
         String result = "";
