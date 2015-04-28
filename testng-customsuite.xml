@@ -15,11 +15,11 @@
          </classes>
      </test>
 
-  <!--  <test  name="Not main suite">
+    <test  name="Not main suite">
         <classes>
                <class name="test.java.IncorrectRegistration_test"/>
 
               <class name="test.java.Additional_tests"/>
           </classes>
-      </test>      -->
+      </test>
     </suite>

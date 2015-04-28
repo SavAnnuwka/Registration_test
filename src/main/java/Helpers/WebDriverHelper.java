@@ -62,12 +62,14 @@ public class WebDriverHelper {
             return app.getProperty("browser");
         else return Constant.selectRandomBrowser();
     }
-    private String getLanguage() {
-        if ((System.getProperty("language")!=null)&(System.getProperty("language")!="RANDOM"))
-            return System.getProperty("language").toLowerCase();
-        else if ((app.getProperty("language")!=null)&(System.getProperty("language")!="RANDOM"))
-        return app.getProperty("language");
-        else return Constant.getRandomLanguage();
+    public  String getLanguage() {
+        if (System.getProperty("language")!="RANDOM") {
+            if (System.getProperty("language") != null)
+                return System.getProperty("language").toLowerCase();
+            else if (app.getProperty("language") != null)
+                return app.getProperty("language");
+        }
+         return Constant.getRandomLanguage();
     }
 
     public WebDriver getDriver() {

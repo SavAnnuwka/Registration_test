@@ -350,7 +350,6 @@ public class Constant {
     public static String getMailText(String language) {
         if (language.equals(EN)) {
             return "This e-mail was provided during registration for the";
-
         }
         if (language.equals(DE)) {
             return "Diese E-Mail wurde während der Registrierung  auf der";

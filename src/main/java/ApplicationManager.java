@@ -17,6 +17,7 @@ public class ApplicationManager {
     private LanguagesHelper languagesHelper;
     private NavigationHelper navigationHelper;
     private PageManager pages;
+    private YamlHelper yamlHelper;
 
     public static ApplicationManager getInstance() {
         if (singleton == null) {
@@ -65,6 +66,13 @@ public class ApplicationManager {
             navigationHelper = new NavigationHelper(this);
         }
         return navigationHelper;
+    }
+
+    public YamlHelper getYamlHelper() {
+        if (yamlHelper == null) {
+            yamlHelper = new YamlHelper(this);
+        }
+        return yamlHelper;
     }
     public PageManager getPageManager() {
         if (pages == null) {

@@ -29,7 +29,7 @@ public class testBase  {
 
     protected Logger log = Logger.getLogger("main.java.testLogFile");
     protected static ApplicationManager app;
-    protected String language;
+    protected static String language;
 
     @BeforeSuite
     public void setUp() throws Exception {

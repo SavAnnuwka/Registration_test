@@ -1,7 +1,6 @@
 package main.java.Helpers;
 
 import main.java.ApplicationManager;
-import main.java.UI.Constant;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -14,7 +13,8 @@ public class LanguagesHelper extends HelperWithWebDriverBase {
     }
 
     public String selectLanguage() {
-        String language = Constant.getRandomLanguage();
+
+        String language =  app.getWebDriverHelper().getLanguage(); //Constant.getRandomLanguage();
         app.getLanguagesHelper().selectLanguageInDropDownList(language);
         return language;
     }
