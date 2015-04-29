@@ -24,9 +24,17 @@
         <processorPath useClasspath="true" />
         <module name="IziTravel_tests" />
       </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="Site_tests" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="IziTravel_tests" target="1.5" />
+      <module name="Site_tests" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

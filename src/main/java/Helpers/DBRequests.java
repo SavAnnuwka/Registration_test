@@ -3,9 +3,9 @@ package main.java.Helpers;
 import java.sql.*;
 
 public class DBRequests {
-    private static final String DEFAULT_SERVER = "sql.stage.izi.travel";
-    private static final String DEFAULT_PORT = "5432";
-    private static final String DEFAULT_DB = "izi_stage";
+    private static final String DEFAULT_SERVER=null;
+    private static final String DEFAULT_PORT =null;
+    private static final String DEFAULT_DB=null ;
     static Connection conn;
 
     public static void init(String server, String port, String database, String user, String password) {
