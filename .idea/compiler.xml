@@ -33,8 +33,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="IziTravel_tests" target="1.5" />
-      <module name="Site_tests" target="1.5" />
+      <module name="Site_tests" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
